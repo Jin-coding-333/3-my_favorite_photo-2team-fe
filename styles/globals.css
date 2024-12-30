@@ -1,0 +1,79 @@
+:root {
+  /* Black */
+  --black: #0F0F0F;
+
+  /* Gray scale */
+  --gray-500: #161616;
+  --gray-400: #5A5A5A;
+  --gray-300: #A4A4A4;
+  --gray-200: #DDDDDD;
+  --gray-100: #EEEEEE;
+
+  /* White */
+  --white: #FFFFFF;
+
+  /* Red */
+  --red: #FF483D;
+
+  /* Blue */
+  --blue: #29C9F9;
+
+  /* Purple */
+  --purple: #A77EFF;
+
+  /* Pink */
+  --pink: #FF2A6A;
+
+  /* Main */
+  --main: #EFFF04;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-style: normal;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#__next {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border-style: none;
+}
+
+input {
+  border: none;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+}
+
+select {
+  cursor: pointer;
+  outline: none;
+}

@@ -1,0 +1,21 @@
+import { useRouter } from "next/router";
+import "@/styles/globals.css";
+import Head from "next/head";
+import Header from "@/layout/Header";
+
+export default function App({ Component, pageProps }) {
+  const router = useRouter();
+  const noLayoutPages = ['/login', '/signIn']; // Layout을 적용하지 않을 페이지 경로
+  const shouldShowLayout = !noLayoutPages.includes(router.pathname);
+  return (
+    <>
+      <Head>
+        <title>최애의포토</title>
+        <link rel="icon" href="/favicon/size=64.png" />
+        <meta name="description" content="안녕하세요 최애의 포토입니다." />
+      </Head>
+      {shouldShowLayout &&<Header />}
+      <Component {...pageProps} />
+    </>
+  )
+}
