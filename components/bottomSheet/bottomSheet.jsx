@@ -3,6 +3,7 @@ import styles from './bottomSheet.module.css';
 import ImgHover from '../imgHover';
 import { useState } from 'react';
 import { genre, soldOutState } from '@/lib/data/etcData';
+//test
 const filter = [
   {
     name: '등급',
