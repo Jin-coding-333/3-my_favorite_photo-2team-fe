@@ -1,0 +1,53 @@
+.dropdown {
+  position: relative;
+  display: flex;
+  width: 520px;
+  height: 60px;
+  border: 1px solid #dddddd;
+  background-color: #0f0f0f;
+}
+
+.dropdownButton {
+  width: 100%;
+  padding: 12px 20px 12px 20px;
+  border: none;
+  /* 부모 요소 가져옴 */
+  background-color: transparent;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+}
+
+.arrow {
+  font-size: 12px;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  margin-top: 5px;
+  width: 100%;
+  border: 1px solid #dddddd;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  z-index: 1;
+}
+
+.dropdownItem {
+  padding: 18px 20px 18px 20px;
+  cursor: pointer;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+}
+
+.dropdownItem:hover {
+  background-color: darkgray;
+  color: #0f0f0f;
+}
