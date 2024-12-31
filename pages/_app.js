@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import "@/styles/globals.css";
 import Head from "next/head";
-import Header from "@/layout/Header";
+import Header from "@/layout/HeaderLayout";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
