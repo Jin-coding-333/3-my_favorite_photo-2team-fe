@@ -20,6 +20,8 @@ export default function MyTest() {
       <Button type="secondary" size={'s'}>
         테스트요
       </Button>
+      <br />
+      <br />
     </>
   );
 }
