@@ -1,5 +1,5 @@
 import { grade } from '@/lib/data/grade';
-import styles from '@/styles/bottomSheet.module.css';
+import styles from '@/styles/components/bottomSheet.module.css';
 import ImgHover from '../imgHover';
 import { useState } from 'react';
 import { genre, soldOutState } from '@/lib/data/etcData';
