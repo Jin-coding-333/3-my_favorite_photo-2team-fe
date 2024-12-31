@@ -47,6 +47,7 @@ export default function BottomSheet({ totalCount = 0 }) {
             alt="새로고침"
             width={24}
             height={24}
+            className={styles.Refresh}
           />
           <button className={styles.Button}>{totalCount}개 포토보기</button>
         </div>
