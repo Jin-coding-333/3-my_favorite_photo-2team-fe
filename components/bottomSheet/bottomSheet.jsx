@@ -1,5 +1,5 @@
 import { grade } from '@/lib/data/grade';
-import styles from './bottomSheet.module.css';
+import styles from '@/styles/bottomSheet.module.css';
 import ImgHover from '../imgHover';
 import { useState } from 'react';
 import { genre, soldOutState } from '@/lib/data/etcData';
@@ -60,7 +60,6 @@ function Labels({ onClick }) {
   const clickHandle = (e) => {
     const t = e.currentTarget.textContent;
     const find = filter.find((x) => x.name === t);
-
     setTarget(t);
     onClick(find);
   };
