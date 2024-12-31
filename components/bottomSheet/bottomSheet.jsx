@@ -1,9 +1,8 @@
-import { grade } from '@/lib/grade';
+import { grade } from '@/lib/data/grade';
 import styles from './bottomSheet.module.css';
-import Image from 'next/image';
 import ImgHover from '../imgHover';
 import { useState } from 'react';
-import { genre, soldOutState } from '@/lib/bottomData';
+import { genre, soldOutState } from '@/lib/data/etcData';
 const filter = [
   {
     name: '등급',
@@ -58,7 +57,6 @@ export default function BottomSheet({ totalCount = 0 }) {
 
 function Labels({ onClick }) {
   const [target, setTarget] = useState('등급');
-
   const clickHandle = (e) => {
     const t = e.currentTarget.textContent;
     const find = filter.find((x) => x.name === t);
