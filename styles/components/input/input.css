@@ -1,0 +1,54 @@
+/* input.css */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+  background-color: #161616;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff; /* 텍스트를 배경색과 대조되게 설정 */
+  margin-bottom: 8px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.styled-input {
+  width: 100%;
+  max-width: 520px;
+  height: 48px;
+  padding: 8px 16px;
+  border: 1px solid #dddddd;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #0f0f0f;
+  outline: none;
+}
+
+.styled-input::placeholder {
+  color: #9ca3af;
+}
+
+.styled-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.visibility-icon {
+  position: absolute;
+  right: 940px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
