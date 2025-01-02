@@ -63,7 +63,7 @@ function Content({ children = '', price = 0, count = 0, totalCount = 0 }) {
 function BuyBottom({ point = 0, totalCount = 0 }) {
   const [count, setCount] = useState(0);
   function increase() {
-    if (count >= totalCount) return;
+    if (count >= totalCount) return alert('최대 구매 가능 수량입니다.');
     setCount(count + 1);
   }
   function decrease() {
