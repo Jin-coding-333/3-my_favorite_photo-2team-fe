@@ -1,5 +1,5 @@
-import BottomSheet from '@/components/bottomSheet/bottomSheet';
-import Button from '@/components/button/button';
+import BottomSheet from '@/components/bottomSheet/BottomSheet';
+import Button from '@/components/button/Button';
 
 export default function MyTest() {
   return (
@@ -7,9 +7,9 @@ export default function MyTest() {
       <BottomSheet />
       <br />
       <br />
-      <Button type="primary" size={'xl'}>
+      <Button type="primary" size={'xxl'}>
         포토카드 구매하기
-      </Button>{' '}
+      </Button>
       <br />
       <br />
       <Button type="primary_disabled" size={'xxl'}>
