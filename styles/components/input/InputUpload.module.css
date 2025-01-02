@@ -1,0 +1,139 @@
+.inputUploadContainerBox {
+  width: 520px;
+  background-color: var(--black);
+}
+
+.inputTitle {
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.fileUploadContainer {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fileNameInputBox {
+  position: relative;
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileNameInput {
+  width: 390px;
+  height: 60px;
+  padding: 18.5px 20px;
+  border-radius: 2px;
+  background-color: var(--black);
+  border: 1px solid var(--gray-200);
+
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 400;
+
+  &:focus {
+    border: 1px solid var(--gray-200);
+    ;
+  }
+}
+
+.fileNameInput::placeholder {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--gray-200);
+}
+
+.fileNameInput:read-only {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: left;
+}
+
+.xButton {
+  width: 24px;
+  height: 24px;
+  background-color: var(--black);
+  position: absolute;
+  right: -345px;
+  bottom: 42px;
+}
+
+.inputUploadButtonBox {
+  width: 120px;
+  height: 60px;
+  border-radius: 2px;
+  color: var(--main);
+  border: 1px solid var(--main);
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputUploadButton {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media (max-width: 1920px) {
+  .inputUploadContainerBox {
+    width: 440px;
+    height: 88px;
+  }
+
+  .inputTitle {
+    font-size: 16px;
+  }
+
+  .fileNameInput {
+    width: 310px;
+    height: 55px;
+  }
+
+  .fileNameInput::placeholder {
+    font-size: 14px;
+  }
+
+  .fileNameInput:read-only {
+    font-size: 14px;
+  }
+
+  .xButton {
+    right: -265px;
+    bottom: 40px;
+  }
+
+  .inputUploadButtonBox {
+    height: 55px;
+  }
+
+  .inputUploadButton {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 744px) {
+  .inputUploadContainerBox {
+    width: 345px;
+  }
+
+  .fileNameInput {
+    width: 230px;
+  }
+
+  .xButton {
+    right: -190px;
+    bottom: 40px;
+  }
+}
