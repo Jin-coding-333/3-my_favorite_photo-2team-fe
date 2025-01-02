@@ -9,7 +9,7 @@ import { useState } from 'react';
  * @param height height
  * @returns <Image /> next/image
  */
-export default function ImgHover({ src, src2, alt, width, height }) {
+export default function ImgHover({ src, src2, alt, width, height, className }) {
   const [imgPath, setImgPath] = useState(src);
   const mouseEnterHandle = (e) => {
     setImgPath(src2);
@@ -22,6 +22,7 @@ export default function ImgHover({ src, src2, alt, width, height }) {
     <Image
       onMouseEnter={mouseEnterHandle}
       onMouseLeave={mouseLeaveHandle}
+      className={className}
       src={imgPath}
       alt={alt}
       width={width}

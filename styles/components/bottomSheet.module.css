@@ -107,12 +107,6 @@
 .List:hover .Count {
   color: var(--gray-100);
 }
-/* .List.on {
-  background-color: var(--gray-500);
-} */
-/* .List.on .Count { */
-/* color: var(--gray-100); */
-/* } */
 
 .Bottom {
   display: flex;
@@ -136,4 +130,17 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: var(--black);
+}
+
+.Refresh:hover {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
