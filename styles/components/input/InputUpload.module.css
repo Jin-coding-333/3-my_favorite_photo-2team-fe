@@ -86,7 +86,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 1920px) {
+@media (max-width: 1200px) {
   .inputUploadContainerBox {
     width: 440px;
     height: 88px;
