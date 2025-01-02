@@ -1,0 +1,119 @@
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+}
+
+.headerContainer {
+  width: 1480px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.headerMenu {
+  display: none;
+}
+
+.headerLogo {
+  width: 139px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.userAlarmMobile {
+  display: none;
+}
+
+/* 인증되지 않은 유저 */
+.noneUserContainer {
+  display: flex;
+  align-items: center;
+}
+
+.noneUserText {
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-200);
+  margin-left: 30px;
+}
+
+/* 인증 된 유저 */
+.userContainer {
+  width: 289px;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.userImfoBox {
+  width: 165px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.userPoints {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-200);
+  margin-top: 2px;
+}
+
+.userAlarm {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.userName {
+  font-family: BR B;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--gray-200);
+  cursor: pointer;
+}
+
+.logoutBox {
+  width: 88px;
+  height: 20px;
+  border-left: 1px solid var(--gray-400);
+}
+
+.logoutText {
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-400);
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 744px) {
+  .headerContainer {
+    justify-content: space-between;
+
+  }
+
+  .headerMenu {
+    display: block;
+    width: 22px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  .userContainer {
+    display: none;
+  }
+
+  .userAlarmMobile {
+    display: block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+}
