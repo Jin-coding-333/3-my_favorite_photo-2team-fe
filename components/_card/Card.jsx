@@ -5,8 +5,8 @@ import { useFirstUpperCase } from '@/lib/hooks/convenience';
 
 /**
  *
- * @param {*} param0
- * @returns
+ * @param {*} type buy , sell
+ * @reference https://github.com/Jin-coding-333/3-my_favorite_photo-2team-fe/pull/8
  */
 export default function Card({ children = 'Non Text', type = 'buy', onClick }) {
   const _type = useFirstUpperCase(type);
