@@ -1,0 +1,42 @@
+.cardBox {
+  position: relative;
+  width: 440px;
+  height: 600px;
+  background-color: #161616;
+  margin-left: 100px;
+}
+.imgBox {
+  position: absolute;
+  width: 360px;
+  height: 270px;
+  top: 40px;
+  left: 40px;
+  background-color: red;
+}
+.contentsBox {
+  position: absolute;
+  width: 360px;
+
+  top: 335px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.contents {
+  width: 360px;
+  height: 167px;
+  background-color: blue;
+  top: 335px;
+  left: 40px;
+}
+.brandBox {
+  text-align: center;
+  color: aliceblue;
+}
+.exchangeBtBox {
+  display: flex;
+  gap: 20px;
+}
+.btStyle {
+}
