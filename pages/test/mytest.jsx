@@ -1,5 +1,6 @@
 import BottomSheet from '@/components/bottomSheet/BottomSheet';
 import Button from '@/components/button/Button';
+import Card from '@/components/_card/Card';
 
 export default function MyTest() {
   return (
@@ -22,6 +23,8 @@ export default function MyTest() {
       </Button>
       <br />
       <br />
+
+      <Card></Card>
     </>
   );
 }
