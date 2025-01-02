@@ -1,0 +1,60 @@
+.Button {
+  font-family: Noto Sans KR;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26.06px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary {
+  background: var(--main);
+  color: var(--black);
+}
+
+.primary_disabled {
+  background: var(--gray-400);
+  color: var(--gray-300);
+}
+
+.secondary {
+  color: #fff;
+  font-weight: 500;
+  background: var(--black);
+  border: 1px solid var(--gray-100);
+}
+
+.xxxl {
+  width: 520px;
+  height: 60px;
+}
+.xxl {
+  width: 440px;
+  height: 80px;
+}
+.xl {
+  width: 440px;
+  height: 55px;
+}
+.l {
+  width: 345px;
+  height: 75px;
+}
+.m {
+  width: 345px;
+  height: 55px;
+}
+.s {
+  width: 342px;
+  height: 75px;
+}
+.xs {
+  width: 150px;
+  height: 40px;
+  font-size: 12px;
+  font-weight: 700;
+}

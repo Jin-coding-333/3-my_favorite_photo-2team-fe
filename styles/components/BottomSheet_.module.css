@@ -1,0 +1,146 @@
+.BottomSheet {
+  width: 375px;
+  height: 480px;
+  color: var(--gray-400);
+  background: #1b1b1b;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.Top {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 52px;
+}
+.Title {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  line-height: 23.17px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.CloseBtn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+.CloseBtn::after {
+  content: '';
+  display: block;
+  width: 70%;
+  height: 1px;
+  background-color: var(--gray-400);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.CloseBtn::before {
+  content: '';
+  display: block;
+  width: 70%;
+  height: 1px;
+  background-color: var(--gray-400);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.Labels {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 52px;
+}
+.Label {
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20.27px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  height: 100%;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+}
+.Label.on {
+  color: var(--gray-100);
+  border-bottom: 2px solid var(--gray-100);
+}
+
+.Lists {
+  margin-bottom: 17px;
+  height: 260px;
+}
+.Lists.genre .List:hover,
+.Lists.soldOutState .List:hover {
+  color: var(--gray-100);
+}
+.List {
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.27px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  height: 52px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.List:hover {
+  background-color: var(--gray-500);
+}
+.List:hover .Count {
+  color: var(--gray-100);
+}
+
+.Bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 32px;
+  height: 55px;
+}
+.Button {
+  width: 272px;
+  height: 55px;
+  border-radius: 2px 0px 0px 0px;
+  margin-left: 26px;
+  opacity: 0px;
+  background-color: var(--main);
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 23.17px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--black);
+}
+
+.Refresh:hover {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
