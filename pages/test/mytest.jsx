@@ -1,5 +1,5 @@
-import BottomSheet from '@/components/bottomSheet/BottomSheet';
-import Button from '@/components/button/Button';
+import BottomSheet from '@/components/bottomSheet/bottomSheet';
+import Button from '@/components/button_/Button';
 
 export default function MyTest() {
   return (
