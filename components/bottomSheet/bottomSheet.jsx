@@ -1,6 +1,6 @@
 import { grade } from '@/lib/data/grade';
-import styles from '@/styles/bottomSheet.module.css';
-import ImgHover from '../imgHover';
+import styles from '@/styles/components/BottomSheet.module.css';
+import ImgHover from '../ImgHover';
 import { useState } from 'react';
 import { genre, soldOutState } from '@/lib/data/etcData';
 const filter = [
@@ -47,6 +47,7 @@ export default function BottomSheet({ totalCount = 0 }) {
             alt="새로고침"
             width={24}
             height={24}
+            className={styles.Refresh}
           />
           <button className={styles.Button}>{totalCount}개 포토보기</button>
         </div>
