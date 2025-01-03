@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
-import "@/styles/globals.css";
-import Head from "next/head";
-import Header from "@/layout/Header";
+import { useRouter } from 'next/router';
+import '@/styles/globals.css';
+import Head from 'next/head';
+import Header from '@/layout/Header';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -14,8 +14,8 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon/size=64.png" />
         <meta name="description" content="안녕하세요 최애의 포토입니다." />
       </Head>
-      {shouldShowLayout &&<Header />}
+      {shouldShowLayout && <Header />}
       <Component {...pageProps} />
     </>
-  )
+  );
 }

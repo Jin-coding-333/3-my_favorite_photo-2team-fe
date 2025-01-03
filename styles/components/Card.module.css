@@ -1,0 +1,365 @@
+.Card {
+  width: 440px;
+  margin: 20px 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.Card.Buy {
+  height: 612px;
+}
+.Card.Sell {
+  height: 845px;
+}
+.Card.MySell,
+.Card.MyBuy {
+  height: 403px;
+}
+
+.Card .BtnPlace {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.SellBtn {
+  margin-bottom: 20px;
+}
+.Top {
+  display: flex;
+  align-items: center;
+}
+
+.Title {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--gray-400);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.TitleLine {
+  width: 2.5px;
+  height: 28px;
+  background: var(--gray-400);
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.Grade,
+.Genre {
+  font-family: Noto Sans KR;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34.75px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.Genre {
+  color: var(--gray-300);
+}
+
+.UserNickName {
+  font-family: Noto Sans KR;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34.75px;
+  text-align: left;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.Content {
+}
+.Content .Text {
+  max-height: 122px;
+  font-family: Noto Sans KR;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26.06px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--gray-400);
+}
+.Bottom {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--gray-400);
+}
+
+.Bottom li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.Bottom li:last-child {
+  margin-bottom: 0;
+}
+.Bottom .Left {
+  color: var(--gray-300);
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28.96px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  font-family: Noto Sans KR;
+}
+.Bottom .Right {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34.75px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  font-family: Noto Sans KR;
+  display: flex;
+}
+
+.Current {
+  margin-right: 5px;
+}
+.Slash {
+  margin-right: 5px;
+}
+.Gray {
+  color: var(--gray-300);
+  font-weight: 400;
+}
+
+.BuyBottom {
+}
+.BuyBottom li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.BuyBottom li:last-child {
+  margin-bottom: 0;
+}
+.BuyBottom .Left {
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28.96px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.CountBox {
+  background-color: var(--black);
+  border: 1px solid var(--white);
+  width: 176px;
+  height: 50px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.CountBox input {
+  background-color: transparent;
+  color: var(--white);
+  width: 50%;
+  text-align: center;
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28.96px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.CountBox input::-webkit-inner-spin-button,
+.CountBox input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.CountBox button {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  color: transparent;
+}
+.plus::after,
+.plus::before,
+.minus::after {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 2px;
+  background-color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 1px;
+}
+.plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.plus::before,
+.minus::after {
+  transform: translate(-50%, -50%);
+}
+
+.Price {
+  font-family: Noto Sans KR;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34.75px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin-right: 10px;
+  color: var(--white);
+}
+.Content .Price {
+  margin-right: 0;
+}
+.BuyBottom .Right {
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28.96px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--gray-300);
+}
+
+.SellerBottom {
+}
+.SellerBottom .Content .Text {
+}
+.TradeTitle {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--white);
+  margin-bottom: 40px;
+  font-family: Noto Sans KR;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 40.54px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  display: flex;
+  align-items: center;
+}
+.TradeIcon {
+  margin-right: 10px;
+}
+
+.Detail ul li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.Detail .Left {
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28.96px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.Detail .Right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Detail .Right .TotalCount {
+  margin-left: 20px;
+}
+.Detail .Right .TotalCount p {
+  width: 100%;
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28.96px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.Detail .Right .TotalCount .String {
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20.27px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--gray-200);
+}
+.Detail .CountBox {
+  width: 144px;
+}
+.Detail .PointBox {
+  width: 213.56px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--white);
+  padding: 10px 20px;
+}
+
+.Detail .PointBox input {
+  font-family: Noto Sans KR;
+  width: 70%;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 23.17px;
+  text-align: left;
+  text-underline-position: from-font;
+  background-color: transparent;
+  text-decoration-skip-ink: none;
+}
+.Detail .PointBox p {
+  font-family: Noto Sans KR;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26.06px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.MyBottom ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.MyBottom .Left {
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28.96px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--gray-300);
+}
+.MyBottom .Right {
+  font-family: Noto Sans KR;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34.75px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--white);
+}
