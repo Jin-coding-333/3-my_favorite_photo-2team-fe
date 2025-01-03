@@ -1,4 +1,5 @@
-import styles from '@/styles/components/card/Card.module.css';
+import styles from '@/styles/components/photoCard/PhotoCard.module.css';
+import Button from '../button/Button';
 
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
@@ -85,8 +86,10 @@ export default function Card({ cardType, isSoldOut }) {
           <div className={styles.brandBox}>최애의 포토</div>
         ) : (
           <div className={styles.exchangeBtBox}>
-            <button className={styles.btStyle}>거절하기</button>{' '}
-            <button className={styles.btStyle}>승인하기</button>
+            <Button type="secondary" className={styles.btStyle}>
+              거절하기
+            </Button>
+            <Button className={styles.btStyle}>승인하기</Button>
           </div>
         )}
       </div>
