@@ -8,11 +8,17 @@
 .Card.Buy {
   height: 612px;
 }
+.Card.Sell {
+  height: 845px;
+}
 
 .Card .BtnPlace {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+.SellBtn {
+  margin-bottom: 20px;
 }
 .Top {
   display: flex;
@@ -222,4 +228,27 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: var(--gray-300);
+}
+
+.SellerBottom {
+}
+.SellerBottom .Content .Text {
+}
+.TradeTitle {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--white);
+  margin-bottom: 40px;
+  font-family: BR B;
+  /* font-family: Noto Sans KR; */
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 40.54px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  display: flex;
+  align-items: center;
+}
+.TradeIcon {
+  margin-right: 10px;
 }

@@ -2,6 +2,7 @@ import styles from '@/styles/components/Card.module.css';
 import Button from '../button/Button';
 import { useEffect, useState } from 'react';
 import { useFirstUpperCase } from '@/lib/hooks/convenience';
+import ImgHover from '../ImgHover';
 
 /**
  *
@@ -41,7 +42,7 @@ export default function Card({
   );
 }
 
-function Title({ grade = 'COMMON', genre = 'unknwon', userNickName = '유저이름' }) {
+function Title({ grade = 'COMMON', genre = 'unknwon', userNickName }) {
   return (
     <div className={styles.Title}>
       <div className={styles.Top}>
@@ -49,29 +50,31 @@ function Title({ grade = 'COMMON', genre = 'unknwon', userNickName = '유저이�
         <div className={styles.TitleLine}></div>
         <p className={styles.Genre}>{genre}</p>
       </div>
-      <div className={styles.UserNickName}>{userNickName}</div>
+      {userNickName && <div className={styles.UserNickName}>{userNickName}</div>}
     </div>
   );
 }
 
-function Content({ children = '', price = 0, count = 0, totalCount = 0 }) {
+function Content({ children = '', price = 0, count = 0, totalCount = 0, onlyText = false }) {
   return (
     <div className={styles.Content}>
       <div className={styles.Text}>{children}</div>
-      <ul className={styles.Bottom}>
-        <li className={styles.Price}>
-          <p className={styles.Left}>가격</p>
-          <div className={styles.Right}>{price} P</div>
-        </li>
-        <li>
-          <p className={styles.Left}>잔여</p>
-          <div className={styles.Right}>
-            <span className={styles.Current}>{count}</span>
-            <span className={`${styles.Gray} ${styles.Slash}`}>/</span>
-            <span className={styles.Gray}>{totalCount}</span>
-          </div>
-        </li>
-      </ul>
+      {onlyText ? null : (
+        <ul className={styles.Bottom}>
+          <li className={styles.Price}>
+            <p className={styles.Left}>가격</p>
+            <div className={styles.Right}>{price} P</div>
+          </li>
+          <li>
+            <p className={styles.Left}>잔여</p>
+            <div className={styles.Right}>
+              <span className={styles.Current}>{count}</span>
+              <span className={`${styles.Gray} ${styles.Slash}`}>/</span>
+              <span className={styles.Gray}>{totalCount}</span>
+            </div>
+          </li>
+        </ul>
+      )}
     </div>
   );
 }
@@ -122,14 +125,15 @@ function BuyBottom({ point = 0, totalCount = 0 }) {
   );
 }
 
-function SellerBottom({}) {
+function SellerBottom({ children = 'I want to exchange this card' }) {
   const sellBtn = [
     {
       type: 'primary',
       size: 'xxl',
-      children: '판매하기',
+      children: '수정하기',
+      className: styles.SellBtn,
       onClick: () => {
-        alert('판매하기');
+        alert('수정하기');
       },
     },
     {
@@ -143,20 +147,27 @@ function SellerBottom({}) {
   ];
   return (
     <div className={styles.SellerBottom}>
+      <p className={styles.TradeTitle}>
+        <ImgHover
+          alt="trade"
+          src={'/icon/refresh.svg'}
+          src2={'/icon/refresh_white.svg'}
+          width={28}
+          height={28}
+          className={styles.TradeIcon}
+        />
+        교환 희망 정보
+      </p>
+      <Title />
+      <Content onlyText={true}>{children}</Content>
       {sellBtn.map((v, i) => {
         return <Button key={i} {...v} />;
       })}
-      {/* <Button type="primary" size="xxl" className={styles.Button}>
-        판매하기
-      </Button>
-      <Button type="secondary" size="xxl" className={styles.Button}>
-        판매 내리기
-      </Button> */}
     </div>
   );
 }
 
-function BtnPlace({ children, btn = [] }) {
+function BtnPlace({ btn = [] }) {
   return (
     <div className={styles.BtnPlace}>
       {btn.map((v, i) => (
