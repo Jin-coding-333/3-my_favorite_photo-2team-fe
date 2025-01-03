@@ -1,27 +1,14 @@
-import BottomSheet from '@/components/bottomSheet/BottomSheet';
-import Button from '@/components/button/Button';
+import Card from '@/components/_card/Card';
+import CardDetail from '@/components/_card/CardDetail';
 
 export default function MyTest() {
   return (
-    <>
-      <BottomSheet />
-      <br />
-      <br />
-      <Button type="primary" size={'xxl'}>
-        포토카드 구매하기
-      </Button>
-      <br />
-      <br />
-      <Button type="primary_disabled" size={'xxl'}>
-        포토카드 판매하기
-      </Button>
-      <br />
-      <br />
-      <Button type="secondary" size={'s'}>
-        테스트요
-      </Button>
-      <br />
-      <br />
-    </>
+    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <Card>안녕하십니까</Card>
+      <Card type={'sell'}>안녕하십니까</Card>
+      <CardDetail />
+      <Card type={'mySell'}></Card>
+      <Card type={'myBuy'}>응ㅇ </Card>
+    </div>
   );
 }
