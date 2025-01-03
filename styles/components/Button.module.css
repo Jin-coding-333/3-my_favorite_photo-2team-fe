@@ -23,13 +23,30 @@
   transition: all 1s;
   pointer-events: none;
 }
-.Button.primary::before {
-  background: rgba(255, 255, 255, 0.5);
+
+.Button.primary::before,
+.Button.primary::after {
+  background: rgba(255, 255, 255, 0.4);
 }
 .Button:hover::before {
-  top: -50%;
+  animation: btnAnimaion 1.5s infinite ease-in-out;
+  /* top: -50%;
   left: 100%;
-  transition: all 1s;
+  transition: all 1s; */
+}
+@keyframes btnAnimaion {
+  0% {
+    top: -50%;
+    left: -200%;
+  }
+  75% {
+    top: -50%;
+    left: 100%;
+  }
+  100% {
+    top: 50%;
+    left: 100%;
+  }
 }
 .primary {
   background: var(--main);
