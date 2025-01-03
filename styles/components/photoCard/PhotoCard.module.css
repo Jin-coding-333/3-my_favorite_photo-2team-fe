@@ -16,6 +16,14 @@
   top: 40px;
   left: 40px;
 }
+
+.status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 50;
+}
+
 .soldOutBg {
   opacity: 30%;
 }

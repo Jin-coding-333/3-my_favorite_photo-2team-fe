@@ -12,6 +12,10 @@ export default function Card({ cardType, isSoldOut }) {
   const genre = '여행';
   const price = '4';
   const exchangeMessage = '스페인 여행 사진도 좋은데.. 우리집 앞마당 포토카드와 교환하고 싶습니다!';
+  const status = {
+    forSale: '판매 중',
+    exchange: '교환 제시 중',
+  };
 
   return (
     // 교환 화면이면 height 늘어남
@@ -22,6 +26,7 @@ export default function Card({ cardType, isSoldOut }) {
           className={`${styles.img} ${isSoldOut ? styles.soldOutBg : ''}`}
           alt="포토 이미지"
         />
+        {cardType === 'forSale' ? <div className={styles.status}> {status.exchange} </div> : ''}
         {isSoldOut ? (
           <img src="/img/soldOut.png" alt="soldOut" className={styles.soldOutImg} />
         ) : (
@@ -31,7 +36,7 @@ export default function Card({ cardType, isSoldOut }) {
       <div className={styles.contentsBox}>
         <div className={styles.contents}>
           <div className={styles.firstContents}>
-            {/* 포토 제목목 */}
+            {/* 포토 제목 */}
             <div className={styles.title}>{title}</div>
 
             <div className={styles.space}>
