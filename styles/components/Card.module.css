@@ -1,14 +1,15 @@
 .Card {
   width: 440px;
-  margin: 20px;
+  margin: 10px;
   position: relative;
+  display: inline-block;
 }
 
 .Card.Buy {
   height: 612px;
 }
 
-.Card .Button {
+.Card .BtnPlace {
   position: absolute;
   bottom: 0;
   left: 0;

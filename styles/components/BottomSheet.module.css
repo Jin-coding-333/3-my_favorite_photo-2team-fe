@@ -6,6 +6,10 @@
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
+.BottomSheet:hover .Title {
+  color: var(--gray-100);
+}
+
 .Top {
   position: relative;
   display: flex;
@@ -21,6 +25,7 @@
   line-height: 23.17px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  transition: all 0.3s;
 }
 
 .CloseBtn {
@@ -31,18 +36,7 @@
   width: 24px;
   height: 24px;
 }
-.CloseBtn::after {
-  content: '';
-  display: block;
-  width: 70%;
-  height: 1px;
-  background-color: var(--gray-400);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
+.CloseBtn::after,
 .CloseBtn::before {
   content: '';
   display: block;
@@ -52,7 +46,17 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  transition: all 0.3s;
+}
+.CloseBtn::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.CloseBtn::before {
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+.CloseBtn:hover::after,
+.CloseBtn:hover::before {
+  background-color: var(--gray-100);
 }
 
 .Labels {
@@ -100,6 +104,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: all 0.3s;
 }
 .List:hover {
   background-color: var(--gray-500);

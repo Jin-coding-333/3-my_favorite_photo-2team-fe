@@ -12,7 +12,6 @@
   position: relative;
   overflow: hidden;
 }
-
 .Button::before {
   content: '';
   position: absolute;
@@ -20,12 +19,13 @@
   left: -200%;
   width: 200%;
   height: 50%;
-  background: rgba(255, 255, 255, 0.4);
   transform: rotate(45deg);
   transition: all 1s;
   pointer-events: none;
 }
-
+.Button.primary::before {
+  background: rgba(255, 255, 255, 0.5);
+}
 .Button:hover::before {
   top: -50%;
   left: 100%;
