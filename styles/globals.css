@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'BR B';
+  src: url('/font/br_B.ttf') format('truetype');
+}
 :root {
   /* Black */
   --black: #0f0f0f;
