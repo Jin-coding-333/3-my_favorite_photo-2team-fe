@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '@/styles/components/input/Input.module.css';
+import styles from '@/styles/components/input/Input.module.css';
 
 export default function Input({
   label,
@@ -8,6 +8,7 @@ export default function Input({
   onChange,
   type = 'text',
   inputClassName = '',
+  passwordToCompare,
 }) {
   const [errorMessage, setErrorMessage] = useState('');
   const [showError, setShowError] = useState(false);
@@ -35,10 +36,20 @@ export default function Input({
       setErrorMessage('');
       setShowError(false);
     }
+
+    if (type === 'passwordChk') {
+      if (passwordToCompare && inputValue !== passwordToCompare) {
+        setErrorMessage('비밀번호가 일치하지 않습니다.');
+        setShowError(true);
+      } else {
+        setErrorMessage('');
+        setShowError(false);
+      }
+    }
   };
 
   const togglePasswordVisibility = () => {
-    setPasswordVisible(!isPasswordVisible);
+    setPasswordVisible((prev) => !prev);
   };
 
   const defaultLabels = {
@@ -65,55 +76,30 @@ export default function Input({
   const getDefaultPlaceholder = () => defaultPlaceholders[type] || placeHolder;
 
   return (
-    <div className="wrapper">
-      <span className="label">{getDefaultLabel()}</span>
-      <div className="input-container">
+    <div className={styles.wrapper}>
+      <span className={styles.label}>{getDefaultLabel()}</span>
+      <div className={styles['input-container']}>
         <input
-          className={`styled-input ${inputClassName}`}
+          className={`${styles['styled-input']} ${inputClassName}`}
           value={value}
           onChange={handleValidation}
           placeholder={getDefaultPlaceholder()}
-          type={['password', 'passwordChk'].includes(type) && isPasswordVisible ? 'text' : type}
+          type={
+            ['password', 'passwordChk'].includes(type) && isPasswordVisible ? 'text' : 'password'
+          }
         />
         {['password', 'passwordChk'].includes(type) && (
           <img
             src={isPasswordVisible ? '/icon/type=visible.png' : '/icon/type=invisible.png'}
             alt="toggle visibility"
-            className="visibility-icon"
+            className={styles['visibility-icon']}
             onClick={togglePasswordVisibility}
           />
         )}
       </div>
-      <p className="error-message" style={{ display: showError ? 'block' : 'none' }}>
+      <p className={styles['error-message']} style={{ display: showError ? 'block' : 'none' }}>
         {errorMessage}
       </p>
     </div>
   );
 }
-
-// export default function Login() {
-//   // const [Email, setEmail] = useState();
-//   // const [password, setPassword] = useState();
-//   // const [photoName, setPhotoName] = useState();
-//   // const [price, setPrice] = useState();
-//   // const [quantity, setQuantity] = useState();
-//   // const [nickName, setNickName] = useState();
-//   // const [passwordChk, setPasswordChk] = useState();
-
-//   return (
-//     <>
-//       {/* <Input type="email" value={Email} onChange={(e) => setEmail(e.target.value)} />
-//       <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-//       <Input type="photoName" value={photoName} onChange={(e) => setPhotoName(e.target.value)} />
-//       <Input type="price" value={price} onChange={(e) => setPrice(e.target.value)} />
-//       <Input type="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
-//       <Input type="nickName" value={nickName} onChange={(e) => setNickName(e.target.value)} />
-//       <Input
-//         type="passwordChk"
-//         value={passwordChk}
-//         onChange={(e) => setPasswordChk(e.target.value)}
-//       /> */}
-//       <h1>Login</h1>
-//     </>
-//   );
-// }
