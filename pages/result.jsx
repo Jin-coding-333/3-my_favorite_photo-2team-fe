@@ -1,5 +1,5 @@
 import styles from "@/styles/pages/Result.module.css";
-import Button from "@/components/button/button";
+import Button from "@/components/button/Button";
 import Image from "next/image";
 
 export default function Result() {
@@ -8,19 +8,19 @@ export default function Result() {
     success: '성공',
     fail: '실패',
   };
-  
+
   const backPage = {
-    MarketPlace: {
+    MarketPlace1: {
       title: '판매 등록 결과 페이지',
       success: '나의 판매 포토카드에서 확인하기',
       fail: '마켓플레이스로 돌아가기',
     },
-    MarketPlace: {
+    MarketPlace2: {
       title: '구매 결과 페이지',
       success: '마이갤러리에서 확인하기',
       fail: '마켓플레이스로 돌아가기',
     },
-    MarketPlace: {
+    MarketPlace3: {
       title: '교환 제시 결과 페이지',
       success: '나의 판매 포토카드에서 확인하기',
       fail: '마켓플레이스로 돌아가기',
@@ -38,31 +38,34 @@ export default function Result() {
         <h1 className={styles.mainText}>
           판매 등록 <span className={styles.resultText}>{'성공'}</span>
         </h1>
-        <p className={styles.subText}>
-          [{'LEGENDARY'}| {'우리집 앞마당'}] {'2'}장 판매 등록에 {'성공'}했습니다!
-        </p>
+        <div className={styles.subTextBox}>
+          <p className={styles.subText}>
+            [{'LEGENDARY'}| {'우리집 앞마당'}] {'2'}장 판매 등록에 {'성공'}했습니다!
+          </p>
+        </div>
         <Button
           className={styles.buttonComponent}
           type="secondary" size="xl">
           나의 판매 포토카드에서 확인하기
         </Button>
-        <div className={styles.CloseBtn}/>
-        <div
-          className={styles.backPage}
+        {/* x 버튼 */}
+        <div className={styles.closeBtn} />
+      </div>
+      <div
+          className={styles.backPageButton}
           style={{
             position: 'relative',
           }}
         >
           <Image
-            src="/images/backPage.png"
-            alt="backPage"
+            src="/icon/type=back.png"
+            alt="backPage button"
             fill
             styles={{
               objectFit: 'cover',
             }}
           />
         </div>
-      </div>
     </div >
   );
 }
