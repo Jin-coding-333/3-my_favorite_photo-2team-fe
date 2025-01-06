@@ -35,13 +35,6 @@ export default function Login() {
         </Link>
 
         <div className={styles.LoginInputs}>
-          {/* <input
-            type="email"
-            name="email"
-            placeholder="email"
-            defaultValue={loginBody.email}
-            onChange={changeHandle}
-          /> */}
           <Input name="email" type="email" value={loginBody.email} onChange={changeHandle} />
           <Input
             name="password"
@@ -49,13 +42,6 @@ export default function Login() {
             value={loginBody.password}
             onChange={changeHandle}
           />
-          {/* <input
-            type="password"
-            name="password"
-            placeholder="password"
-            defaultValue={loginBody.password}
-            onChange={changeHandle}
-          /> */}
         </div>
         <Button onClick={loginHandle} type="primary" size="xxxl">
           로그인

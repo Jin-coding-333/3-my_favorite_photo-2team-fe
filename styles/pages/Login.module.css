@@ -15,11 +15,8 @@
   width: 100%;
   margin-bottom: 40px;
 }
-.LoginInputs input {
-  width: 100%;
-  height: 50px;
-  font-size: 30px;
-  border: 1px solid #fff;
+.LoginInputs > div:last-child {
+  padding-bottom: 0;
 }
 .BottomText {
   font-family: Noto Sans KR;
