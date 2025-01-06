@@ -26,6 +26,7 @@ export default function Result() {
           result === 'success' ?
             '/my-sale-photocard' :
             '/',
+        exitButtonUrl: '/',
       };
       break;
     case 'purchaseRegistration':
@@ -39,6 +40,7 @@ export default function Result() {
           result === 'success' ?
             '/my-gallery' :
             '/',
+        exitButtonUrl: '/',
       };
       break;
     case 'exchangeSuggestionRegistration':
@@ -52,6 +54,7 @@ export default function Result() {
           result === 'success' ?
             '/my-sale-photocard' :
             '/',
+        exitButtonUrl: '/',
       };
       break;
     case 'creationPhotocardRegistration':
@@ -65,6 +68,7 @@ export default function Result() {
           result === 'success' ?
             '/my-gallery' :
             `/my-gallery/photocard/${'photocardId'}`,
+        exitButtonUrl: '/',
       };
       break;
     case '':
@@ -95,7 +99,7 @@ export default function Result() {
           </Button>
         </Link>
         {/* x 버튼 */}
-        <div className={styles.closeBtn} />
+        <Link href={content.exitButtonUrl}><div className={styles.closeBtn} /></Link>
       </div>
       <div
         className={styles.backPageButton}
