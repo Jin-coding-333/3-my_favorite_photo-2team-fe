@@ -1,0 +1,22 @@
+.titleContainer {
+  display: flex;
+  max-width: 1480px;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  margin-top: 60px;
+  padding-bottom: 20px;
+  color: var(--gray-100);
+  border-bottom: 2px solid var(--gray-100);
+}
+
+.defaultTitle {
+  font-size: 40px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.secondaryTitle {
+  font-size: 62px;
+  font-family: 'BR B';
+  font-weight: normal;
+}
