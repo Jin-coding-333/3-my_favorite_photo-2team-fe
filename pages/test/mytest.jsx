@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import BottomSheet from '@/components/bottomSheet/bottomSheet';
 import Button from '@/components/button/button';
 import CardGrade from '@/components/grade/CardGrade';
@@ -30,5 +31,4 @@ export default function MyTest() {
 
       </ForSaleChip>
     </>
-  );
-}
+)}
