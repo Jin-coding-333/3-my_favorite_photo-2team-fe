@@ -85,7 +85,7 @@ export default function Input({
           onChange={handleValidation}
           placeholder={getDefaultPlaceholder()}
           type={
-            ['password', 'passwordChk'].includes(type) && isPasswordVisible ? 'text' : 'password'
+            ['password', 'passwordChk'].includes(type) && !isPasswordVisible ? 'password' : 'text'
           }
         />
         {['password', 'passwordChk'].includes(type) && (
