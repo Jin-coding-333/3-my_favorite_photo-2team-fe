@@ -1,5 +1,7 @@
-import BottomSheet from '@/components/bottomSheet/BottomSheet';
-import Button from '@/components/button/Button';
+import BottomSheet from '@/components/bottomSheet/bottomSheet';
+import Button from '@/components/button/button';
+import CardGrade from '@/components/grade/CardGrade';
+import ForSaleChip from '@/components/grade/ForSaleChip';
 
 export default function MyTest() {
   return (
@@ -22,6 +24,11 @@ export default function MyTest() {
       </Button>
       <br />
       <br />
+      <CardGrade>
+      </CardGrade>
+      <ForSaleChip>
+
+      </ForSaleChip>
     </>
   );
 }

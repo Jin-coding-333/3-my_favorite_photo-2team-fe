@@ -1,4 +1,4 @@
-import styles from '@/styles/components/Button.module.css';
+import styles from '@/styles/components/button.module.css';
 /**
  * @param type - "primary"|"primary_disabled"|"secondary"
  * @param size - xxxl xxl xl l m s xs
