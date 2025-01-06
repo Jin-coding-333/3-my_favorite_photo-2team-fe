@@ -1,16 +1,15 @@
 import styles from '@/styles/layout/Header.module.css';
 import Image from 'next/image';
 
-export default function HeaderUserInfo() {
-
+export default function HeaderUserInfo({ point, nickName, logout }) {
   return (
     <div className={styles.userContainer}>
       <div className={styles.userImfoBox}>
-        <h2 className={styles.userPoints}>{'1,540'} P</h2>
+        <h2 className={styles.userPoints}>{point} P</h2>
         <div
           className={styles.userAlarm}
           style={{
-            position: "relative",
+            position: 'relative',
           }}
         >
           <Image
@@ -22,10 +21,10 @@ export default function HeaderUserInfo() {
             }}
           />
         </div>
-        <h2 className={styles.userName}>유디</h2>
+        <h2 className={styles.userName}>{nickName}</h2>
       </div>
 
-      <div className={styles.logoutBox}>
+      <div className={styles.logoutBox} onClick={logout}>
         <h2 className={styles.logoutText}>로그아웃</h2>
       </div>
     </div>
