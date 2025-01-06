@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../../styles/components/pointModal.module.css';
+import styles from '../../styles/components/PointModal.module.css';
 
 export default function PointModal() {
   //모달 상태 관리
