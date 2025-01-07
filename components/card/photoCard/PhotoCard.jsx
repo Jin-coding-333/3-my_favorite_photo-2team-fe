@@ -1,5 +1,6 @@
 import styles from '@/styles/components/photoCard/PhotoCard.module.css';
-import Button from '../../button/Button';
+import Button from '@/components/button/Button';
+import { useState, useEffect } from 'react';
 
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
@@ -18,6 +19,24 @@ export default function Card({ cardType, isSoldOut, data }) {
     forSale: '판매 중',
     exchange: '교환 제시 중',
   };
+
+  const [isMobileView, setIsMobileView] = useState(false);
+
+  // 화면 크기 변화 감지
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 744);
+    };
+
+    // 초기 화면 크기 설정
+    handleResize();
+
+    // 리스너 등록
+    window.addEventListener('resize', handleResize);
+
+    // 클린업
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     // 교환 화면이면 height 늘어남
@@ -99,9 +118,11 @@ export default function Card({ cardType, isSoldOut, data }) {
         ) : (
           <div className={styles.exchangeBtBox}>
             <Button type="secondary" className={styles.btStyle}>
-              거절하기
+              <span className={styles.btFont}>{isMobileView ? '거절' : '거절하기'}</span>
             </Button>
-            <Button className={styles.btStyle}>승인하기</Button>
+            <Button className={styles.btStyle}>
+              <span className={styles.btFont}>{isMobileView ? '승인' : '승인하기'}</span>
+            </Button>
           </div>
         )}
       </div>

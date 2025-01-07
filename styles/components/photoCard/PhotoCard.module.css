@@ -191,7 +191,10 @@
 .btStyle {
   width: 170px;
   height: 60px;
+}
+.btFont {
   font-size: 18px;
+  line-height: 26.06px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -230,7 +233,10 @@
   .btStyle {
     width: 141px;
     height: 55px;
+  }
+  .btFont {
     font-size: 16px;
+    line-height: 23.17px;
   }
 }
 
@@ -315,6 +321,9 @@
   .btStyle {
     width: 72.5px;
     height: 40px;
+  }
+  .btFont {
     font-size: 12px;
+    line-height: 17.38px;
   }
 }
