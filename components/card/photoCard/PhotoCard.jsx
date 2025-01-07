@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
-export default function Card({ cardType, isSoldOut, data }) {
+export default function PhotoCard({ cardType, isSoldOut, data }) {
   // data.title 이렇게 가져올 수 있게
   // 데이터 예시
   const imgUrl = '/img/image1.png';
