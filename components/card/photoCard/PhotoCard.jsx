@@ -3,14 +3,16 @@ import Button from '../../button/Button';
 
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
-export default function Card({ cardType, isSoldOut }) {
-  //
+export default function Card({ cardType, isSoldOut, data }) {
+  // data.title 이렇게 가져올 수 있게
   // 데이터 예시
   const imgUrl = '/img/image1.png';
   const title = '우리집 앞마당';
+  const user = '미쓰손';
   const grade = 'RARE';
   const genre = '여행';
   const price = '4';
+  const count = '2';
   const exchangeMessage = '스페인 여행 사진도 좋은데.. 우리집 앞마당 포토카드와 교환하고 싶습니다!';
   const status = {
     forSale: '판매 중',
@@ -59,10 +61,10 @@ export default function Card({ cardType, isSoldOut }) {
                     <div className={styles.numberText}>{price} P </div>
                     <div className={styles.grayText}> 에 구매</div>
                   </div>
-                  <div className={styles.user}>미쓰손</div>
+                  <div className={styles.user}>{user}</div>
                 </div>
               ) : (
-                <div className={styles.user}>미쓰손</div>
+                <div className={styles.user}>{user}</div>
               )}
             </div>
           </div>
@@ -82,7 +84,7 @@ export default function Card({ cardType, isSoldOut }) {
               <div className={styles.secondContents}>
                 <div className={styles.grayText}>수량</div>
                 <div className={styles.flex}>
-                  <div className={styles.numberText}>2</div>
+                  <div className={styles.numberText}>{count}</div>
                   {cardType === 'original' ? <div className={styles.grayText}>/5</div> : ''}
                 </div>
               </div>
