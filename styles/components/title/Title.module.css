@@ -1,22 +1,76 @@
 .titleContainer {
   display: flex;
-  max-width: 1480px;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   margin: auto;
   margin-top: 60px;
   padding-bottom: 20px;
+
   color: var(--gray-100);
   border-bottom: 2px solid var(--gray-100);
 }
 
-.defaultTitle {
-  font-size: 40px;
-  font-family: 'Noto Sans KR', sans-serif;
+.size-L > .titleContainer {
+  max-width: 1480px;
 }
 
-.secondaryTitle {
+.size-M > .titleContainer {
+  max-width: 920px;
+}
+
+.size-S > .titleContainer {
+  max-width: 704px;
+}
+
+.size-XS > .titleContainer {
+  max-width: 345px;
+}
+
+.size-L .defaultTitle {
+  font-family: 'Noto Sans KR', sans-serif;  
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.size-L .secondaryTitle {
+  font-family: 'BR B';  
   font-size: 62px;
-  font-family: 'BR B';
+  font-weight: normal;
+}
+
+.size-M .defaultTitle {
+  font-family: 'Noto Sans KR', sans-serif;  
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.size-M .secondaryTitle{
+  font-family: 'BR B';  
+  font-size: 40px;
+  font-weight: normal;
+}
+
+.size-S .defaultTitle {
+  font-family: 'Noto Sans KR', sans-serif;  
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.size-S .secondaryTitle {
+  font-family: 'BR B';  
+  font-size: 48px;
+  font-weight: normal;
+}
+
+.size-XS .defaultTitle {
+  font-family: 'Noto Sans KR', sans-serif;  
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.size-XS .secondaryTitle {
+  font-family: 'BR B';  
+  font-size: 40px;
   font-weight: normal;
 }
