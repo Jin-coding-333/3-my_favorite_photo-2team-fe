@@ -1,22 +1,21 @@
-import { useState } from 'react';
 import Image from 'next/image';
 import styles from '@/styles/layout/Header.module.css';
 import Link from 'next/link';
 import HeaderUserInfo from '@/layout/HeaderUserInfo';
 import HeaderNoneUser from '@/layout/HeaderNoneUser';
+import { useAuth } from '@/contexts/AuthProvier';
 
 export default function Header() {
-  const [user, setUser] = useState(true);
+  const { user, logout } = useAuth();
 
   return (
     <header>
       <div className={styles.header}>
         <div className={styles.headerContainer}>
-
           <div
             className={styles.headerMenu}
             style={{
-              position: "relative",
+              position: 'relative',
             }}
           >
             <Image
@@ -33,7 +32,7 @@ export default function Header() {
             <div
               className={styles.headerLogo}
               style={{
-                position: "relative",
+                position: 'relative',
               }}
             >
               <Image
@@ -50,7 +49,7 @@ export default function Header() {
           <div
             className={styles.userAlarmMobile}
             style={{
-              position: "relative",
+              position: 'relative',
             }}
           >
             <Image
@@ -62,9 +61,7 @@ export default function Header() {
               }}
             />
           </div>
-          {user ?
-            <HeaderUserInfo /> :
-            <HeaderNoneUser />}
+          {user ? <HeaderUserInfo {...user} logout={logout} /> : <HeaderNoneUser />}
         </div>
       </div>
     </header>
