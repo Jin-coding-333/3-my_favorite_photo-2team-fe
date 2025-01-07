@@ -40,12 +40,6 @@ html {
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'BR B';
-  src: url('/fonts/BR-B.otf');
-  font-style: normal;
-}
-
 body {
   width: 100%;
   height: 100%;
