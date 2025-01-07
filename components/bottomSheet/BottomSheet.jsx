@@ -1,8 +1,9 @@
 import { grade } from '@/lib/data/grade';
 import styles from '@/styles/components/BottomSheet.module.css';
-import ImgHover from '../ImgHover';
+import ImgHover from '../card/common/ImgHover';
 import { useState } from 'react';
 import { genre, soldOutState } from '@/lib/data/etcData';
+import Button from '../button/Button';
 const filter = [
   {
     name: '등급',
@@ -49,7 +50,9 @@ export default function BottomSheet({ totalCount = 0 }) {
             height={24}
             className={styles.Refresh}
           />
-          <button className={styles.Button}>{totalCount}개 포토보기</button>
+          <Button type="primary" className={styles.Button}>
+            {totalCount}개 포토보기
+          </Button>
         </div>
       </div>
     </>

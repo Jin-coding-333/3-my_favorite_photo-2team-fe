@@ -1,5 +1,5 @@
 import styles from '@/styles/components/title/Title.module.css'
-import Button from '../button/button'
+import Button from '../button/Button.jsx'
 
 export default function Title({
   title, 
@@ -14,7 +14,6 @@ export default function Title({
     L: 'xl',
     M: 'l',
     S: 'm',
-    XS: 'xs',
   };
   const buttonSize = buttonSizeMap[size];
 

@@ -38,7 +38,8 @@ export default function InputDropdownLayout({ options, option, optionChange }) {
 
   return (
     <div className={styles.dropdown} ref={dropdownRef}>
-      <button className={styles.dropdownButton} onClick={toggleDropdown}>
+      {/* 버튼 타입을 button으로 해야 form 안에서 작동  */}
+      <button type='button' className={styles.dropdownButton} onClick={toggleDropdown}>
         {option.label}
         <span className="arrow">{isOpen ? '▴' : '▾'}</span>
       </button>

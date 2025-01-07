@@ -11,6 +11,16 @@
   border-bottom: 2px solid var(--gray-100);
 }
 
+.defaultTitle {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+}
+
+.secondaryTitle {
+  font-family: 'BR B';
+  font-weight: normal;
+}
+
 .size-L > .titleContainer {
   max-width: 1480px;
 }
@@ -28,49 +38,69 @@
 }
 
 .size-L .defaultTitle {
-  font-family: 'Noto Sans KR', sans-serif;  
   font-size: 40px;
-  font-weight: 700;
 }
 
 .size-L .secondaryTitle {
-  font-family: 'BR B';  
   font-size: 62px;
-  font-weight: normal;
 }
 
 .size-M .defaultTitle {
-  font-family: 'Noto Sans KR', sans-serif;  
   font-size: 28px;
-  font-weight: 700;
 }
 
-.size-M .secondaryTitle{
-  font-family: 'BR B';  
+.size-M .secondaryTitle {
   font-size: 40px;
-  font-weight: normal;
 }
 
 .size-S .defaultTitle {
-  font-family: 'Noto Sans KR', sans-serif;  
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 24px;
 }
 
 .size-S .secondaryTitle {
-  font-family: 'BR B';  
-  font-size: 48px;
-  font-weight: normal;
+  font-size: 32px;
 }
 
-.size-XS .defaultTitle {
-  font-family: 'Noto Sans KR', sans-serif;  
-  font-size: 24px;
-  font-weight: 700;
+@media (max-width: 1200px) {
+  .titleContainer {
+    max-width: 920px;
+  }
+
+  .size-L .defaultTitle {
+    font-size: 32px;
+  }
+
+  .size-L .secondaryTitle {
+    font-size: 48px;
+  }
+
+  .size-M .defaultTitle {
+    font-size: 24px;
+  }
+
+  .size-M .secondaryTitle {
+    font-size: 20px;
+  }
 }
 
-.size-XS .secondaryTitle {
-  font-family: 'BR B';  
-  font-size: 40px;
-  font-weight: normal;
+@media (max-width: 744px) {
+  .titleContainer {
+    max-width: 704px;
+  }
+
+  .size-L .defaultTitle {
+    font-size: 24px;
+  }
+
+  .size-L .secondaryTitle {
+    font-size: 32px; /* 타이틀 크기도 줄이기 */
+  }
+
+  .size-M .defaultTitle {
+    font-size: 14px;
+  }
+
+  .size-M .secondaryTitle {
+    font-size: 10px;
+  }
 }
