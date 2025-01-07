@@ -74,7 +74,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 744px) {
+@media (max-width: 1200px) {
   .modal {
     width: 600px;
     height: 500px;
@@ -103,7 +103,7 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 744px) {
   .modal {
     width: 345px;
     height: 441px;
