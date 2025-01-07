@@ -1,6 +1,6 @@
 import { grade } from '@/lib/data/grade';
 import styles from '@/styles/components/BottomSheet.module.css';
-import ImgHover from '../ImgHover';
+import ImgHover from '../card/common/ImgHover';
 import { useState } from 'react';
 import { genre, soldOutState } from '@/lib/data/etcData';
 import Button from '../button/Button';
