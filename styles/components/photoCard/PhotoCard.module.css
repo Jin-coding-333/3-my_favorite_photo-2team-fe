@@ -1,0 +1,329 @@
+.cardBox {
+  position: relative;
+  width: 440px;
+  height: 600px;
+  background-color: #161616;
+  margin-left: 100px;
+  margin-top: 100px;
+}
+.exchangeHeight {
+  height: 626px;
+}
+.imgBox {
+  position: relative;
+  width: 360px;
+  height: 270px;
+  top: 40px;
+  left: 40px;
+}
+
+.status {
+  position: absolute;
+  background-color: #5a5a5a;
+  top: 10px;
+  left: 10px;
+  z-index: 50;
+}
+
+.soldOutBg {
+  opacity: 30%;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.soldOutImg {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  top: 20px;
+  left: 65px;
+  z-index: 100;
+}
+
+.contentsBox {
+  position: absolute;
+  width: 360px;
+  top: 335px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 167px;
+}
+
+.firstContents {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 31.86px;
+}
+.grade {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 23.17px;
+}
+.genre {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+  color: #a4a4a4;
+  margin-right: 10px;
+  word-break: keep-all;
+}
+.user {
+  display: flex;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+  text-decoration: underline;
+  align-items: center;
+}
+.photoInfo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.exchangePhotoInfo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.exchangeInfo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.space {
+  justify-content: space-between;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+.gap10 {
+  gap: 10px;
+}
+.gap5 {
+  gap: 5px;
+}
+
+.horizon {
+  border-bottom: 1px solid #5a5a5a;
+}
+.vertical {
+  display: flex;
+  align-items: center;
+  color: #5a5a5a;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23.17px;
+}
+.exchangeVertical {
+  display: flex;
+  align-items: center;
+  color: #5a5a5a;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23.17px;
+}
+
+.numberText {
+  font-size: 16px;
+  line-height: 23.17px;
+}
+.grayText {
+  font-size: 16px;
+  line-height: 23.17px;
+  color: #a4a4a4;
+}
+.secondContentsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.secondContents {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoBox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.logo {
+  width: 99.25px;
+  height: 18px;
+  object-fit: cover;
+}
+
+.exchangeBtBox {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  height: 60px;
+}
+.exchangeMessage {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+}
+.btStyle {
+  width: 170px;
+  height: 60px;
+}
+.btFont {
+  font-size: 18px;
+  line-height: 26.06px;
+}
+
+@media screen and (max-width: 1200px) {
+  .cardBox {
+    width: 342px;
+    height: 517px;
+  }
+  .exchangeHeight {
+    height: 561px;
+  }
+  .imgBox {
+    width: 302px;
+    height: 226.5px;
+    top: 20px;
+    left: 20px;
+  }
+  .soldOutImg {
+    width: 200px;
+    height: 200px;
+    top: 13px;
+    left: 51px;
+  }
+  .contentsBox {
+    width: 302px;
+    height: 167px;
+    top: 272px;
+    left: 20px;
+    gap: 40px;
+  }
+  .exchangePhotoInfo {
+    flex-direction: column;
+  }
+  .exchangeVertical {
+    display: none;
+  }
+  .btStyle {
+    width: 141px;
+    height: 55px;
+  }
+  .btFont {
+    font-size: 16px;
+    line-height: 23.17px;
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .cardBox {
+    width: 170px;
+    height: 234px;
+  }
+  .exchangeHeight {
+    height: 308px;
+  }
+  .imgBox {
+    width: 150px;
+    height: 112px;
+    top: 10px;
+    left: 10px;
+  }
+  .soldOutImg {
+    width: 112px;
+    height: 112px;
+    top: 0px;
+    left: 19px;
+  }
+  .contentsBox {
+    width: 150px;
+    height: 106px;
+    top: 132px;
+    left: 10px;
+    gap: 10px;
+  }
+  .contents {
+    gap: 10px;
+  }
+  .firstContents {
+    gap: 5px;
+  }
+  .exchangePhotoInfo {
+    flex-direction: column;
+  }
+  .title {
+    font-size: 14px;
+    line-height: 20.27px;
+  }
+  .grade {
+    font-size: 10px;
+    line-height: 14.48px;
+  }
+  .genre {
+    font-size: 10px;
+    line-height: 14.48px;
+  }
+  .user {
+    font-size: 10px;
+    line-height: 14.48px;
+  }
+  .grayText {
+    font-size: 10px;
+    line-height: 14.48px;
+  }
+  .numberText {
+    font-size: 10px;
+    line-height: 14.48px;
+  }
+  .vertical {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14.48px;
+  }
+  .exchangeMessage {
+    font-size: 10px;
+    line-height: 14.48px;
+  }
+  .exchangeBtBox {
+    gap: 10px;
+  }
+  .secondContentsBox {
+    gap: 5px;
+  }
+  .logoBox {
+    display: none;
+  }
+  .btStyle {
+    width: 72.5px;
+    height: 40px;
+  }
+  .btFont {
+    font-size: 12px;
+    line-height: 17.38px;
+  }
+}

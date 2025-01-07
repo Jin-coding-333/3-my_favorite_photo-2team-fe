@@ -52,17 +52,15 @@
   color: #0f0f0f;
 }
 
-@media screen and (max-width: 744px) {
+@media screen and (max-width: 1200px) {
   .dropdown {
     width: 440px;
     height: 55px;
   }
-
 }
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 744px) {
   .dropdown {
     width: 345px;
-    height:55px;
+    height: 55px;
   }
-  
 }
