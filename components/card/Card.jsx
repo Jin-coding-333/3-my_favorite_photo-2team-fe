@@ -2,7 +2,7 @@ import styles from '@/styles/components/Card.module.css';
 import Button from '../button/Button';
 import { useEffect, useState } from 'react';
 import { useFirstUpperCase } from '@/lib/hooks/convenience';
-import ImgHover from '../ImgHover';
+import ImgHover from './common/ImgHover';
 import { BtnPlace, Title, Content, CountBox } from './Card.Component';
 
 /**
