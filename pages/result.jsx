@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Result() {
 
-  const result = 'success'
+  const result = 'false'
   const type = 'exchangeSuggestionRegistration'
 
   let content = {
@@ -71,9 +71,6 @@ export default function Result() {
         exitButtonUrl: '/',
       };
       break;
-    case '':
-      alert('type을 부모 컴포넌트에서 입력해 주세요');
-      break;
   }
 
   return (
@@ -87,35 +84,36 @@ export default function Result() {
         </h1>
         <div className={styles.subTextBox}>
           <p className={styles.subText}>
-            [{'LEGENDARY'}| {'우리집 앞마당'}] {0}장 {content.message}에
+            [{'LEGENDARY '}| {'우리집 앞마당'}] {0}장 {content.message}에
             {result === 'success' ? ' 성공' : ' 실패'}했습니다!
           </p>
         </div>
         <Link href={`${content.buttonUrl}`}>
           <Button
             className={styles.buttonComponent}
-            type="secondary" size="xl">
-            {content.buttonText}
+            type="secondary">
+            <span className={styles.buttonText}>{content.buttonText}</span>
           </Button>
         </Link>
         {/* x 버튼 */}
-        <Link href={content.exitButtonUrl}><div className={styles.closeBtn} /></Link>
+        <Link href={content.exitButtonUrl}>
+          <div className={styles.closeBtn} />
+        </Link>
       </div>
-      <div
-        className={styles.backPageButton}
-        style={{
-          position: 'relative',
-        }}
-      >
-        <Image
-          src="/icon/type=back.png"
-          alt="backPage button"
-          fill
-          styles={{
-            objectFit: 'cover',
-          }}
-        />
-      </div>
+      <Link href={content.exitButtonUrl}>
+        <div
+          className={styles.backPageButton}
+        >
+          <Image
+            src="/icon/type=back.png"
+            alt="backPage button"
+            fill
+            styles={{
+              objectFit: 'cover',
+            }}
+          />
+        </div>
+      </Link>
     </div >
   );
 }
