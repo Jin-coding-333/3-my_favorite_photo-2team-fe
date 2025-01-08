@@ -27,7 +27,7 @@ export default function Card({
       case 'sell':
         setElement(<SellerBottom />);
         break;
-      default:
+      case 'mySell':
         setElement(<MyBottom type={type}>{children}</MyBottom>);
         break;
     }
