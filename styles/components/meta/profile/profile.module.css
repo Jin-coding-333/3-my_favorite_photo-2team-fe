@@ -1,0 +1,153 @@
+.profileWrapper {
+  position: relative;
+}
+
+.userName {
+  font-family: BR B;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18.43px;
+  letter-spacing: -0.03em;
+  text-align: left;
+
+  color: var(--gray-200);
+  cursor: pointer;
+}
+
+.profileDropdown {
+  width: 260px;
+  height: 198px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  /* top: 55;
+  right: 140; */
+  background-color: var(--gray-500);
+  border-radius: 2px;
+  z-index: 10;
+}
+
+.profileHeader {
+  margin: 20px;
+}
+
+.greeting {
+  font-family: Noto Sans KR;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26.06px;
+  text-align: left;
+
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.pointLayer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pointLabel {
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 17.38px;
+  text-align: left;
+
+  color: var(--gray-300);
+}
+
+.pointValue {
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17.38px;
+  text-align: right;
+
+  color: var(--main);
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--gray-400);
+}
+
+.profileMenu {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.menuItem {
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20.27px;
+  text-align: left;
+
+  cursor: pointer;
+  color: var(--white);
+}
+
+.menuItem:first-child {
+  margin-bottom: 15px;
+}
+
+.menuItem:hover {
+  color: var(--main);
+}
+
+.logout {
+  display: none;
+}
+
+.logout:hover {
+  color: var(--main);
+}
+
+@media (max-width: 744px) {
+  .profileWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #00000033;
+    /* backdrop-filter: blur(3px); */
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+  }
+
+  .profileDropdown {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* height: 812px; */
+    height: 100vh;
+    /* height: auto; */
+  }
+
+  .profileMenu {
+    /* height: 689px; */
+    height: auto;
+  }
+
+  .profileHeader {
+    margin-top: 40px;
+  }
+
+  .logout {
+    display: block;
+    cursor: pointer;
+    width: 52px;
+    height: 20px;
+    margin-top: 549px;
+
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.27px;
+    text-align: right;
+    color: var(--gray-400);
+  }
+}
