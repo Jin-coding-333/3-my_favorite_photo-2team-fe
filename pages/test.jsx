@@ -7,7 +7,7 @@ export default function Test({}) {
       <Card>여기 텍스트</Card>
       <Card type="sell">여기 텍스트</Card>
       <Card type="mySell">여기 텍스트</Card>
-      <CardDetail></CardDetail>
+      <CardDetail totalCount={3}></CardDetail>
     </div>
   );
 }
