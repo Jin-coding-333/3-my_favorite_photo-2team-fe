@@ -1,0 +1,106 @@
+.titleContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  margin-top: 60px;
+  padding-bottom: 20px;
+
+  color: var(--gray-100);
+  border-bottom: 2px solid var(--gray-100);
+}
+
+.defaultTitle {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+}
+
+.secondaryTitle {
+  font-family: 'BR B';
+  font-weight: normal;
+}
+
+.size-L > .titleContainer {
+  max-width: 1480px;
+}
+
+.size-M > .titleContainer {
+  max-width: 920px;
+}
+
+.size-S > .titleContainer {
+  max-width: 704px;
+}
+
+.size-XS > .titleContainer {
+  max-width: 345px;
+}
+
+.size-L .defaultTitle {
+  font-size: 40px;
+}
+
+.size-L .secondaryTitle {
+  font-size: 62px;
+}
+
+.size-M .defaultTitle {
+  font-size: 28px;
+}
+
+.size-M .secondaryTitle {
+  font-size: 40px;
+}
+
+.size-S .defaultTitle {
+  font-size: 24px;
+}
+
+.size-S .secondaryTitle {
+  font-size: 32px;
+}
+
+@media (max-width: 1200px) {
+  .titleContainer {
+    max-width: 920px;
+  }
+
+  .size-L .defaultTitle {
+    font-size: 32px;
+  }
+
+  .size-L .secondaryTitle {
+    font-size: 48px;
+  }
+
+  .size-M .defaultTitle {
+    font-size: 24px;
+  }
+
+  .size-M .secondaryTitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 744px) {
+  .titleContainer {
+    max-width: 704px;
+  }
+
+  .size-L .defaultTitle {
+    font-size: 24px;
+  }
+
+  .size-L .secondaryTitle {
+    font-size: 32px; /* 타이틀 크기도 줄이기 */
+  }
+
+  .size-M .defaultTitle {
+    font-size: 14px;
+  }
+
+  .size-M .secondaryTitle {
+    font-size: 10px;
+  }
+}
