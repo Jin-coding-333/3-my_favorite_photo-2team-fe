@@ -9,6 +9,7 @@ export default function Input({
   type = 'text',
   inputClassName = '',
   passwordToCompare,
+  ...props
 }) {
   const [errorMessage, setErrorMessage] = useState('');
   const [showError, setShowError] = useState(false);
@@ -80,6 +81,7 @@ export default function Input({
       <span className={styles.label}>{getDefaultLabel()}</span>
       <div className={styles['input-container']}>
         <input
+          {...props}
           className={`${styles['styled-input']} ${inputClassName}`}
           value={value}
           onChange={handleValidation}
