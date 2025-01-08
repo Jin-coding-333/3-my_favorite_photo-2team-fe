@@ -76,6 +76,7 @@ button {
 input {
   border: none;
   color: var(--white);
+  background-color: transparent;
 }
 
 input:focus {

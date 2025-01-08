@@ -6,5 +6,5 @@
  * @returns String
  */
 export function useFirstUpperCase(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+  return str.toLowerCase().charAt(0).toUpperCase() + str.slice(1);
 }
