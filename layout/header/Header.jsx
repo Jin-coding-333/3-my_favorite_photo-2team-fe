@@ -4,28 +4,11 @@ import Link from 'next/link';
 import HeaderUserInfo from '@/layout/header/HeaderUserInfo';
 import HeaderNoneUser from '@/layout/header/HeaderNoneUser';
 import { useAuth } from '@/contexts/AuthProvier';
-import { notificationsData } from '@/lib/data/alarmOptions';
-import { useEffect, useState } from 'react';
-import { Alarm } from '@/components/meta/alarm/alarm';
-import { Profile } from '@/components/meta/profile/profile';
-
-function fetchUserData() {
-  return {
-    userName: '유디',
-    point: '1,520',
-    isAuthenticated: true,
-  };
-}
+import MenuImg from '@/public/icon/type=menu.png';
+import AlarmImg from '@/public/icon/type=alarm_default.png';
 
 export default function Header() {
   const { user, logout } = useAuth();
-  const [userData, setUserData] = useState({});
-  const [notifications, setNotifications] = useState(notificationsData);
-
-  useEffect(() => {
-    const result = fetchUserData();
-    setUserData(result);
-  }, []);
 
   return (
     <header>
@@ -37,7 +20,7 @@ export default function Header() {
               position: 'relative',
             }}
           >
-            <Profile userName={userData.userName} point={userData.point} />
+            <Image src={MenuImg} alt="Menu logo" />
           </div>
 
           <Link href="/">
@@ -58,7 +41,7 @@ export default function Header() {
             </div>
           </Link>
 
-          {userData.isAuthenticated ? (
+          {user ? (
             <div className={styles.userContainer}>
               <div className={styles.userImfoBox}>
                 <h2 className={styles.userPoints}>{userData.point} P</h2>
@@ -68,10 +51,10 @@ export default function Header() {
                     position: 'relative',
                   }}
                 >
-                  <Alarm notifications={notifications} updateNotifications={setNotifications} />
+                  <Image src={AlarmImg} alt="Alarm logo" />
                 </div>
                 <div className={styles.test}>
-                  <Profile userName={userData.userName} point={userData.point} />
+                  <Image src={MenuImg} alt="Menu logo" />
                 </div>
               </div>
               <div className={styles.logoutBox} onClick={logout}>

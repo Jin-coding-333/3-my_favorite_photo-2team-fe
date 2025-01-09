@@ -96,31 +96,16 @@ export function Alarm({ notifications, updateNotifications }) {
 사용할때 api가 지금 만들고 한게 없어서 테스트용으로 지금은
 notificationsData를 import해서
 
-function fetchUserData() {
-  return {
-    userName: '유디',
-    point: '1,520',
-    isAuthenticated: true,
-  };
-}
+const [notifications, setNotifications] = useState(notificationsData);
 
-export default function MarketPlace() {
-  const [notifications, setNotifications] = useState(notificationsData);
-
-    useEffect(() => {
-      const userData = fetchUserData();
-      setUser(userData);
-    }, []);
-
-  return (
-    <div>
-      <h1>
-        Market Placeasdasdasdasdasdad
-        <Alarm notifications={notifications} updateNotifications={setNotifications} />
-      </h1>
-    </div>
-  );
-}
+<div
+  className={styles.userAlarmMobile}
+  style={{
+    position: 'relative',
+  }}
+>
+  <Alarm notifications={notifications} updateNotifications={setNotifications} />
+</div>
 
 코드 작성하면 확인이 가능합니다
 */
