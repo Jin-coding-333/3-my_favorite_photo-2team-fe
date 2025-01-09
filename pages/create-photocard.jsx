@@ -1,6 +1,6 @@
 import InputDropdownGenre from '@/components/inputDropdown/InputDropdownGenre';
 import InputDropdownGrade from '@/components/inputDropdown/InputDropdownGrade';
-import styles from '@/styles/pages/create-photocard.module.css';
+import styles from '@/styles/pages/CreatePhotocard.module.css';
 import { useState } from 'react';
 
 export default function CreatePhotocard() {
