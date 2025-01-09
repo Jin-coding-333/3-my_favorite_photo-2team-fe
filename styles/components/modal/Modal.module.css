@@ -1,4 +1,3 @@
-/* Base styles */
 .overlay {
   display: flex;
   justify-content: center;
@@ -59,8 +58,11 @@
   padding: 40px 0px 60px 0;
   color: #a4a4a4;
 }
+.confirmButton {
+  width: 170px !important;
+  height: 60px;
+}
 
-/* Media queries */
 @media (max-width: 1200px) {
   .modal {
     width: 480px;
@@ -79,6 +81,11 @@
   .message {
     font-size: 14px;
     padding: 30px 0 50px 0;
+  }
+  .confirmButton {
+    width: 140px !important;
+    height: 55px;
+    font-size: 16px;
   }
 }
 
@@ -103,5 +110,10 @@
   .message {
     font-size: 12px;
     padding: 20px 0 30px 0;
+  }
+  .confirmButton {
+    width: 120px !important;
+    height: 55px;
+    font-size: 16px;
   }
 }
