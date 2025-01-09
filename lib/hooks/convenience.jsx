@@ -8,3 +8,8 @@
 export function useFirstUpperCase(str) {
   return str.toLowerCase().charAt(0).toUpperCase() + str.slice(1);
 }
+
+export function onlyNumber(number) {
+  const regex = /^[0-9]+$/;
+  return regex.test(number);
+}

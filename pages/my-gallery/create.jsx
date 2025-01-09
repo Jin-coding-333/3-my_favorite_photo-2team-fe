@@ -7,16 +7,24 @@ import InputUpload from '@/components/input/InputUpload';
 import Title from '@/components/title/Title';
 import Button from '@/components/button/Button';
 import InputTextBox from '@/components/input/InputTextBox';
+import { onlyNumber } from '@/lib/hooks/convenience';
 
 function MarketCreate() {
   const [values, setValues] = useState({
     name: '',
     grade: '',
-    quantity: 0,
+    genre: '',
+    price: '',
+    quantity: '',
+    img: '',
+    description: '',
   });
   function changeHandle(e) {
     e.preventDefault();
     const { name, value } = e.target;
+    if (name === 'price' || name === 'quantity') {
+      if (!onlyNumber(Number(value))) return alert('숫자만 입력하세요');
+    }
     setValues({
       ...values,
       [name]: value,
@@ -31,7 +39,7 @@ function MarketCreate() {
     {
       name: 'price',
       type: 'price',
-      value: values.name,
+      value: values.price,
       ...common,
     },
     {
@@ -64,10 +72,20 @@ function MarketCreate() {
         <InputDropdownGrade className={styles.inputCover} setForm={setValues} />
         <InputDropdownGenre className={styles.inputCover} setForm={setValues} />
         {inputs.map((v, i) => {
-          return <Input {...v} />;
+          return <Input key={v.name} {...v} />;
         })}
-        <InputUpload className={styles.inputCover} />
-        <InputTextBox type="photoCardDes" />
+        <InputUpload
+          name="img"
+          className={styles.inputCover}
+          setValue={setValues}
+          value={values.img}
+        />
+        <InputTextBox
+          type="photoCardDes"
+          name="description"
+          setValue={setValues}
+          value={values.description}
+        />
         <Button className={styles.button} size="xxxl">
           생성하기
         </Button>

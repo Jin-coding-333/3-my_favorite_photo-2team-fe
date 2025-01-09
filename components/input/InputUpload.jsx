@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import Image from 'next/image';
 import styles from '@/styles/components/input/InputUpload.module.css';
 
 export default function InputUpload({ className, name, value = '', setValue }) {
-  // const [value, setValue] = useState('');
-
   const handleChange = (e) => {
     e.preventDefault();
     const fileName = e.target.files[0].name;
