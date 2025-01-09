@@ -1,0 +1,104 @@
+.containerBox {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--gray-400);
+}
+
+.titleBox {
+  display: flex;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gray-200);
+}
+
+.curentNumber {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--gray-300);
+  margin-left: 10px;
+}
+
+.currentGradeContainerBox {
+  display: flex;
+  margin-top: 20px;
+}
+
+.gradeBox {
+  font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 20px;
+  margin-right: 20px;
+}
+
+.textGrade {
+  margin-right: 10px;
+}
+
+.gradeCommon {
+  color: var(--main);
+  border: 1px solid var(--main);
+}
+
+.gradeRare {
+  color: var(--blue);
+  border: 1px solid var(--blue);
+}
+
+.gradeSuperRare {
+  color: var(--purple);
+  border: 1px solid var(--purple);
+}
+
+.gradeLegendary {
+  color: var(--pink);
+  border: 1px solid var(--pink);
+}
+
+@media (max-width: 1200px) {
+
+  .containerBox {
+    padding: 20px 0 15px 0;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .curentNumber {
+    font-size: 18px;
+  }
+
+  .gradeBox {
+    font-size: 14px;
+    margin-right: 10px;
+    padding: 6px 10px;
+  }
+
+  .textGrade {
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 744px) {
+  .title {
+    font-size: 14px;
+  }
+
+  .curentNumber {
+    font-size: 12px;
+    margin-left: 5px;
+  }
+
+  .currentGradeContainerBox {
+    margin-top: 10px; 
+  }
+
+  .gradeBox {
+    font-size: 12px;
+  }
+}

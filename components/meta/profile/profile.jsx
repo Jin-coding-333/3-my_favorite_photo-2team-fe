@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from '@/styles/components/meta/profile/profile.module.css';
+import MenuImg from '@/public/icon/type=menu.png';
+import Image from 'next/image';
 
 export function Profile({ userName, point }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,6 +28,7 @@ export function Profile({ userName, point }) {
       <p className={styles.userName} onClick={toggleDropdown}>
         {userName}
       </p>
+      <Image src={MenuImg} alt="Menu Icon" className={styles.menuIcon} onClick={toggleDropdown} />
       {isOpen && (
         <div className={styles.profileDropdown}>
           <div className={styles.profileHeader}>

@@ -1,0 +1,174 @@
+.resultContainer {
+  width: 100%;
+  height: 1080px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultBox {
+  width: 560px;
+  height: 352px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.mainText {
+  font-family: BR B;
+  font-size: 46px;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.resultSuccessText {
+  color: var(--main);
+}
+
+.resultFailureText {
+  color: var(--gray-300);
+}
+
+.subText {
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 60px;
+}
+
+.buttonComponent {
+  padding: 17px 98px;
+}
+
+.buttonText {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.closeBtn {
+  position: absolute;
+  right: -211px;
+  top: -50px;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.closeBtn::after,
+.closeBtn::before {
+  content: '';
+  display: block;
+  width: 70%;
+  height: 2px;
+  background-color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: all 0.3s;
+}
+
+.closeBtn::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.closeBtn::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.closeBtn:hover::after,
+.closeBtn:hover::before {
+  background-color: var(--gray-100);
+  width: 90%
+}
+
+.backPageButton {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .resultContainer {
+    height: 1113px;
+  }
+
+  .resultBox {
+    width: 430px;
+    height: 215px;
+  }
+
+  .mainText {
+    font-size: 36px;
+    font-weight: 500;
+  }
+
+  .subText {
+    font-size: 16px;
+  }
+
+  .buttonComponent {
+    padding: 16px 30px;
+  }
+
+  .buttonText {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .moveButton {
+    height: 60px;
+  }
+
+  .closeBtn {
+    right: -150px;
+    top: -70px;
+  }
+}
+
+@media (max-width: 744px) {
+  .resultContainer {
+    width: 100%;
+    height: 812px;
+    background-color: var(--black);
+    position: absolute;
+    top: 0;
+    z-index: 10;
+  }
+
+  .resultBox {
+    width: 320px;
+    height: 215px;
+  }
+
+  .mainText {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  .subTextBox {
+    width: 210px;
+  }
+
+  .subText {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .closeBtn {
+    display: none;
+  }
+
+  .backPageButton {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 19px;
+    width: 25px;
+    height: 25px;
+  }
+}

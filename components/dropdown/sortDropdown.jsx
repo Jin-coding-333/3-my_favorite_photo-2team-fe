@@ -135,12 +135,12 @@ const handleDropdownChange = (name, value) => {
   prefix="chip"
 />
 <Dropdown
-  name="availability"
-  value={selectedOptions.availability}
-  options={optionsData.availability}
+  name="saleStatus"
+  value={selectedOptions.saleStatus}
+  options={optionsData.saleStatus}
   onChange={handleDropdownChange}
   placeholder="매진여부"
-  prefix="availability"
+  prefix="saleStatus"
 />
 <Dropdown
   name="grade"

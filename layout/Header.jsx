@@ -4,9 +4,28 @@ import Link from 'next/link';
 import HeaderUserInfo from '@/layout/HeaderUserInfo';
 import HeaderNoneUser from '@/layout/HeaderNoneUser';
 import { useAuth } from '@/contexts/AuthProvier';
+import { notificationsData } from '@/lib/data/alarmOptions';
+import { useEffect, useState } from 'react';
+import { Alarm } from '@/components/meta/alarm/alarm';
+import { Profile } from '@/components/meta/profile/profile';
+
+function fetchUserData() {
+  return {
+    userName: '유디',
+    point: '1,520',
+    isAuthenticated: true,
+  };
+}
 
 export default function Header() {
   const { user, logout } = useAuth();
+  const [userData, setUserData] = useState({});
+  const [notifications, setNotifications] = useState(notificationsData);
+
+  useEffect(() => {
+    const result = fetchUserData();
+    setUserData(result);
+  }, []);
 
   return (
     <header>
@@ -18,14 +37,7 @@ export default function Header() {
               position: 'relative',
             }}
           >
-            <Image
-              src="/icon/type=menu.png"
-              alt="Homepage logo"
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
-            />
+            <Profile userName={userData.userName} point={userData.point} />
           </div>
 
           <Link href="/">
@@ -46,22 +58,36 @@ export default function Header() {
             </div>
           </Link>
 
-          <div
-            className={styles.userAlarmMobile}
-            style={{
-              position: 'relative',
-            }}
-          >
-            <Image
-              src="/icon/type=alarm_default.png"
-              alt="alarm icon"
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
-            />
-          </div>
-          {user ? <HeaderUserInfo {...user} logout={logout} /> : <HeaderNoneUser />}
+          {userData.isAuthenticated ? (
+            <div className={styles.userContainer}>
+              <div className={styles.userImfoBox}>
+                <h2 className={styles.userPoints}>{userData.point} P</h2>
+                <div
+                  className={styles.userAlarmMobile}
+                  style={{
+                    position: 'relative',
+                  }}
+                >
+                  <Alarm notifications={notifications} updateNotifications={setNotifications} />
+                </div>
+                <div className={styles.test}>
+                  <Profile userName={userData.userName} point={userData.point} />
+                </div>
+              </div>
+              <div className={styles.logoutBox} onClick={logout}>
+                <h2 className={styles.logoutText}>로그아웃</h2>
+              </div>
+            </div>
+          ) : (
+            <div className={styles.noneUserContainer}>
+              <Link href="/login">
+                <h2 className={styles.noneUserText}>로그인</h2>
+              </Link>
+              <Link href="/sign-up">
+                <h2 className={styles.noneUserText}>회원가입</h2>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </header>
