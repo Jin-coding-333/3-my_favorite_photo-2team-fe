@@ -27,6 +27,11 @@ export default function Modal({ isOpen, onClose, onConfirm, type, Data = {} }) {
       message: `[${Data.grade} | ${Data.cardName}] 카드와의 교환을 거절하시겠습니까?`,
       confirmButtonText: '거절하기',
     },
+    exchangeCancel: {
+      title: '교환 제시 취소',
+      message: `[${Data.grade} | ${Data.cardName}] 교환 제시를 취소하시겠습니까?`,
+      confirmButtonText: '취소하기',
+    },
     buyPhotoCard: {
       title: '포토카드 구매',
       message: `[${Data.grade} | ${Data.cardName}] ${Data.count}장을 구매하시겠습니까?`,
