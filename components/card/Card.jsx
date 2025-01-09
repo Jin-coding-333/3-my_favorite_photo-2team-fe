@@ -29,10 +29,10 @@ export default function Card({
         break;
       case 'mySell':
         setElement(<MyBottom type={type}>{children}</MyBottom>);
-        break;
+        break; 
     }
   }, [type, children]);
-
+ 
   return (
     <div className={`${styles.Card} ${styles[_type]}`}>
       <Title grade={grade} genre={genre} userNickName={userNickName} />
