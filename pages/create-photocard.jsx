@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 import InputDropdownGenre from '@/components/inputDropdown/InputDropdownGenre';
 import InputDropdownGrade from '@/components/inputDropdown/InputDropdownGrade';
-import styles from '@/styles/pages/create-photocard.module.css';
+import styles from '@/styles/pages/CreatePhotocard.module.css';
 import { useState } from 'react';
 
 export default function CreatePhotocard() {
@@ -98,12 +97,3 @@ export default function CreatePhotocard() {
     </>
   );
 }
-=======
-export default function CreatePhotocard() {
-  return (
-    <>
-      <h1>Create Photocard</h1>
-    </>
-  );
-}
->>>>>>> 6519c32545f4e848bbb33a649ae864a41b7e0321

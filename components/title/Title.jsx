@@ -1,5 +1,5 @@
 import styles from '@/styles/components/title/Title.module.css'
-import Button from '@/button/Button.jsx'
+import Button from '@/components/button/Button.jsx'
 
 export default function Title({
   title, 
