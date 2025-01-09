@@ -6,7 +6,7 @@ export default function TitleLayout({children}) {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: '0 220px',
+        margin: '60px 220px 0',
       }}
     >
       {children}
