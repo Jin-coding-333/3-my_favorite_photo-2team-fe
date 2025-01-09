@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
+<<<<<<< HEAD:components/inputDropdown/InputDropdownLayout.jsx
 import styles from '@/styles/components/inputDropDown/InputDropdownLayout.module.css';
+=======
+import styles from "@/styles/components/dropdown/inputDropDown/InputDropdownLayout.module.css";
+>>>>>>> dev:components/dropdown/inputDropdown/InputDropdownLayout.jsx
 
 export default function InputDropdownLayout({ className, options, option, label, optionChange }) {
   // 드롭다운 열려있는지
