@@ -2,13 +2,14 @@ import { useState } from 'react';
 import Image from 'next/image';
 import styles from '@/styles/components/input/InputUpload.module.css';
 
-export default function InputUpload({ className }) {
-  const [value, setValue] = useState('');
+export default function InputUpload({ className, name, value = '', setValue }) {
+  // const [value, setValue] = useState('');
 
   const handleChange = (e) => {
     e.preventDefault();
     const fileName = e.target.files[0].name;
-    setValue(fileName);
+    console.log(value);
+    setValue((prev) => ({ ...prev, [name]: fileName }));
   };
 
   return (
@@ -19,14 +20,16 @@ export default function InputUpload({ className }) {
           <div className={styles.fileNameInputBox}>
             <input
               id="fileUpload"
+              name={name}
               className={styles.fileInput}
+              defaultValue={value}
               type="file"
               onChange={handleChange}
             />
             <input
               className={styles.fileNameInput}
               type="text"
-              value={value}
+              defaultValue={value}
               readOnly
               placeholder="사진 업로드"
             />
