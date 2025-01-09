@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import styles from '@/styles/components/meta/alarm/alarm.module.css';
+import styles from '@/styles/components/meta/alarm/Alarm.module.css';
 import Image from 'next/image';
 import AlarmImg from '@/public/icon/type=alarm_default.png';
 import BackImg from '@/public/icon/type=back.png';

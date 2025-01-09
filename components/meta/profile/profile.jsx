@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import styles from '@/styles/components/meta/profile/profile.module.css';
+import styles from '@/styles/components/meta/profile/Profile.module.css';
 import MenuImg from '@/public/icon/type=menu.png';
 import Image from 'next/image';
 

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import dropdownArrowImg from '@/public/icon/type=down.png';
 import filterImg from '@/public/icon/type=filter.png';
 import Image from 'next/image';
-import styles from '@/styles/components/dropdown/dropdown.module.css';
+import styles from '@/styles/components/dropdown/SortDropdown.module.css';
 
 export function Dropdown({
   name,
