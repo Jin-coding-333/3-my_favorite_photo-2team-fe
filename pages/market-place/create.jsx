@@ -1,6 +1,6 @@
 import styles from '@/styles/pages/market-place/create.module.css';
 import Input from '@/components/input/Input';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import InputDropdownGrade from '@/components/inputDropdown/InputDropdownGrade';
 import InputDropdownGenre from '@/components/inputDropdown/InputDropdownGenre';
 import InputUpload from '@/components/input/InputUpload';
@@ -22,20 +22,23 @@ function MarketCreate() {
       [name]: value,
     });
   }
+  const common = {
+    inputClassName: styles.input,
+    onChange: changeHandle,
+    className: styles.inputCover,
+  };
   const inputs = [
     {
       name: 'price',
       type: 'price',
       value: values.name,
-      inputClassName: styles.input,
-      onChange: changeHandle,
+      ...common,
     },
     {
       name: 'quantity',
       type: 'quantity',
       value: values.quantity,
-      inputClassName: styles.input,
-      onChange: changeHandle,
+      ...common,
     },
   ];
   useEffect(() => {
@@ -51,18 +54,19 @@ function MarketCreate() {
       />
       <div className={styles.inner}>
         <Input
+          className={styles.inputCover}
           name="name"
           type="photoName"
           inputClassName={styles.input}
           value={values.name}
           onChange={changeHandle}
         />
-        <InputDropdownGrade setForm={setValues} />
-        <InputDropdownGenre setForm={setValues} />
+        <InputDropdownGrade className={styles.inputCover} setForm={setValues} />
+        <InputDropdownGenre className={styles.inputCover} setForm={setValues} />
         {inputs.map((v, i) => {
           return <Input {...v} />;
         })}
-        <InputUpload />
+        <InputUpload className={styles.inputCover} />
         <InputTextBox type="photoCardDes" />
         <Button className={styles.button} size="xxxl">
           생성하기

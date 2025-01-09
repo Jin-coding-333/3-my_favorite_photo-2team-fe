@@ -13,9 +13,17 @@
 .create .inner {
   padding-top: 80px;
 }
+.create .inputCover {
+  display: block;
+  margin-bottom: 60px;
+  padding-bottom: 0;
+}
+.create .inputCover span {
+  display: block;
+  font-size: 20px;
+}
 .create .input {
   height: 60px;
-  margin-bottom: 40px;
 }
 .button {
   margin-top: 60px;
