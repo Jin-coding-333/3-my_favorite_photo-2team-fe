@@ -1,0 +1,42 @@
+.create {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  max-width: 1480px;
+  margin-bottom: 180px;
+}
+.create .title {
+  width: 100%;
+}
+.create .inner {
+  padding-top: 80px;
+}
+.create .input {
+  height: 60px;
+  margin-bottom: 40px;
+}
+.button {
+  margin-top: 60px;
+}
+
+@media screen and (max-width: 1199px) {
+  .create {
+    max-width: 704px;
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 743px) {
+  .create {
+    max-width: 345px;
+    margin-bottom: 40px;
+  }
+  .create .title {
+    display: none;
+  }
+  .create .inner {
+    padding-top: 20px;
+  }
+}
