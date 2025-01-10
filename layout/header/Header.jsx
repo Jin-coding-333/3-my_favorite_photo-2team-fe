@@ -44,7 +44,7 @@ export default function Header() {
           {user ? (
             <div className={styles.userContainer}>
               <div className={styles.userImfoBox}>
-                <h2 className={styles.userPoints}>{userData.point} P</h2>
+                <h2 className={styles.userPoints}>{user.point} P</h2>
                 <div
                   className={styles.userAlarmMobile}
                   style={{

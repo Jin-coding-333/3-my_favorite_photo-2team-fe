@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import InputDropdownLayout from './InputDropdownLayout';
 
-export default function InputDropdownGrade({ setForm }) {
+export default function InputDropdownGrade({ setForm, className }) {
   // 옵션들.  필요시 변경 혹은 추가
   const options = [
     { label: 'COMMON', value: 'common' },
@@ -23,7 +23,13 @@ export default function InputDropdownGrade({ setForm }) {
   return (
     <>
       {/* 등급 */}
-      <InputDropdownLayout options={options} option={grade} optionChange={handleSelectOption} />
+      <InputDropdownLayout
+        className={className}
+        label={'등급'}
+        options={options}
+        option={grade}
+        optionChange={handleSelectOption}
+      />
     </>
   );
 }
