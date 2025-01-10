@@ -11,7 +11,6 @@ export default function PhotoCard({ cardType, isSoldOut, data }) {
   const title = '우리집 앞마당';
   const user = '미쓰손';
   const grade = 'RARE';
-  const grady = 'hi';
   const genre = '여행';
   const price = '4';
   const count = '2';
