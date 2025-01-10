@@ -7,7 +7,6 @@ import { BtnPlace, Title, Content, CountBox } from './Card.Component';
 
 /**
  *
- * @param {*} type buy , sell
  * @reference https://github.com/Jin-coding-333/3-my_favorite_photo-2team-fe/pull/8
  */
 export default function Card({
@@ -16,6 +15,9 @@ export default function Card({
   grade = 'COMMON',
   genre = 'unknwon',
   userNickName = '유저이름',
+  price = 0,
+  count = 0,
+  totalCount = 0,
 }) {
   const _type = useFirstUpperCase(type);
   const [element, setElement] = useState(null);
@@ -29,15 +31,15 @@ export default function Card({
         break;
       case 'mySell':
         setElement(<MyBottom type={type}>{children}</MyBottom>);
-        break; 
+        break;
     }
   }, [type, children]);
- 
+
   return (
     <div className={`${styles.Card} ${styles[_type]}`}>
       <Title grade={grade} genre={genre} userNickName={userNickName} />
       {!type.includes('my') && (
-        <Content price={0} count={0} totalCount={0}>
+        <Content price={price} count={count} totalCount={totalCount}>
           {children}
         </Content>
       )}

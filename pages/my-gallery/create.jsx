@@ -1,4 +1,4 @@
-import styles from '@/styles/pages/market-place/create.module.css';
+import styles from '@/styles/pages/my-gallery/Create.module.css';
 import Input from '@/components/input/Input';
 import { useEffect, useState } from 'react';
 import InputDropdownGenre from '@/components/dropdown/inputDropdown/InputDropdownGenre';
@@ -49,9 +49,6 @@ function MarketCreate() {
       ...common,
     },
   ];
-  useEffect(() => {
-    console.log(values);
-  }, [values]);
 
   return (
     <div className={styles.create}>
