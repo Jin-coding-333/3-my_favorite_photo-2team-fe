@@ -1,8 +1,8 @@
 import styles from '@/styles/pages/market-place/create.module.css';
 import Input from '@/components/input/Input';
 import { useEffect, useState } from 'react';
-import InputDropdownGrade from '@/components/inputDropdown/InputDropdownGrade';
-import InputDropdownGenre from '@/components/inputDropdown/InputDropdownGenre';
+import InputDropdownGenre from '@/components/dropdown/inputDropdown/InputDropdownGenre';
+import InputDropdownGrade from '@/components/dropdown/inputDropdown/InputDropdownGrade';
 import InputUpload from '@/components/input/InputUpload';
 import Title from '@/components/title/Title';
 import Button from '@/components/button/Button';
@@ -52,6 +52,7 @@ function MarketCreate() {
   useEffect(() => {
     console.log(values);
   }, [values]);
+
   return (
     <div className={styles.create}>
       <Title
