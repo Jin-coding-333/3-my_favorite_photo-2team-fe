@@ -3,26 +3,32 @@ import Title from '@/components/title/Title';
 import styles from '@/styles/pages/my-gallery/Detail.module.css';
 import Image from 'next/image';
 
-export default function Detail({
-  card = {
-    name: '카드이름',
-    grade: 'COMMON',
-    genre: 'unknwon',
-    userName: '유저이름',
-    description: '설명',
-    img: '/img/',
-    price: 0,
-    count: 0,
-  },
-}) {
+const card = {
+  name: '카드이름',
+  grade: 'COMMON',
+  genre: 'unknwon',
+  userName: '유저이름',
+  description: '설명',
+  img: '/img/404.svg',
+  price: 4,
+  totalCount: 3,
+};
+export default function Detail({}) {
   return (
     <div className={styles.detail}>
       <Title size="M" title={card.name} variant="secondaryTitle" className={styles.title} />
       <div className={styles.content}>
         <div className={styles.imgBox}>
-          <Image src={card.img} width={920} height={720} />
+          <Image src={card.img} layout="fill" />
         </div>
-        <Card type="mySell" price={card.price} count={card.count}>
+        <Card
+          type="mySell"
+          userNickName={card.userName}
+          genre={card.genre}
+          grade={card.grade}
+          price={card.price}
+          totalCount={card.totalCount}
+        >
           {card.description}
         </Card>
       </div>

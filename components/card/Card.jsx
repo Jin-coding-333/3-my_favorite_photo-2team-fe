@@ -30,7 +30,11 @@ export default function Card({
         setElement(<SellerBottom />);
         break;
       case 'mySell':
-        setElement(<MyBottom type={type}>{children}</MyBottom>);
+        setElement(
+          <MyBottom type={type} price={price} totalCount={totalCount}>
+            {children}
+          </MyBottom>,
+        );
         break;
     }
   }, [type, children]);
@@ -125,7 +129,7 @@ function SellerBottom({
   );
 }
 
-function MyBottom({ type = 'mySell', children = '', point = 0, totalCount = 0 }) {
+function MyBottom({ type = 'mySell', children = '', price = 0, totalCount = 0 }) {
   const myBtn = [
     {
       type: 'primary',
@@ -144,7 +148,7 @@ function MyBottom({ type = 'mySell', children = '', point = 0, totalCount = 0 })
       <ul>
         <li>
           <p className={styles.Left}>가격</p>
-          <p className={styles.Right}>{point} P</p>
+          <p className={styles.Right}>{price} P</p>
         </li>
         <li>
           <p className={styles.Left}>보유량</p>
