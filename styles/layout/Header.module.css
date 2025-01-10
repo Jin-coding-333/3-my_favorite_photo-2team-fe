@@ -25,9 +25,9 @@
   cursor: pointer;
 }
 
-.userAlarmMobile {
+/* .userAlarmMobile {
   display: none;
-}
+} */
 
 /* 인증되지 않은 유저 */
 .noneUserContainer {
@@ -96,7 +96,6 @@
 @media (max-width: 744px) {
   .headerContainer {
     justify-content: space-between;
-
   }
 
   .headerMenu {
@@ -107,6 +106,23 @@
   }
 
   .userContainer {
+    /* display: none; */
+    width: 24px;
+  }
+
+  .test {
+    display: none;
+  }
+
+  .userName {
+    display: none;
+  }
+
+  .userPoints {
+    display: none;
+  }
+
+  .logoutBox {
     display: none;
   }
 

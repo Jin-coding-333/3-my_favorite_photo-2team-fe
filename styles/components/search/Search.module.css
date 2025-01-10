@@ -1,0 +1,102 @@
+.baseSearch,
+.marketplaceSearch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.baseSearchWrapper,
+.marketplaceSearchWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 320px;
+  width: 100%;
+}
+
+.baseSearchIcon,
+.marketplaceSearchIcon {
+  width: 24px;
+  height: 24px;
+  right: 20px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.baseInput,
+.marketplaceInput {
+  width: 100%;
+  height: 50px;
+  padding: 13px 20px;
+  border-radius: 2px;
+
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 23.17px;
+  text-align: left;
+
+  color: var(--white);
+  border: 1px solid var(--gray-200);
+  background-color: var(--black);
+}
+
+.baseInput::placeholder,
+.marketplaceInput::placeholder {
+  color: var(--gray-200);
+}
+
+.baseInput:focus,
+.marketplaceInput:focus {
+  border: 1px solid var(--gray-200);
+  outline: none;
+}
+
+@media (max-width: 1200px) {
+  .baseSearchWrapper,
+  .marketplaceSearchWrapper {
+    width: 200px;
+  }
+
+  .baseSearchIcon,
+  .marketplaceSearchIcon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .baseInput,
+  .marketplaceInput {
+    height: 45px;
+    padding: 11.5px 20px;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20.27px;
+  }
+}
+
+@media (max-width: 744px) {
+  .baseSearchWrapper {
+    width: 290px;
+  }
+
+  .marketplaceSearchWrapper {
+    width: 345px;
+  }
+
+  .baseSearchIcon,
+  .marketplaceSearchIcon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .baseInput,
+  .marketplaceInput {
+    height: 45px;
+    padding: 11.5px 20px;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20.27px;
+  }
+}
