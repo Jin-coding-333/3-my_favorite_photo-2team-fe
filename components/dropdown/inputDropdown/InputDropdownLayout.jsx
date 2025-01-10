@@ -1,7 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
+<<<<<<< HEAD:components/inputDropdown/InputDropdownLayout.jsx
+import styles from '@/styles/components/inputDropDown/InputDropdownLayout.module.css';
+=======
 import styles from "@/styles/components/dropdown/inputDropDown/InputDropdownLayout.module.css";
+>>>>>>> dev:components/dropdown/inputDropdown/InputDropdownLayout.jsx
 
-export default function InputDropdownLayout({ options, option, optionChange }) {
+export default function InputDropdownLayout({ className, options, option, label, optionChange }) {
   // 드롭다운 열려있는지
   const [isOpen, setIsOpen] = useState(false);
   // 외부 클릭 감지를 위한 ref 사용(기본값 null 랜더링 되면 해당 요소 할당)
@@ -37,23 +41,26 @@ export default function InputDropdownLayout({ options, option, optionChange }) {
   }, [isOpen]);
 
   return (
-    <div className={styles.dropdown} ref={dropdownRef}>
-      {/* 버튼 타입을 button으로 해야 form 안에서 작동  */}
-      <button type='button' className={styles.dropdownButton} onClick={toggleDropdown}>
-        {option.label}
-        <span className="arrow">{isOpen ? '▴' : '▾'}</span>
-      </button>
-      {/* 열린 상태(isOpen = true)이면 보이게 */}
-      {isOpen && (
-        <div className={styles.dropdownMenu}>
-          {/* map으로 options 배열 순회+div생성 */}
-          {options.map((option, index) => (
-            <div key={index} className={styles.dropdownItem} onClick={() => handleSelect(option)}>
-              {option.label}
-            </div>
-          ))}
-        </div>
-      )}
+    <div className={`${styles.wrapper} ${className}`}>
+      <h3 className={styles.label}>{label}</h3>
+      <div className={styles.dropdown} ref={dropdownRef}>
+        {/* 버튼 타입을 button으로 해야 form 안에서 작동  */}
+        <button type="button" className={styles.dropdownButton} onClick={toggleDropdown}>
+          {option.label}
+          <span className="arrow">{isOpen ? '▴' : '▾'}</span>
+        </button>
+        {/* 열린 상태(isOpen = true)이면 보이게 */}
+        {isOpen && (
+          <div className={styles.dropdownMenu}>
+            {/* map으로 options 배열 순회+div생성 */}
+            {options.map((option, index) => (
+              <div key={index} className={styles.dropdownItem} onClick={() => handleSelect(option)}>
+                {option.label}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
