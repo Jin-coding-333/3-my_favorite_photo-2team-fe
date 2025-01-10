@@ -24,7 +24,7 @@ export function AuthProvider({ children }) {
   async function login({ email, password }) {
     console.log('login');
     const response = await loginApi({ email, password });
-    if (response && response.success) {
+    if (!!response && response.success) {
       setToken(localStorages.set('token', response.accessToken, 1000 * 60 * 60));
       router.push('/');
       return;

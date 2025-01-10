@@ -1,6 +1,5 @@
 .Card {
   width: 440px;
-  margin: 20px 10px;
   position: relative;
   display: inline-block;
 }
@@ -135,8 +134,6 @@
   font-weight: 400;
 }
 
-.BuyBottom {
-}
 .BuyBottom li {
   display: flex;
   justify-content: space-between;
@@ -239,24 +236,6 @@
   color: var(--gray-300);
 }
 
-.SellerBottom {
-}
-.SellerBottom .Content .Text {
-}
-.TradeTitle {
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--white);
-  margin-bottom: 40px;
-  font-family: Noto Sans KR;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 40.54px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  display: flex;
-  align-items: center;
-}
 .TradeIcon {
   margin-right: 10px;
 }
@@ -343,6 +322,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 .MyBottom .Left {
   font-family: Noto Sans KR;
@@ -363,4 +343,49 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: var(--white);
+}
+
+@media screen and (max-width: 1199px) {
+  .Card {
+    width: 342px;
+    margin: 0;
+  }
+  .Grade,
+  .Genre {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26.06px;
+  }
+
+  .UserNickName {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26.06px;
+  }
+  .Content .Text {
+    max-height: 122px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23.17px;
+  }
+
+  .Bottom .Left {
+    font-size: 18px;
+    line-height: 26.06px;
+  }
+  .Bottom .Right {
+    font-size: 20px;
+    line-height: 28.96px;
+  }
+  .MyBottom .Left {
+    font-size: 18px;
+    line-height: 26.06px;
+  }
+  .MyBottom .Right {
+    font-size: 20px;
+    line-height: 28.96px;
+  }
+  .MyBottom .BtnPlace button {
+    height: 75px;
+  }
 }

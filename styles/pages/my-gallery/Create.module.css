@@ -41,6 +41,7 @@
   .create {
     max-width: 345px;
     margin-bottom: 40px;
+    margin-top: 0;
   }
   .create .title {
     display: none;

@@ -27,3 +27,34 @@
 .imgBox img {
   width: 100%;
 }
+
+@media screen and (max-width: 1299px) {
+  .detail {
+    max-width: 704px;
+    padding-bottom: 100px;
+  }
+  .detail .title > div > h2 {
+    font-size: 32px;
+  }
+  .imgBox {
+    max-width: 342px;
+    height: 256px;
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .detail {
+    max-width: 345px;
+    padding-bottom: 50px;
+    margin-top: 20px;
+  }
+  .detail .title {
+    margin-bottom: 20px;
+  }
+  .content {
+    flex-wrap: wrap;
+  }
+  .imgBox {
+    margin-bottom: 21px;
+  }
+}
