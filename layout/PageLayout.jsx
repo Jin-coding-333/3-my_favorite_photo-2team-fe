@@ -1,14 +1,12 @@
+import styles from "@/styles/layout/PageLayout.module.css"
+
 export default function PageLayout({children}) {
   return (
-    <div 
-    style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        margin: '60px 20px 0',
-      }}
-    >
-      {children}
+    <div className={styles.pageLayout}>
+      <div className={styles.titleLayout}></div>
+        <div className={styles.contentLayout}>
+          {children}
+        </div>
     </div>
   )
 }

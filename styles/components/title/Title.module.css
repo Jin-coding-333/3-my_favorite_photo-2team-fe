@@ -4,6 +4,8 @@
   justify-content: space-between;
   align-items: center;
 
+  margin-top: 60px;
+  padding-bottom: 20px;
   color: var(--gray-100);
   border-bottom: 2px solid var(--gray-100);
 }
@@ -61,6 +63,7 @@
 @media (max-width: 1200px) {
   .titleContainer {
     max-width: 920px;
+    margin-top: 40px;
   }
 
   .size-L .defaultTitle {

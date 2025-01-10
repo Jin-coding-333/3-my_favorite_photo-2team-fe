@@ -1,0 +1,46 @@
+.pageLayout {
+  max-width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.titleLayout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contentLayout{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .pageLayout{
+    margin: 0 20px;
+  }
+
+  .titleLayout {
+    margin-top: 40px;
+    width: 100%;
+  }
+  
+  .contentLayout {
+    width: 100%;
+    }
+}
+
+@media (max-width: 744px) {
+  .pageLayout {
+    margin: 0 15px;
+  }
+
+  .titleLayout {
+    max-width: 704px;
+  }
+
+  .contentLayout {
+    max-width: 704px;
+  }
+}
