@@ -6,14 +6,18 @@ import { createContext, useContext, useEffect, useState } from 'react';
 
 const AuthContext = createContext(null);
 
-const expire = 5000;
-// 60 * 60 * 1000;
+const expire = 60 * 60 * 1000;
 
 export function AuthProvider({ children }) {
   const router = useRouter();
   const localStorages = useLocalStorage();
   const [token, setToken] = useState(localStorages.get('token'));
-  const { data: user, isPending } = useQuery({
+  const {
+    data: user,
+    isPending,
+    refetch,
+    isStale,
+  } = useQuery({
     queryKey: ['user', token],
     queryFn: getUser,
     enabled: !!token,
@@ -21,9 +25,15 @@ export function AuthProvider({ children }) {
   });
 
   useEffect(() => {
-    console.log(localStorages.get('token'));
-    setToken(localStorages.get('token'));
-  }, [token]);
+    const storedToken = localStorages.get('token');
+    if (storedToken !== token) {
+      setToken(storedToken);
+    }
+    if (isStale) {
+      refreshToken();
+    }
+    console.log(isStale);
+  }, [token, isStale]);
 
   async function login({ email, password }) {
     console.log('login');
@@ -41,12 +51,15 @@ export function AuthProvider({ children }) {
     if (response.success) {
       localStorage.clear('token');
       setToken(null);
+      router.refresh();
     }
   }
-  async function refreshToken(setUser) {
+  async function refreshToken() {
+    if (!!!token) return null;
     const response = await refresh();
     if (!!response && response.success) {
       setToken(localStorages.set('token', response.accessToken, expire));
+      await refetch();
     }
   }
   return (

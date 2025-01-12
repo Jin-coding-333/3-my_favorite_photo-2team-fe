@@ -7,16 +7,14 @@ import { useAuth } from '@/contexts/AuthProvier';
 import MenuImg from '@/public/icon/type=menu.png';
 import AlarmImg from '@/public/icon/type=alarm_default.png';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Header() {
   const { user, logout, refreshToken } = useAuth();
-  const [userData, setUserData] = useState(user);
+  const { pathname } = useRouter();
   useEffect(() => {
-    if (!!!user) {
-      // console.log('refresh 됨');
-      // refreshToken();
-    }
-  }, [user]);
+    refreshToken();
+  }, [pathname]);
 
   return (
     <header>
