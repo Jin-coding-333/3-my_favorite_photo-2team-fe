@@ -6,9 +6,17 @@ import HeaderNoneUser from '@/layout/header/HeaderNoneUser';
 import { useAuth } from '@/contexts/AuthProvier';
 import MenuImg from '@/public/icon/type=menu.png';
 import AlarmImg from '@/public/icon/type=alarm_default.png';
+import { useEffect, useState } from 'react';
 
 export default function Header() {
-  const { user, logout } = useAuth();
+  const { user, logout, refreshToken } = useAuth();
+  const [userData, setUserData] = useState(user);
+  useEffect(() => {
+    if (!!!user) {
+      // console.log('refresh 됨');
+      // refreshToken();
+    }
+  }, [user]);
 
   return (
     <header>
