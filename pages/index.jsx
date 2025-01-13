@@ -1,8 +1,7 @@
-
-export default function MarketPlace() {
+export default function HomePage() {
   return (
     <>
-      <h1>Market Place</h1>
+      <h1>Home Page</h1>
     </>
   );
 }

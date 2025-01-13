@@ -1,36 +1,38 @@
 .overlay {
-  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 1;
 }
 
 .modal {
   width: 560px;
   height: 375px;
+  top: 353px;
+  gap: 0px;
   background: #161616;
-  border-radius: 8px;
+  border-radius: 2px 0px 0px 0px;
+  display: flex;
+  position: absolute;
   flex-direction: column;
   justify-content: center;
-  display: flex;
   align-items: center;
-  padding: 20px;
-  width: 400px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
   text-align: center;
 }
 
 .closeButton {
+  width: 32px;
+  height: 32px;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 30px;
+  right: 30px;
   background: transparent;
   border: none;
   color: #fff;
@@ -39,29 +41,79 @@
 }
 
 .title {
-  font-size: 18px;
-  font-weight: bold;
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28.96px;
+  text-align: center;
   color: #ffffff;
-  margin-bottom: 10px;
 }
 
 .message {
-  width: 317px;
-  height: 46px;
-  font-size: 14px;
-  color: #d1d5db;
-  margin-bottom: 20px;
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+  text-align: center;
+  padding: 40px 0px 60px 0;
+  color: #a4a4a4;
+}
+.confirmButton {
+  width: 170px !important;
+  height: 60px;
 }
 
-.confirmButton {
-  width: 170px;
-  height: 60px;
-  background: #efff04;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #000;
-  cursor: pointer;
+@media (max-width: 1200px) {
+  .modal {
+    width: 480px;
+    height: 320px;
+  }
+
+  .closeButton {
+    top: 20px;
+    right: 20px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .message {
+    font-size: 14px;
+    padding: 30px 0 50px 0;
+  }
+  .confirmButton {
+    width: 140px !important;
+    height: 55px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 744px) {
+  .modal {
+    width: 345px;
+    height: 291px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .closeButton {
+    top: 10px;
+    right: 10px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .message {
+    font-size: 12px;
+    padding: 20px 0 30px 0;
+  }
+  .confirmButton {
+    width: 120px !important;
+    height: 55px;
+    font-size: 16px;
+  }
 }

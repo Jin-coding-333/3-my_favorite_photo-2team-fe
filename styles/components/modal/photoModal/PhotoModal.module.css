@@ -1,0 +1,76 @@
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modalContents {
+  position: relative;
+  width: 100%;
+  max-width: 1160px;
+  height: 90%;
+  background: #161616;
+  border-radius: 2px;
+  z-index: 1100;
+  transition: transform 0.3s ease-in-out;
+}
+
+.xBt {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid gray;
+  background-color: #161616;
+  color: aliceblue;
+}
+
+@media screen and (max-width: 1200px) {
+  .modalBackground {
+    align-items: end;
+  }
+  .closeModal {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+  }
+  .closeModalHandle {
+    width: 48px;
+    height: 6px;
+    border-radius: 50px;
+    background-color: #5a5a5a;
+  }
+  .modalContents {
+    width: 100%;
+    max-width: 1200px;
+    height: 95%;
+  }
+  .xBt {
+    display: none;
+  }
+}
+@media screen and (max-width: 744px) {
+  /* 아래는 모바일 사이즈 페이지처럼 보이는 거 */
+
+  .modalContentsLastPage {
+    width: 100%;
+    height: 100%;
+  }
+  .lastPageBt {
+    width: 22px;
+    height: 22px;
+    color: #ffffff;
+  }
+}

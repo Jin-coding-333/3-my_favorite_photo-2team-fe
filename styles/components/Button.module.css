@@ -11,6 +11,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 .Button::before {
   content: '';
@@ -26,13 +27,10 @@
 
 .Button.primary::before,
 .Button.primary::after {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.5);
 }
 .Button:hover::before {
-  animation: btnAnimaion 1.5s infinite ease-in-out;
-  /* top: -50%;
-  left: 100%;
-  transition: all 1s; */
+  animation: btnAnimaion 2s infinite ease-in-out;
 }
 @keyframes btnAnimaion {
   0% {
@@ -66,31 +64,31 @@
 }
 
 .xxxl {
-  width: 520px;
+  max-width: 520px;
   height: 60px;
 }
 .xxl {
-  width: 440px;
+  max-width: 440px;
   height: 80px;
 }
 .xl {
-  width: 440px;
+  max-width: 440px;
   height: 55px;
 }
 .l {
-  width: 345px;
+  max-width: 345px;
   height: 75px;
 }
 .m {
-  width: 345px;
+  max-width: 345px;
   height: 55px;
 }
 .s {
-  width: 342px;
+  max-width: 342px;
   height: 75px;
 }
 .xs {
-  width: 150px;
+  max-width: 150px;
   height: 40px;
   font-size: 12px;
   font-weight: 700;

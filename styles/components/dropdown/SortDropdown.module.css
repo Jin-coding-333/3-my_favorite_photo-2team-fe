@@ -1,0 +1,318 @@
+.sortInput {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  max-width: 180px;
+  width: 100%;
+  height: 50px;
+  padding: 13px 20px;
+  border-radius: 2px;
+  border: 1px solid var(--gray-200);
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+  text-align: left;
+}
+
+.sortSelectedOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 140px;
+  width: 100%;
+  height: 24px;
+}
+
+.sortArrow {
+  transition: transform 0.2s ease;
+}
+
+.sortOpened .sortArrow {
+  transform: rotate(180deg);
+}
+
+.sortOptions {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  left: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  z-index: 1;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 2px;
+  border: 1px solid var(--gray-200);
+  background-color: var(--black);
+  overflow: hidden;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+  text-align: left;
+}
+
+.sortOpened .sortOptions {
+  transform: scaleY(1);
+}
+
+.sortOption {
+  cursor: pointer;
+  padding: 10px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.sortOption:hover {
+  background-color: var(--gray-400);
+}
+
+.chipInput,
+.saleStatusInput {
+  display: flex;
+  position: relative;
+  align-items: center;
+  cursor: pointer;
+  max-width: 154px;
+  width: 100%;
+  height: 40px;
+  border-radius: 2px;
+  color: var(--gray-200);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 23.17px;
+  text-align: left;
+}
+
+.chipSelectedOption,
+.saleStatusSelectedOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 94px;
+  width: 100%;
+  height: 24px;
+}
+
+.chipArrow,
+.saleStatusArrow {
+  transition: transform 0.2s ease;
+}
+
+.chipOpened .chipArrow,
+.saleStatusOpened .saleStatusArrow {
+  transform: rotate(180deg);
+}
+
+.chipOptions,
+.saleStatusOptions {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  left: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  z-index: 1;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 2px;
+  border: 1px solid var(--gray-200);
+  background-color: var(--black);
+  overflow: hidden;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+  text-align: left;
+}
+
+.chipOpened .chipOptions,
+.saleStatusOpened .saleStatusOptions {
+  transform: scaleY(1);
+}
+
+.chipOption,
+.saleStatusOption {
+  cursor: pointer;
+  padding: 10px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+  text-align: left;
+}
+
+.chipOption:hover,
+.saleStatusOption:hover {
+  background-color: var(--gray-400);
+}
+
+.gradeInput,
+.genreInput {
+  display: flex;
+  position: relative;
+  align-items: center;
+  cursor: pointer;
+  max-width: 134px;
+  width: 100%;
+  height: 40px;
+  border-radius: 2px;
+  color: var(--gray-200);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 23.17px;
+  text-align: left;
+}
+
+.gradeSelectedOption,
+.genreSelectedOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 64px;
+  width: 100%;
+  height: 24px;
+}
+
+.gradeArrow,
+.genreArrow {
+  transition: transform 0.2s ease;
+}
+
+.gradeOpened .gradeArrow,
+.genreOpened .genreArrow {
+  transform: rotate(180deg);
+}
+
+.gradeOptions,
+.genreOptions {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  left: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  z-index: 1;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 2px;
+  border: 1px solid var(--gray-200);
+  background-color: var(--black);
+  overflow: hidden;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+  text-align: left;
+}
+
+.gradeOpened .gradeOptions,
+.genreOpened .genreOptions {
+  transform: scaleY(1);
+}
+
+.gradeOption,
+.genreOption {
+  cursor: pointer;
+  padding: 10px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+  text-align: left;
+}
+
+.gradeOption:hover,
+.genreOption:hover {
+  background-color: var(--gray-400);
+}
+
+@media (max-width: 1200px) {
+  .sortInput {
+    width: 140px;
+    height: 45px;
+  }
+  .sortSelectedOption {
+    max-width: 110px;
+    height: 22px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.27px;
+  }
+  .sortOption {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.27px;
+  }
+  .chipSelectedOption,
+  .saleStatusSelectedOption {
+    max-width: 84px;
+    height: 22px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20.27px;
+  }
+  .chipOption,
+  .saleStatusOption {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.27px;
+  }
+  .gradeSelectedOption,
+  .genreSelectedOption {
+    max-width: 58px;
+    height: 22px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20.27px;
+  }
+  .gradeOption,
+  .genreOption {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.27px;
+  }
+}
+
+@media (max-width: 744px) {
+  .sortInput {
+    width: 130px;
+    height: 35px;
+  }
+  .sortSelectedOption {
+    max-width: 100px;
+    height: 20px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17.38px;
+  }
+  .sortOption {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17.38px;
+  }
+  .gradeInput,
+  .genreInput {
+    width: 130px;
+  }
+  .gradeOption,
+  .genreOption {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17.38px;
+  }
+  .gradeSelectedOption,
+  .genreSelectedOption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--gray-200);
+    width: 35px;
+    height: 35px;
+  }
+}

@@ -1,0 +1,46 @@
+.LoginBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 520px;
+}
+.Logo {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 80px;
+}
+.LoginInputs {
+  width: 100%;
+  margin-bottom: 40px;
+}
+.LoginInputs > div:last-child {
+  padding-bottom: 0;
+}
+.BottomText {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.17px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin-top: 40px;
+}
+.BottomText a {
+  text-decoration: underline;
+  color: var(--main);
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 1199px) {
+  .LoginBox {
+    max-width: 440px;
+  }
+}
+@media screen and (max-width: 743px) {
+  .LoginBox {
+    max-width: 400px;
+  }
+}

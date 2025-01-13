@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import styles from '@/styles/components/InputUpload.module.css';
+import styles from '@/styles/components/input/InputUpload.module.css';
 
 export default function InputUpload() {
   const [value, setValue] = useState('');

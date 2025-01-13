@@ -1,0 +1,16 @@
+.title1 {
+  font-family: BR B;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24.58px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #a4a4a4;
+}
+
+.rightContent {
+  display: flex;
+  justify-content: right;
+}
