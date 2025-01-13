@@ -30,9 +30,31 @@ div.cardDetail {
 .centerContent {
   display: flex;
   justify-content: center;
+  padding-top: 60px;
 }
 
 .cardImg {
   width: 960px;
   height: 720px;
+}
+
+.card {
+  height: 845px;
+  width: 440px;
+}
+
+.Tradelist {
+  display: flex;
+  gap: 80px;
+}
+
+@media (max-width: 1200px) {
+  .Container {
+    margin: 0px 50px;
+  }
+}
+@media (max-width: 744px) {
+  .Container {
+    margin: 0px 20px;
+  }
 }
