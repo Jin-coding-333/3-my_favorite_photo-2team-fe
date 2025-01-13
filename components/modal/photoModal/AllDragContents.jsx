@@ -1,3 +1,4 @@
+import Title from '@/components/title/Title';
 import PhotoCard from '@/components/card/photoCard/PhotoCard';
 import styles from '@/styles/components/modal/photoModal/AllDragContents.module.css';
 export default function AllDragContents() {
@@ -5,7 +6,7 @@ export default function AllDragContents() {
     <div className={styles.mainContents}>
       <div className={styles.pagename}>마이갤러리</div>
       <div className={styles.topBanner}>
-        <div className={styles.title}>나의 포토카드 판매하기</div>
+        <Title title="나의 포토카드 판매하기" size="M" variant="secondaryTitle" />
         <div className={styles.inputBox}>
           <div className={styles.search}>
             <input />
