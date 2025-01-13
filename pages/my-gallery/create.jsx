@@ -8,15 +8,17 @@ import Title from '@/components/title/Title';
 import Button from '@/components/button/Button';
 import InputTextBox from '@/components/input/InputTextBox';
 import { onlyNumber } from '@/lib/hooks/convenience';
+import { useUser } from '@/contexts/UserProvider';
 
 function MarketCreate() {
+  const { cardCreate } = useUser();
   const [values, setValues] = useState({
     name: '',
     grade: '',
     genre: '',
     price: '',
-    quantity: '',
-    img: '',
+    count: '',
+    imagePath: '',
     description: '',
   });
   function changeHandle(e) {
@@ -29,6 +31,21 @@ function MarketCreate() {
       ...values,
       [name]: value,
     });
+  }
+
+  async function submitHandle() {
+    // name        String
+    // grade       String   @default("common")
+    // genre       String   @default("unknwon")
+    // price       Int      @default(0)
+    // count       Int      @default(0)
+    // description String   @default("")
+    // imagePath   String
+    // createdAt   DateTime @default(now())
+    // updatedAt   DateTime @updatedAt
+    // user        User?    @relation(fields: [userId], references: [id])
+    // userId      String?
+    await cardCreate(values);
   }
   const common = {
     inputClassName: styles.input,
@@ -43,9 +60,9 @@ function MarketCreate() {
       ...common,
     },
     {
-      name: 'quantity',
-      type: 'quantity',
-      value: values.quantity,
+      name: 'count',
+      type: 'count',
+      value: values.count,
       ...common,
     },
   ];
@@ -73,10 +90,10 @@ function MarketCreate() {
           return <Input key={v.name} {...v} />;
         })}
         <InputUpload
-          name="img"
+          name="imagePath"
           className={styles.inputCover}
           setValue={setValues}
-          value={values.img}
+          value={values.imagePath}
         />
         <InputTextBox
           type="photoCardDes"
@@ -84,7 +101,7 @@ function MarketCreate() {
           setValue={setValues}
           value={values.description}
         />
-        <Button className={styles.button} size="xxxl">
+        <Button className={styles.button} size="xxxl" onClick={submitHandle}>
           생성하기
         </Button>
       </div>

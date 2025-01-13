@@ -11,7 +11,7 @@ const expire = 60 * 60 * 1000;
 export function AuthProvider({ children }) {
   const router = useRouter();
   const localStorages = useLocalStorage();
-  const [token, setToken] = useState(localStorages.get('token'));
+  const [token, setToken] = useState(null);
   const {
     data: user,
     isPending,
@@ -26,19 +26,17 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const storedToken = localStorages.get('token');
-    if (storedToken !== token) {
-      setToken(storedToken);
-    }
+    setToken(storedToken);
     if (isStale) {
       refreshToken();
     }
-    console.log(isStale);
   }, [token, isStale]);
 
   async function login({ email, password }) {
     console.log('login');
     const response = await loginApi({ email, password });
     if (!!response && response.success) {
+      console.log('resresres', response);
       setToken(localStorages.set('token', response.accessToken, expire));
       router.push('/');
       return;
