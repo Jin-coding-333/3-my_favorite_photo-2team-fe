@@ -33,8 +33,7 @@
 
 @media (max-width: 744px) {
   .pageLayout {
-    margin: 0 15px;
-    display: none;
+    display: none;    
   }
 
   .contentLayout {
