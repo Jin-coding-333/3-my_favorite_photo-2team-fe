@@ -1,24 +1,26 @@
-.Body {
-  justify-content: center;
+.Container {
+  margin: 0px 220px;
 }
 
 .title {
   font-family: BR B;
-  padding: 60px 1576px 60px 220px;
+  padding: 60px;
   font-size: 24px;
   font-weight: 400;
   line-height: 24.58px;
   letter-spacing: -0.03em;
+  display: flex;
+  flex-direction: row;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #a4a4a4;
 }
 
-.cardDetail {
-  display: flex;
-  justify-content: center;
-  height: 78px;
+div.cardDetail {
+  display: flex !important;
+  justify-content: center !important;
+  height: 78px !important;
 }
 .rightContent {
   display: flex;
@@ -33,9 +35,4 @@
 .cardImg {
   width: 960px;
   height: 720px;
-}
-
-.Card {
-  width: 440px;
-  height: 845px;
 }
