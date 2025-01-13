@@ -34,10 +34,7 @@
 @media (max-width: 744px) {
   .pageLayout {
     margin: 0 15px;
-  }
-
-  .titleLayout {
-    max-width: 704px;
+    display: none;
   }
 
   .contentLayout {
