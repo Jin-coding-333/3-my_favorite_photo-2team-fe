@@ -23,7 +23,7 @@ export default function Seller() {
           <img className={styles.cardImg} src="#" />
           <Card
             className={styles.Card}
-            type="sell"
+            type="buy"
             grade="RARE"
             genre="Fantasy"
             userNickName="John Doe"

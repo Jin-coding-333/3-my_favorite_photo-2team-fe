@@ -82,7 +82,6 @@ function BuyBottom({ point = 0, totalCount = 0 }) {
     </>
   );
 }
-
 function SellerBottom({
   children = 'I want to exchange this card',
   grade = 'COMMON',
