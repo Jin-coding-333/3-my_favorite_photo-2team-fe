@@ -23,8 +23,9 @@ export default function Buyer() {
           <Title className={styles.Subtitle} title="교환 희망 정보" size="L" />
           <Button className={styles.Button} type="primary">
             {' '}
-            포토카드 구매하기
+            포토카드 교환하기
           </Button>
+          {/* <p>푸릇푸릇한 여름 풍경, 눈 많이 내린 겨울 풍경 사진에 관심이 많습니다.</p> */}
         </div>
       </div>
     </div>
