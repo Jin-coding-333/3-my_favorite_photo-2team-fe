@@ -1,0 +1,16 @@
+.fixedButton {
+  display: none;
+}
+
+@media (max-width: 744px) {
+  .fixedButton {
+    display: block;
+    position: fixed;
+    bottom: 40px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
