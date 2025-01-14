@@ -2,15 +2,24 @@
   display: none;
 }
 
-@media (max-width: 744px) {
-  .fixedButton {
-    display: block;
-    position: fixed;
-    bottom: 40px;
-    width: 100%;
+.buttonStyle {
+  display: none;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media (max-width: 744px) {
+  .buttonStyle {
+  display: flex;
+  justify-self: center;
+  align-items: center;    
+  position: fixed;
+
+  bottom: 40px;
+  width: 100%;
+}
+.fixedButton {
+    display: block;
+    margin-left: 5%;
+    width: 90%;
+    height: 55px;  
   }
 }
