@@ -6,6 +6,7 @@ import styles from '@/styles/components/modal/photoModal/AllDragContents.module.
 import { useState } from 'react';
 import { Search } from '@/components/search/Search';
 import UseIsMobileView from '@/lib/hooks/useIsMobileView';
+import BottomSheet from '@/components/bottomSheet/BottomSheet';
 
 export default function AllDragContents({ title, handleModal, myCards }) {
   const [options, setOptions] = useState({
