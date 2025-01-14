@@ -1,40 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🎯 Part3 team2
+![image](https://github.com/user-attachments/assets/8013852e-3562-4465-855a-64dc6ceeffd0)
 
-## Getting Started
 
-First, run the development server:
+## 프로젝트 소개
+  [최애의 포토]
+  : 개인용 디지털 사진첩 생성 플랫폼
+  > `최애의 포토`는 디지털 시대의 새로운 수집 문화를 선도하는 플랫폼입니다. 자신이 좋아하는 아이돌이나 스포츠 스타, 그림 등 디지털 포토카드를 손쉽게 사고팔 수 있는 공간으로, 특별한 커뮤니티를 제공합니다. </br> 이제는 좋아하는 포토카드를 실제로 모으는 것뿐만 아니라, 디지털 자산으로 소장하며 나만의 컬렉션을 완성할 수 있습니다. 서로의 포토카드를 교환하고, 나만의 포토카드를 자랑하는 재미와 함께 상호 교류도 즐길 수 있는 플랫폼, "최애의 포토"에서 만나보세요!
+</br>
+  🗓 프로젝트 기간 </br>
+  2024.12.27 ~ 2025.01.21
+</br>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 팀원 구성
+배진한(팀장):
+</br>김태훈:
+</br>김현묵:
+</br>배호근:
+</br>전준기:
+</br>최종훈:
+</br>최혜지: heziss0965@gmail.com
+</br>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 기술 스택
+#### 프론트엔드 </br>
+  - JavaScript , Next.js 
+#### 벡엔드 </br>
+  - Express, PostgreSQL, Prizma
+#### 공통 </br>
+  - Git & Github, Discord, Notion, Jira
+  - Jira: 프론드엔드 </br>
+  https://ghost111789.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog  </br>
+  - Jira: 벡엔드 </br>
+  https://ghost111789.atlassian.net/jira/software/projects/T2/boards/2/backlog?selectedIssue=T2-1
+  </br>
+  
+## 팀원별 구현 기능 상세
+배진한(팀장)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+</br>김태훈
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+</br>김현묵
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+</br>배호근
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+</br>전준기
 
-## Learn More
+</br>최종훈
 
-To learn more about Next.js, take a look at the following resources:
+</br>최혜지
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+</br>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 파일 구조
 
-## Deploy on Vercel
+## 구현 홈페이지
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 프로젝트 회고록
