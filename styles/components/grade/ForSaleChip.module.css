@@ -1,0 +1,32 @@
+.badge {
+    background-color: #000000;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23.17px;
+    padding: 4px 10px;
+}
+
+.badgeSale {
+    color: #fff;
+}
+
+.badgePending {
+    color: #efff04;
+}
+
+@media (max-width: 1200px) {
+    .badge {
+        font-weight: 400;
+        font-size: 56px;
+        line-height: 20.27px;
+    }
+}
+
+@media (max-width: 744px) {
+    .badge {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 14.48px;
+    }
+}
+
