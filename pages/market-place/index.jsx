@@ -16,15 +16,14 @@ export default function MarketPlace() {
           variant="secondaryTitle"
           />
       </PageLayout>
-      <div className={styles.fixedButton} >
-        <Button
-          size="m"
-          type="primary"
-          onClick={() => alert('판매하기')}
-        >
-        나의 포토카드 판매하기  
-        </Button>      
-        </div>
+      <div className={styles.buttonStyle}>
+      <Button
+        className={styles.fixedButton}
+        type="primary"
+        onClick={() => alert('생성하기')}
+      > 나의 포토카드 판매하기
+      </Button>      
+    </div>
 
     </>
   );

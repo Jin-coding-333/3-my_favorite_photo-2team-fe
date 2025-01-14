@@ -16,15 +16,14 @@ export default function MyGallery() {
         variant="secondaryTitle"
         />
     </PageLayout>
-      <div className={styles.buttonStyle}>
-        <Button
+    <div className={styles.buttonStyle}>
+      <Button
         className={styles.fixedButton}
-          type="primary"
-          onClick={() => alert('생성하기')}
-        >
-        포토카드 생성하기
-        </Button>      
-</div>
+        type="primary"
+        onClick={() => alert('생성하기')}
+      > 포토카드 생성하기
+      </Button>      
+    </div>
     </>
   );
 }

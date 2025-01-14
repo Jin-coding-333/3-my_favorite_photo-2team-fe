@@ -8,14 +8,14 @@
 
 @media (max-width: 744px) {
   .buttonStyle {
-  display: flex;
-  justify-self: center;
-  align-items: center;    
-  position: fixed;
+    display: flex;
+    justify-self: center;
+    align-items: center;    
+    position: fixed;
 
-  bottom: 40px;
-  width: 100%;
-}
+    bottom: 40px;
+    width: 100%;
+  }
 .fixedButton {
     display: block;
     margin-left: 5%;
