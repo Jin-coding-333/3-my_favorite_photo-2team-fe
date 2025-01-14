@@ -1,5 +1,6 @@
 import styles from '@/styles/components/title/Title.module.css'
 import Button from '@/components/button/Button.jsx'
+import { useState, useEffect } from 'react';
 
 export default function Title({
   title, 
@@ -15,7 +16,23 @@ export default function Title({
     M: 'l',
     S: 'm',
   };
-  const buttonSize = buttonSizeMap[size];
+  const [buttonSize, setButtonSize] = useState(buttonSizeMap[size]);
+
+  // 미디어쿼리 1200px일 때, 버튼 크기 'm'으로 변경
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 1200px)');
+    const handleMediaChange = (e) => {
+      setButtonSize(e.matches ? 'm' : buttonSizeMap[size]);
+    };
+
+    handleMediaChange(mediaQuery);
+    mediaQuery.addEventListener('change', handleMediaChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaChange);
+    };
+  }, [size]);
+
 
   // 폰트 설정
   // secondaryTitle: 'BR B' font

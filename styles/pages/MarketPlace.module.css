@@ -1,0 +1,26 @@
+.fixedButton {
+  display: none;
+}
+
+.buttonStyle {
+  display: none;
+}
+
+@media (max-width: 744px) {
+  .buttonStyle {
+    display: flex;
+    justify-self: center;
+    align-items: center;    
+    position: fixed;
+  
+    bottom: 15px;
+    width: 100%;
+  }
+
+  .fixedButton {
+    display: block;
+    margin-left: 5%;
+    width: 90%;
+    height: 55px;  
+  }
+}

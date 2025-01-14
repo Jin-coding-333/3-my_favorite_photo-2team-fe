@@ -4,6 +4,8 @@
   justify-content: space-between;
   align-items: center;
 
+  margin-top: 60px;
+  padding-bottom: 20px;
   color: var(--gray-100);
   border-bottom: 2px solid var(--gray-100);
 }
@@ -61,6 +63,7 @@
 @media (max-width: 1200px) {
   .titleContainer {
     max-width: 920px;
+    margin-top: 40px;
   }
 
   .size-L .defaultTitle {
@@ -90,7 +93,7 @@
   }
 
   .size-L .secondaryTitle {
-    font-size: 32px; /* 타이틀 크기도 줄이기 */
+    font-size: 32px; 
   }
 
   .size-M .defaultTitle {
