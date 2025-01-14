@@ -36,7 +36,6 @@ export function AuthProvider({ children }) {
     console.log('login');
     const response = await loginApi({ email, password });
     if (!!response && response.success) {
-      console.log('resresres', response);
       setToken(localStorages.set('token', response.accessToken, expire));
       router.push('/');
       return;
@@ -53,15 +52,18 @@ export function AuthProvider({ children }) {
     }
   }
   async function refreshToken() {
-    if (!!!token) return null;
+    if (!!token) return null;
     const response = await refresh();
     if (!!response && response.success) {
+      console.log('refresh');
       setToken(localStorages.set('token', response.accessToken, expire));
       await refetch();
     }
   }
+
+  async function signup(body = { email: '', password: '', nickName: '' }) {}
   return (
-    <AuthContext.Provider value={{ user, login, logout, isPending, refreshToken }}>
+    <AuthContext.Provider value={{ user, login, logout, isPending, refreshToken, signup }}>
       {children}
     </AuthContext.Provider>
   );

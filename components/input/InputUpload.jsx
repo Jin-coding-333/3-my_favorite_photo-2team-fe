@@ -4,9 +4,9 @@ import styles from '@/styles/components/input/InputUpload.module.css';
 export default function InputUpload({ className, name, value = '', setValue }) {
   const handleChange = (e) => {
     e.preventDefault();
-    const fileName = e.target.files[0].name;
-    console.log(value);
-    setValue((prev) => ({ ...prev, [name]: fileName }));
+    const file = e.target.files[0];
+    // console.log(file);
+    setValue((prev) => ({ ...prev, [name]: file }));
   };
 
   return (
@@ -26,7 +26,7 @@ export default function InputUpload({ className, name, value = '', setValue }) {
             <input
               className={styles.fileNameInput}
               type="text"
-              defaultValue={value}
+              defaultValue={value.name}
               readOnly
               placeholder="사진 업로드"
             />

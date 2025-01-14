@@ -22,18 +22,17 @@ export function UserProvider({ children, token = null }) {
   });
 
   async function cardCreate(body) {
-    const values = Object.values(body);
+    const entries = Object.entries(body);
     const check =
-      values
+      entries
         .map((v) => {
-          if (!!!v) return false;
+          if (!!!v[1]) return false;
           return true;
         })
         .filter((x) => !x).length > 0;
     if (check) {
       return alert('값을 전부 입력해주세요.');
     }
-
     const addUser = { ...body, userId: user.user.id };
     const create = await createCards(addUser);
     if (create) {
@@ -43,7 +42,7 @@ export function UserProvider({ children, token = null }) {
   }
 
   return (
-    <UserContext.Provider value={{ cards, cardCreate, card_isPending }}>
+    <UserContext.Provider value={{ cards: cards?.data, cardCreate, card_isPending }}>
       {children}
     </UserContext.Provider>
   );

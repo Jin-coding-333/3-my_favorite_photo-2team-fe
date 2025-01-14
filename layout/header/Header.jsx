@@ -7,12 +7,13 @@ import { useAuth } from '@/contexts/AuthProvier';
 import MenuImg from '@/public/icon/type=menu.png';
 import AlarmImg from '@/public/icon/type=alarm_default.png';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const { user, logout, refreshToken } = useAuth();
-  const { pathname } = useRouter();
+  const pathname = usePathname();
   useEffect(() => {
+    console.log(pathname);
     refreshToken();
   }, [pathname]);
 
