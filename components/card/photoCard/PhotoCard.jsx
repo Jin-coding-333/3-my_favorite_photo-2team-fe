@@ -1,6 +1,6 @@
 import styles from '@/styles/components/photoCard/PhotoCard.module.css';
 import Button from '@/components/button/Button';
-import { useState, useEffect } from 'react';
+import useIsMobileView from '@/lib/hooks/useIsMobileView';
 
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
@@ -20,23 +20,8 @@ export default function PhotoCard({ cardType, isSoldOut, data }) {
     exchange: '교환 제시 중',
   };
 
-  const [isMobileView, setIsMobileView] = useState(false);
-
-  // 화면 크기 변화 감지
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobileView(window.innerWidth <= 744);
-    };
-
-    // 초기 화면 크기 설정
-    handleResize();
-
-    // 리스너 등록
-    window.addEventListener('resize', handleResize);
-
-    // 클린업
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  // 모바일 크기 변화 감지
+  const isMobileView = useIsMobileView();
 
   return (
     // 교환 화면이면 height 늘어남

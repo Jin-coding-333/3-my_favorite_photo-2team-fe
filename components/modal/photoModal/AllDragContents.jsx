@@ -1,28 +1,99 @@
 import Title from '@/components/title/Title';
 import PhotoCard from '@/components/card/photoCard/PhotoCard';
+import { Dropdown } from '@/components/dropdown/SortDropdown';
+import { optionsData } from '@/lib/data/dropdownOptions';
 import styles from '@/styles/components/modal/photoModal/AllDragContents.module.css';
-export default function AllDragContents() {
+import { useState } from 'react';
+import { Search } from '@/components/search/Search';
+import UseIsMobileView from '@/lib/hooks/useIsMobileView';
+
+export default function AllDragContents({ title, handleModal, myCards }) {
+  const [options, setOptions] = useState({
+    grade: '',
+    genre: '',
+  });
+  const handleDropdownChange = (name, value) => {
+    setOptions((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const isMobileView = UseIsMobileView();
+
   return (
     <div className={styles.mainContents}>
       <div className={styles.pagename}>마이갤러리</div>
       <div className={styles.topBanner}>
-        <Title title="나의 포토카드 판매하기" size="M" variant="secondaryTitle" />
-        <div className={styles.inputBox}>
-          <div className={styles.search}>
-            <input />
+        <Title title={title} size="L" variant="default" />
+        {isMobileView ? (
+          <div className={styles.inputBoxMobile}>
+            <div className={styles.dropdown}>
+              <Dropdown
+                name="grade"
+                value={options.dropdown}
+                options={optionsData.grade}
+                onChange={handleDropdownChange}
+                placeholder="등급"
+                prefix="grade"
+                useMobileFilterImage={true}
+              />
+            </div>
+            <Search type="base" className={styles.searchWidth} />
           </div>
-          <div className={styles.dropdownGrade}>등급 </div>
-          <div className={styles.dropdownGenre}>장르 </div>
-        </div>
+        ) : (
+          <div className={styles.inputBox}>
+            <Search type="marketplace" />
+
+            <div className={styles.dropdownBox}>
+              <div className={styles.dropdown}>
+                <Dropdown
+                  name="grade"
+                  value={options.dropdown}
+                  options={optionsData.grade}
+                  onChange={handleDropdownChange}
+                  placeholder="등급"
+                  prefix="grade"
+                  useMobileFilterImage={true}
+                />
+              </div>
+              <div className={styles.dropdown}>
+                <Dropdown
+                  name="genre"
+                  value={options.genre}
+                  options={optionsData.genre}
+                  onChange={handleDropdownChange}
+                  placeholder="장르"
+                  prefix="genre"
+                  useMobileFilterImage={true}
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       <div className={styles.holdingPhotoBox}>
-        {/* 여기는 list로 바꿔야 할 듯 */}
-        <PhotoCard cardType="myCard" />
-        <PhotoCard cardType="myCard" />
-        <PhotoCard cardType="myCard" />
-        <PhotoCard cardType="myCard" />
-        <PhotoCard cardType="myCard" />
-        <PhotoCard cardType="myCard" />
+        {/* {myCards.map((card) => (
+          <div key={card.id} onClick={handleModal}>
+            <PhotoCard cardType="myCard" data={card} />
+          </div>
+        ))} */}
+        {/* 아래는 예시 */}
+        <div onClick={handleModal}>
+          <PhotoCard cardType="myCard" />
+        </div>
+        <div onClick={handleModal}>
+          <PhotoCard cardType="myCard" />
+        </div>
+        <div onClick={handleModal}>
+          <PhotoCard cardType="myCard" />
+        </div>
+        <div onClick={handleModal}>
+          <PhotoCard cardType="myCard" />
+        </div>
+        <div onClick={handleModal}>
+          <PhotoCard cardType="myCard" />
+        </div>
       </div>
     </div>
   );
