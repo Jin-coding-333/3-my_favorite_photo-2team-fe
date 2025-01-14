@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
 
+  padding-bottom: 20px;
   color: var(--gray-100);
   border-bottom: 2px solid var(--gray-100);
 }
@@ -90,7 +91,7 @@
   }
 
   .size-L .secondaryTitle {
-    font-size: 32px; /* 타이틀 크기도 줄이기 */
+    font-size: 32px; 
   }
 
   .size-M .defaultTitle {

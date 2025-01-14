@@ -1,7 +1,16 @@
+import Title from "@/components/title/Title";
+import PageLayout from "@/layout/PageLayout";
+
 export default function MySalePhotocard() {
   return (
     <>
-      <h1>My Sale Photocard</h1>
+    <PageLayout>
+      <Title
+        title="나의 판매 포토카드"
+        size="L"        
+        variant="secondaryTitle"
+        />
+    </PageLayout>
     </>
   );
 }
