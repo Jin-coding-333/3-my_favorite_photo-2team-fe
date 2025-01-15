@@ -9,22 +9,24 @@ import Button from '@/components/button/Button';
 import InputTextBox from '@/components/input/InputTextBox';
 import { onlyNumber } from '@/lib/hooks/convenience';
 import { useUser } from '@/contexts/UserProvider';
+import { useAuth } from '@/contexts/AuthProvier';
 
-function MarketCreate() {
-  const { cardCreate } = useUser();
+function ShopCreate() {
+  const { cardCreate, card_isPending } = useUser();
   const [values, setValues] = useState({
     name: '',
     grade: '',
     genre: '',
     price: '',
-    count: '',
+    // remainingQuantity: 0,
+    totalQuantity: '',
     imagePath: '',
     description: '',
   });
   function changeHandle(e) {
     e.preventDefault();
     const { name, value } = e.target;
-    if (name === 'price' || name === 'quantity') {
+    if (name === 'price' || name === 'totalQuantity') {
       if (!onlyNumber(Number(value))) return alert('숫자만 입력하세요');
     }
     setValues({
@@ -34,17 +36,16 @@ function MarketCreate() {
   }
 
   async function submitHandle() {
-    // name        String
-    // grade       String   @default("common")
-    // genre       String   @default("unknwon")
-    // price       Int      @default(0)
-    // count       Int      @default(0)
-    // description String   @default("")
-    // imagePath   String
-    // createdAt   DateTime @default(now())
-    // updatedAt   DateTime @updatedAt
-    // user        User?    @relation(fields: [userId], references: [id])
-    // userId      String?
+    // id                String     @id @default(uuid())
+    // name              String
+    // grade             String     @default("common")
+    // genre             String     @default("unknwon")
+    // price             Int        @default(0)
+    // remainingQuantity Int        @default(0)
+    // totalQuantity     Int        @default(0)
+    // description       String     @default("")
+    // imagePath         String
+    // userId            String
     await cardCreate(values);
   }
   const common = {
@@ -60,12 +61,13 @@ function MarketCreate() {
       ...common,
     },
     {
-      name: 'count',
+      name: 'totalQuantity',
       type: 'quantity',
-      value: values.count,
+      value: values.totalQuantity,
       ...common,
     },
   ];
+  if (card_isPending) return 'loding';
 
   return (
     <div className={styles.create}>
@@ -110,4 +112,4 @@ function MarketCreate() {
   );
 }
 
-export default MarketCreate;
+export default ShopCreate;

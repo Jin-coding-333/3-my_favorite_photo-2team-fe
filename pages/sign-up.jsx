@@ -18,13 +18,14 @@ export default function Signup() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(formData);
+    e.preventDefault();
     if (name === 'passwordChk') setPw2(value);
     else setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async () => {
-    signup(formData);
+  const handleSubmit = () => {
+    if (formData.password === password2) signup(formData);
+    else alert('비밀번호가 일치하지 않습니다.');
   };
 
   return (
@@ -59,7 +60,7 @@ export default function Signup() {
           <Input
             name="passwordChk"
             type="passwordChk"
-            value={formData.confirmPassword}
+            value={password2}
             onChange={handleChange}
             placeholder="비밀번호를 한번 더 입력해 주세요"
           />

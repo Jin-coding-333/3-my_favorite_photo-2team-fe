@@ -28,7 +28,7 @@ export default function Provider({ children }) {
       <AuthProvider>
         <UserProvider token={token}>{children}</UserProvider>
       </AuthProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
+      <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   );
 }

@@ -23,33 +23,36 @@ export function AuthProvider({ children }) {
     enabled: !!token,
     staleTime: expire,
   });
+
   useEffect(() => {
     const storedToken = localStorages.get('token');
     setToken(storedToken);
-    if (isStale || !!!token) {
+    if (isStale) {
       refreshToken();
     }
   }, [token, isStale]);
 
   async function login({ email, password }) {
-    console.log('login');
     const response = await loginApi({ email, password });
     if (!!response && response.success) {
+      console.log('login');
       setToken(localStorages.set('token', response.accessToken, expire));
       router.push('/');
       return;
     }
     alert('id 또는 password를 확인해주세요');
   }
+
   async function logout() {
-    console.log('logout');
     const response = await logoutApi();
     if (response.success) {
+      console.log('logout');
       localStorage.clear('token');
       setToken(null);
       router.refresh();
     }
   }
+
   async function refreshToken() {
     if (!!token) return null;
     const response = await refresh();
@@ -62,7 +65,12 @@ export function AuthProvider({ children }) {
 
   async function signup(body = { email: '', password: '', nickName: '' }) {
     const signup = await signupApi(body);
+    if (signup.success) {
+      router.push('/login');
+    }
+    alert(signup.msg);
   }
+
   return (
     <AuthContext.Provider value={{ user, login, logout, isPending, refreshToken, signup }}>
       {children}
