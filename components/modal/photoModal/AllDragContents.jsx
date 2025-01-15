@@ -9,6 +9,10 @@ import UseIsMobileView from '@/lib/hooks/useIsMobileView';
 import BottomSheet from '@/components/bottomSheet/BottomSheet';
 
 export default function AllDragContents({ title, handleModal, myCards }) {
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+  const handleBottomSheet = () => {
+    setIsBottomSheetOpen(!isBottomSheetOpen);
+  };
   const [options, setOptions] = useState({
     grade: '',
     genre: '',
@@ -30,15 +34,9 @@ export default function AllDragContents({ title, handleModal, myCards }) {
         {isMobileView ? (
           <div className={styles.inputBoxMobile}>
             <div className={styles.dropdown}>
-              <Dropdown
-                name="grade"
-                value={options.dropdown}
-                options={optionsData.grade}
-                onChange={handleDropdownChange}
-                placeholder="등급"
-                prefix="grade"
-                useMobileFilterImage={true}
-              />
+              <button onClick={handleBottomSheet} style={{ color: 'white' }}>
+                눌러어
+              </button>
             </div>
             <Search type="base" className={styles.searchWidth} />
           </div>
@@ -96,6 +94,7 @@ export default function AllDragContents({ title, handleModal, myCards }) {
           <PhotoCard cardType="myCard" />
         </div>
       </div>
+      {isBottomSheetOpen && isMobileView ? <BottomSheet /> : ''}
     </div>
   );
 }
