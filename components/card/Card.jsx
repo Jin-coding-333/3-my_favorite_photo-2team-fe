@@ -7,7 +7,6 @@ import { BtnPlace, Title, Content, CountBox } from './Card.Component';
 
 /**
  *
- * @param {*} type buy , sell
  * @reference https://github.com/Jin-coding-333/3-my_favorite_photo-2team-fe/pull/8
  */
 export default function Card({
@@ -16,6 +15,9 @@ export default function Card({
   grade = 'COMMON',
   genre = 'unknwon',
   userNickName = '유저이름',
+  price = 0,
+  count = 0,
+  totalCount = 0,
 }) {
   const _type = useFirstUpperCase(type);
   const [element, setElement] = useState(null);
@@ -28,7 +30,11 @@ export default function Card({
         setElement(<SellerBottom />);
         break;
       case 'mySell':
-        setElement(<MyBottom type={type}>{children}</MyBottom>);
+        setElement(
+          <MyBottom type={type} price={price} totalCount={totalCount}>
+            {children}
+          </MyBottom>,
+        );
         break;
     }
   }, [type, children]);
@@ -37,7 +43,7 @@ export default function Card({
     <div className={`${styles.Card} ${styles[_type]}`}>
       <Title grade={grade} genre={genre} userNickName={userNickName} />
       {!type.includes('my') && (
-        <Content price={0} count={0} totalCount={0}>
+        <Content price={price} count={count} totalCount={totalCount}>
           {children}
         </Content>
       )}
@@ -123,7 +129,7 @@ function SellerBottom({
   );
 }
 
-function MyBottom({ type = 'mySell', children = '', point = 0, totalCount = 0 }) {
+function MyBottom({ type = 'mySell', children = '', price = 0, totalCount = 0 }) {
   const myBtn = [
     {
       type: 'primary',
@@ -142,7 +148,7 @@ function MyBottom({ type = 'mySell', children = '', point = 0, totalCount = 0 })
       <ul>
         <li>
           <p className={styles.Left}>가격</p>
-          <p className={styles.Right}>{point} P</p>
+          <p className={styles.Right}>{price} P</p>
         </li>
         <li>
           <p className={styles.Left}>보유량</p>

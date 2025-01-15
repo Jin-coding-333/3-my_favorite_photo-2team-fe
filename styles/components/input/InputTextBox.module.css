@@ -5,19 +5,17 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: black;
 }
 
-.inputTextBoxContainerChange{
+.inputTextBoxContainerChange {
   width: 440px;
   height: 159px;
 }
 
-.inputTextBoxContainerexchangeRequest{
+.inputTextBoxContainerexchangeRequest {
   width: 920px;
   height: 159px;
 }
-
 
 .textBoxLabel {
   font-family: Noto Sans KR;
@@ -33,17 +31,22 @@
   font-size: 16px;
   font-family: 'Noto Sans KR', sans-serif;
   border: 1px solid var(--gray-200);
-  border-radius: 4px;
+  border-radius: 2px;
   resize: none;
   background-color: inherit;
   color: var(--white);
   font-family: Noto Sans KR;
   font-size: 16px;
   font-weight: 500;
-  
+
   &:focus {
     outline: none;
   }
+}
+.textBox:focus {
+  background-color: var(--gray-500);
+  border: 0;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
 .textBox::placeholder {
@@ -63,17 +66,17 @@
     height: 173px;
   }
 
-  .inputTextBoxContainerChange{
+  .inputTextBoxContainerChange {
     width: 342px;
     height: 153px;
   }
 
-  .inputTextBoxContainerexchangeRequest{
+  .inputTextBoxContainerexchangeRequest {
     width: 704px;
     height: 153px;
   }
 
-  .textBoxLabel{
+  .textBoxLabel {
     font-size: 16px;
   }
 
@@ -93,17 +96,17 @@
     height: 173px;
   }
 
-  .inputTextBoxContainerChange{
+  .inputTextBoxContainerChange {
     width: 345px;
     height: 173px;
   }
 
-  .inputTextBoxContainerexchangeRequest{
+  .inputTextBoxContainerexchangeRequest {
     width: 345px;
     height: 173px;
   }
 
-  .textBoxLabel{
+  .textBoxLabel {
     font-size: 16px;
   }
 
