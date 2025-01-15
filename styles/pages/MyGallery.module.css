@@ -7,19 +7,24 @@
 }
 
 @media (max-width: 744px) {
+  .MyGalleryTitle {
+    display: none;
+  }
+
   .buttonStyle {
     display: flex;
     justify-self: center;
-    align-items: center;    
+    align-items: center;
     position: fixed;
 
     bottom: 40px;
     width: 100%;
   }
-.fixedButton {
+  
+  .fixedButton {
     display: block;
     margin-left: 5%;
     width: 90%;
-    height: 55px;  
+    height: 55px;
   }
 }
