@@ -14,7 +14,7 @@ const filter = [
   { name: '매진 여부', className: styles.soldOutState, list: soldOutState },
 ];
 
-export default function BottomSheet({ totalCount = 0 }) {
+export default function BottomSheet({ totalCount = 0, onClose }) {
   const [listValue, setListValue] = useState({
     value: filter[0].list,
     className: filter[0].className,
@@ -27,11 +27,11 @@ export default function BottomSheet({ totalCount = 0 }) {
     });
   };
   return (
-    <>
+    <div className={styles.BackgroundLayer}>
       <div className={styles.BottomSheet}>
         <div className={styles.Top}>
           <h2 className={styles.Title}>필터</h2>
-          <div className={styles.CloseBtn}></div>
+          <div className={styles.CloseBtn} onClick={onClose}></div>
         </div>
         <Labels onClick={labelClickHandle} />
         <div className={`${styles.Lists} ${listValue.className}`}>
@@ -55,7 +55,7 @@ export default function BottomSheet({ totalCount = 0 }) {
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
