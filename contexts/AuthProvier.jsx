@@ -1,4 +1,4 @@
-import { loginApi, getUser, logoutApi, refresh } from '@/lib/api/auth/authApi';
+import { loginApi, getUser, logoutApi, refresh, signupApi } from '@/lib/api/auth/authApi';
 import useLocalStorage from '@/lib/hooks/useLocalStorige';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
@@ -23,11 +23,10 @@ export function AuthProvider({ children }) {
     enabled: !!token,
     staleTime: expire,
   });
-
   useEffect(() => {
     const storedToken = localStorages.get('token');
     setToken(storedToken);
-    if (isStale) {
+    if (isStale || !!!token) {
       refreshToken();
     }
   }, [token, isStale]);
@@ -61,7 +60,9 @@ export function AuthProvider({ children }) {
     }
   }
 
-  async function signup(body = { email: '', password: '', nickName: '' }) {}
+  async function signup(body = { email: '', password: '', nickName: '' }) {
+    const signup = await signupApi(body);
+  }
   return (
     <AuthContext.Provider value={{ user, login, logout, isPending, refreshToken, signup }}>
       {children}

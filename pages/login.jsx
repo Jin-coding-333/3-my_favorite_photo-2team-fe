@@ -47,7 +47,7 @@ export default function Login() {
           로그인
         </Button>
         <p className={styles.BottomText}>
-          최애의 포토가 처음이신가요? <Link href="/signup">회원가입하기</Link>
+          최애의 포토가 처음이신가요? <Link href="/sign-up">회원가입하기</Link>
         </p>
       </div>
     </CenterLayout>

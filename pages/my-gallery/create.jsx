@@ -1,6 +1,6 @@
 import styles from '@/styles/pages/my-gallery/Create.module.css';
 import Input from '@/components/input/Input';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import InputDropdownGenre from '@/components/dropdown/inputDropdown/InputDropdownGenre';
 import InputDropdownGrade from '@/components/dropdown/inputDropdown/InputDropdownGrade';
 import InputUpload from '@/components/input/InputUpload';

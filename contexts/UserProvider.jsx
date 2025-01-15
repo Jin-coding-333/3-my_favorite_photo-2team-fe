@@ -17,7 +17,7 @@ export function UserProvider({ children, token = null }) {
   } = useQuery({
     queryKey: ['cards', token],
     queryFn: getCards,
-    // enabled: !!token,
+    enabled: !!user,
     staleTime: oneHour,
   });
 
