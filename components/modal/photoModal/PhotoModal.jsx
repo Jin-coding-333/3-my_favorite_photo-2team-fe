@@ -1,7 +1,7 @@
 import styles from '@/styles/components/modal/photoModal/PhotoModal.module.css';
 import { useState, useEffect, useRef } from 'react';
 
-export default function PhotoModal({ isModal, handleModal, modalType, children }) {
+export default function PhotoModal({ className, isModal, handleModal, modalType, children }) {
   //modalType ={1 : 'allDrag', 2 : 'lastPage'}
   const [positionY, setPositionY] = useState(0); // Y축 위치 저장 초기값 0
   const [dragging, setDragging] = useState(false); // 드래그 중인지
@@ -121,7 +121,7 @@ export default function PhotoModal({ isModal, handleModal, modalType, children }
     <div>
       {isModal ? (
         <div
-          className={styles.modalBackground}
+          className={`${styles.modalBackground} ${className}`}
           onMouseMove={handleMouseMove}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}

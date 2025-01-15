@@ -5,6 +5,7 @@
   height: 60px;
   border: 1px solid #dddddd;
   background-color: #0f0f0f;
+  border-radius: 2px;
 }
 
 .dropdownButton {
@@ -50,6 +51,17 @@
 .dropdownItem:hover {
   background-color: darkgray;
   color: #0f0f0f;
+}
+
+.label {
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28.96px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1200px) {

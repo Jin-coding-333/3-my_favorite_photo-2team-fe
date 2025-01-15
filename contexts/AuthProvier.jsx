@@ -1,4 +1,4 @@
-import { loginApi, getUser, logoutApi } from '@/lib/api/auth/authApi';
+import { loginApi, getUser, logoutApi, refresh } from '@/lib/api/auth/authApi';
 import useLocalStorage from '@/lib/hooks/useLocalStorige';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
@@ -6,30 +6,41 @@ import { createContext, useContext, useEffect, useState } from 'react';
 
 const AuthContext = createContext(null);
 
+const expire = 60 * 60 * 1000;
+
 export function AuthProvider({ children }) {
   const router = useRouter();
   const localStorages = useLocalStorage();
   const [token, setToken] = useState(null);
-  const { data: user, isPending } = useQuery({
+  const {
+    data: user,
+    isPending,
+    refetch,
+    isStale,
+  } = useQuery({
     queryKey: ['user', token],
     queryFn: getUser,
     enabled: !!token,
-    staleTime: 60 * 60 * 1000,
+    staleTime: expire,
   });
 
   useEffect(() => {
-    setToken(localStorages.get('token'));
-  }, [token]);
+    const storedToken = localStorages.get('token');
+    setToken(storedToken);
+    if (isStale) {
+      refreshToken();
+    }
+  }, [token, isStale]);
 
   async function login({ email, password }) {
     console.log('login');
     const response = await loginApi({ email, password });
-    if (response && response.success) {
-      setToken(localStorages.set('token', response.accessToken, 1000 * 60 * 60));
+    if (!!response && response.success) {
+      setToken(localStorages.set('token', response.accessToken, expire));
       router.push('/');
       return;
     }
-    alert('틀림');
+    alert('id 또는 password를 확인해주세요');
   }
   async function logout() {
     console.log('logout');
@@ -37,10 +48,22 @@ export function AuthProvider({ children }) {
     if (response.success) {
       localStorage.clear('token');
       setToken(null);
+      router.refresh();
     }
   }
+  async function refreshToken() {
+    if (!!token) return null;
+    const response = await refresh();
+    if (!!response && response.success) {
+      console.log('refresh');
+      setToken(localStorages.set('token', response.accessToken, expire));
+      await refetch();
+    }
+  }
+
+  async function signup(body = { email: '', password: '', nickName: '' }) {}
   return (
-    <AuthContext.Provider value={{ user, login, logout, isPending }}>
+    <AuthContext.Provider value={{ user, login, logout, isPending, refreshToken, signup }}>
       {children}
     </AuthContext.Provider>
   );
