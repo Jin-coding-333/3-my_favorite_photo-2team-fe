@@ -34,9 +34,9 @@ export default function AllDragContents({ title, handleModal, myCards }) {
         {isMobileView ? (
           <div className={styles.inputBoxMobile}>
             <div className={styles.dropdown}>
-              <button onClick={handleBottomSheet} style={{ color: 'white' }}>
-                눌러어
-              </button>
+              {/* <div className={styles.filterBox} onClick={handleBottomSheet}>
+                <Image fill src="/icon/type=filter.png" alt="필터 이미지" />
+              </div> */}
             </div>
             <Search type="base" className={styles.searchWidth} />
           </div>
