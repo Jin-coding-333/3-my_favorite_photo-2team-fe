@@ -61,7 +61,7 @@ function MarketCreate() {
     },
     {
       name: 'count',
-      type: 'count',
+      type: 'quantity',
       value: values.count,
       ...common,
     },
@@ -96,6 +96,7 @@ function MarketCreate() {
           value={values.imagePath}
         />
         <InputTextBox
+          className={styles.textbox}
           type="photoCardDes"
           name="description"
           setValue={setValues}
