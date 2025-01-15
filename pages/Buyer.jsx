@@ -1,8 +1,9 @@
+import { useState, useEffect } from 'react';
 import styles from '@/styles/components/Buyer/Buyer.module.css';
 import Title from '@/components/title/Title.jsx';
 import Card from '@/components/card/Card.jsx';
 import Button from '@/components/button/Button.jsx';
-import { Title } from '@/components/card/Card.Component.jsx';
+import axios from 'axios';
 
 export default function Buyer() {
   const [Card, setCard] = useState();
@@ -12,7 +13,7 @@ export default function Buyer() {
       try {
         setLoading(true);
         const response = await axios.get('/api/cards/1');
-        setCardData(response.data);
+        setCard(response.data);
       } catch (err) {
         setError('데이터를 가져오는데 실패했습니다.');
       } finally {
