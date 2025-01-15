@@ -8,14 +8,16 @@ export default function MarketPlace() {
   return (
     <>
       <PageLayout>
-        <Title
-          title="마켓플레이스"
-          size="L"
-          buttonText="나의 포토카드 판매하기"
-          buttonType="primary"
-          onButtonClick={() => alert('판매하기')}
-          variant="secondaryTitle"
-        />
+        <div className={styles.marketPlaceTitle}>
+          <Title
+            title="마켓플레이스"
+            size="L"
+            buttonText="나의 포토카드 판매하기"
+            buttonType="primary"
+            onButtonClick={() => alert('판매하기')}
+            variant="secondaryTitle"
+          />
+        </div>
         <MarketPlaceSearch />
       </PageLayout>
       <div className={styles.buttonStyle}>

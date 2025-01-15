@@ -5,6 +5,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 
 .BottomSheet {
@@ -136,7 +137,8 @@
   height: 55px;
 }
 .Button {
-  width: 272px;
+  /* width: 272px; */
+  width: 100%;
   height: 55px;
   border-radius: 2px 0px 0px 0px;
   margin-left: 26px;

@@ -54,7 +54,8 @@
   }
 
   .search {
-    width: 290px;
+    width: 100%;
+    max-width: none;
   }
 
   .dropdowns {

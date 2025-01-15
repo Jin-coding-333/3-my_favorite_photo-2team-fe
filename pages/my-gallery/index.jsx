@@ -8,14 +8,16 @@ export default function MyGallery() {
   return (
     <>
       <PageLayout>
-        <Title
-          title="마이갤러리"
-          size="L"
-          buttonText="포토카드 생성하기"
-          buttonType="primary"
-          onButtonClick={() => alert('판매하기')}
-          variant="secondaryTitle"
-        />
+        <div className={styles.MyGalleryTitle}>
+          <Title
+            title="마이갤러리"
+            size="L"
+            buttonText="포토카드 생성하기"
+            buttonType="primary"
+            onButtonClick={() => alert('판매하기')}
+            variant="secondaryTitle"
+          />
+        </div>
 
         <MyGallerySearch />
       </PageLayout>

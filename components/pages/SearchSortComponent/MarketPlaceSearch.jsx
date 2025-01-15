@@ -70,8 +70,8 @@ export default function MarketPlaceSearch() {
             <Image
               src={filterImg}
               alt="filter 이미지"
-              width={35}
-              height={35}
+              width={20}
+              height={20}
               onClick={toggleBottomSheet}
             />
           </div>
