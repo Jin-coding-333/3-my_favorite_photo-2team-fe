@@ -1,17 +1,15 @@
-import styles from '@/styles/components/grade/CardGrade.module.css'
+import styles from '@/styles/components/grade/CardGrade.module.css';
 
-export default function CardGrade() {
+export default function CardGrade({ grade, type = 'rarity' }) {
+  // 타입에 따른 기본 클래스 결정
+  const baseClass = type === 'rarityThickness' ? styles.rarityThickness : styles.rarity;
+
+  // 상태에 따른 클래스 이름 조합
+  const gradeClass = `${type}${grade}`;
+
   return (
-    <>
-      <p className={`${styles.rarity} ${styles.rarityCommon}`}>COMMON</p>
-      <p className={`${styles.rarity} ${styles.rarityRare}`}>RARE</p>
-      <p className={`${styles.rarity} ${styles.raritySuperRare}`}>SUPER RARE</p>
-      <p className={`${styles.rarity} ${styles.rarityLegendary}`}>LEGENDARY</p>
-
-      <p className={`${styles.rarityCard} ${styles.rarityCardCommon}`}>COMMON</p>
-      <p className={`${styles.rarityCard} ${styles.rarityCardRare}`}>RARE</p>
-      <p className={`${styles.rarityCard} ${styles.rarityCardSuperRare}`}>SUPER RARE</p>
-      <p className={`${styles.rarityCard} ${styles.rarityCardLegendary}`}>LEGENDARY</p>
-    </>
+    <p className={`${baseClass} ${styles[gradeClass]}`}>
+      {grade}
+    </p>
   );
 }
