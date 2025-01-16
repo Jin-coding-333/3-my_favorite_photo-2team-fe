@@ -1,4 +1,4 @@
-import styles from '@/styles/components/grade/ForSaleChip.module.css';
+import styles from '@/styles/components/photoCard/meta/ForSaleChip.module.css';
 
 export default function ForSaleChip({ status }) {
   // 상태에 따라 클래스 결정
