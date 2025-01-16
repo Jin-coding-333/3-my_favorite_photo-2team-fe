@@ -1,5 +1,6 @@
 import Button from '@/components/button/Button';
 import MyGallerySearch from '@/components/pages/SearchSortComponent/MyGallerySearch';
+import CardCountStatus from '@/components/title/CardCountStatus';
 import Title from '@/components/title/Title';
 import PageLayout from '@/layout/PageLayout';
 import styles from '@/styles/pages/MyGallery.module.css';
@@ -18,6 +19,8 @@ export default function MyGallery() {
             variant="secondaryTitle"
           />
         </div>
+
+        <CardCountStatus page='myGallery'/>
 
         <MyGallerySearch />
       </PageLayout>
