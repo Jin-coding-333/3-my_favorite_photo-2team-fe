@@ -6,83 +6,91 @@ import Card from '@/components/card/Card.jsx';
 import PhotoCard from '@/components/card/photoCard/PhotoCard.jsx';
 import { Title as CardType } from '@/components/card/Card.Component.jsx';
 import { useAuth } from '@/contexts/AuthProvier';
+import Image from 'next/image';
+import Modal from '@/components/modal/Modal.jsx';
 
-export default function UnifiedPage({ pageType = 'buy', PhotoMockData = '' }) {
-  const isBuyer = pageType === 'buy';
-  const isSeller = pageType === 'sell';
+export default function PhotoCardDetails() {
   const { user } = useAuth();
-  console.log(user);
-  const photoData = PhotoMockData || [
-    {
-      title: '우리집 앞마당',
-      user: '미쓰손',
-      grade: 'RARE',
-      genre: '여행',
-      price: '4',
-      count: '2',
-      exchangeMessage: '스페인 여행 사진도 좋은데.. 우리집 앞마당 포토카드와 교환하고 싶습니다!',
-    },
-    {
-      title: '스페인 여행',
-      user: '김여행',
-      grade: 'COMMON',
-      genre: '여행',
-      price: '2',
-      count: '1',
-      exchangeMessage: '유럽풍의 사진도 좋아 보이네요!',
-    },
-    {
-      title: '눈 내린 풍경',
-      user: '박겨울',
-      grade: 'LEGENDARY',
-      genre: '풍경',
-      price: '6',
-      count: '3',
-      exchangeMessage: '겨울의 눈 덮인 풍경과 잘 어울릴 것 같습니다.',
-    },
-    {
-      title: '추가 카드',
-      user: '유저1',
-      grade: 'EPIC',
-      genre: '풍경',
-      price: '3',
-      count: '2',
-      exchangeMessage: '다른 풍경 사진도 매력적이네요!',
-    },
-  ];
+  const [pageType, setPageType] = useState('buy'); //데이터없어서 임시로
+  const [photoCardData, setPhotoCardData] = useState([]); //백엔드 연동되면 []없애기
+  const [exchangeMessage, setExchangeMessage] = useState('');
 
-  const exchangeMessage = '푸릇푸릇한 여름 풍경, 눈 많이 내린 겨울 풍경 사진에 관심이 많습니다.';
+  useEffect(() => {
+    const PhotoCardData = async () => {
+      try {
+        const mockData = [
+          {
+            id: '1',
+            grade: 'COMMON',
+            genre: '풍경',
+            imagePath: 'https://via.placeholder.com/150',
+            description: '여름 풍경 사진',
+          },
+          {
+            id: '2',
+            grade: 'RARE',
+            genre: '여행',
+            imagePath: 'https://via.placeholder.com/150',
+            description: '여행의 즐거움',
+          },
+        ];
+        setPhotoCardData(mockData);
+        setExchangeMessage(mockData[0].description);
+      } catch (error) {
+        console.error('오류가 발생하였습니다', error);
+      }
+    };
+
+    //백엔드 연동되면 위에 mock데이터 제거 후 아래 코드 살리기
+    //       const response = await axios.get('/api/shop/cards/${shopId}');
+    //       setPhotoCardData(response.data);
+    // if (response.data.length > 0) {
+    //   setExchangeMessage(response.data[0].description);
+    // }
+    //       const isOwner = response.data.some((card) => card.userId === user.id);
+    //       setPageType(isOwner ? 'sell' : 'buy');
+    //     } catch (error) {
+    //       console.error('오류가 발생하였습니다', error);
+    //     }
+    //   };
+
+    PhotoCardData();
+  }, [user]);
+
+  const Buyer = pageType === 'buy';
+  const Seller = pageType === 'sell';
 
   return (
     <div className={styles.body}>
       <h1 className={styles.title}>마켓플레이스</h1>
       <Title className={styles.cardDetail} title="우리집 앞마당" size="L" />
 
-      {isSeller && (
+      {Seller && (
         <>
           <div className={styles.centerContent}>
-            <img className={styles.cardImg} src="#" alt="포토카드 이미지" />
+            <Image className={styles.cardImg} src={''} alt="포토카드 이미지" />
+
             <Card
               className={styles.Card}
               type="sell"
               grade="RARE"
               genre="Fantasy"
-              userNickName="John Doe"
+              userNickName={user?.name || 'Unknown'}
             />
           </div>
           <Title className={styles.title} title="교환 제시 목록" size="L" />
           <div className={styles.Tradelist}>
-            {photoData.slice(0, 3).map((data, index) => (
-              <PhotoCard key={index} cardType="exchange" isSoldOut={false} data={data} />
+            {photoCardData.slice(0, 2).map((data) => (
+              <PhotoCard key={data.id} cardType="exchange" isSoldOut={false} data={data} />
             ))}
           </div>
         </>
       )}
 
-      {isBuyer && (
+      {Buyer && (
         <>
           <div className={styles.centerContent}>
-            <img className={styles.cardImg} src="#" alt="포토카드 이미지" />
+            <Image className={styles.cardImg} src={''} alt="포토카드 이미지" />
             <Card
               className={styles.Card}
               type="buy"
