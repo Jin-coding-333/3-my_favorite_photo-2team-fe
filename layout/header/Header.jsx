@@ -6,9 +6,13 @@ import HeaderNoneUser from '@/layout/header/HeaderNoneUser';
 import { useAuth } from '@/contexts/AuthProvier';
 import MenuImg from '@/public/icon/type=menu.png';
 import AlarmImg from '@/public/icon/type=alarm_default.png';
+import { useRouter } from 'next/router';
 
 export default function Header() {
   const { user, logout } = useAuth();
+
+  const router = useRouter();
+  const currentUrl = router.asPath;
 
   return (
     <header>
@@ -25,7 +29,7 @@ export default function Header() {
 
           <Link href="/">
             <div
-              className={styles.headerLogo}
+              className={`${styles.headerLogo} ${user ? null : styles.unUserHeaderLogo}`}
               style={{
                 position: 'relative',
               }}
