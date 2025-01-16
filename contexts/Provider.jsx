@@ -5,6 +5,7 @@ import { UserProvider } from './UserProvider';
 import useLocalStorage from '@/lib/hooks/useLocalStorige';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { EventProvider } from './EventProvider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,15 +21,16 @@ export default function Provider({ children }) {
   const [token, setToken] = useState(localstorages.get('token'));
 
   useEffect(() => {
-    // console.log(token);
     setToken(localstorages.get('token'));
   }, [pathname]);
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <UserProvider token={token}>{children}</UserProvider>
+        <UserProvider token={token}>
+          <EventProvider token={token}>{children}</EventProvider>
+        </UserProvider>
       </AuthProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
+      <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   );
 }

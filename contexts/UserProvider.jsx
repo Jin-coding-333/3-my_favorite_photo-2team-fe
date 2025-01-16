@@ -1,7 +1,7 @@
 import { createCards, getCards } from '@/lib/api/user/cardApi';
 import { oneHour } from '@/lib/data/time';
 import { useQuery } from '@tanstack/react-query';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext } from 'react';
 import { useAuth } from './AuthProvier';
 import { useRouter } from 'next/navigation';
 
@@ -38,6 +38,7 @@ export function UserProvider({ children, token = null }) {
     if (create) {
       await cardRefetch();
       router.push('/');
+      alert('카드를 생성했습니다.');
     }
   }
 
