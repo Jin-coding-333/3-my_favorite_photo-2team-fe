@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import styles from '@/styles/components/PointModal.module.css';
+import styles from '@/styles/components/modal/PointModal.module.css';
 
-export default function PointModal() {
+export default function PointModal({ open }) {
   //모달 상태 관리
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(!open);
 
   //모달 열기 함수
   const openModal = () => {
-    setIsOpen(true);
+    setIsOpen(!open);
   };
 
   //모달 닫기 함수
@@ -31,7 +31,7 @@ export default function PointModal() {
               랜덤<span className={styles.highlight}>포인트</span>
             </h2>
             <p className={styles.description}>
-              1시간마다 돌아오는 기회!
+              매 시간 정각마다 돌아오는 기회!
               <br />
               랜덤 상자 뽑기를 통해 포인트를 획득하세요!
             </p>
