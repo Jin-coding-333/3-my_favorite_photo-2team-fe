@@ -1,7 +1,14 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from '@/styles/components/dropdown/inputDropDown/InputDropdownLayout.module.css';
 
-export default function InputDropdownLayout({ className, options, option, label, optionChange }) {
+export default function InputDropdownLayout({
+  className,
+  options,
+  option,
+  label,
+  optionChange,
+  classNameSize,
+}) {
   // 드롭다운 열려있는지
   const [isOpen, setIsOpen] = useState(false);
   // 외부 클릭 감지를 위한 ref 사용(기본값 null 랜더링 되면 해당 요소 할당)
@@ -39,7 +46,7 @@ export default function InputDropdownLayout({ className, options, option, label,
   return (
     <div className={`${styles.wrapper} ${className}`}>
       <h3 className={styles.label}>{label}</h3>
-      <div className={styles.dropdown} ref={dropdownRef}>
+      <div className={`${styles.dropdown} ${classNameSize}`} ref={dropdownRef}>
         {/* 버튼 타입을 button으로 해야 form 안에서 작동  */}
         <button type="button" className={styles.dropdownButton} onClick={toggleDropdown}>
           {option.label}

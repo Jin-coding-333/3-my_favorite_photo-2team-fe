@@ -1,5 +1,6 @@
 import styles from '@/styles/components/modal/photoModal/PhotoModal.module.css';
 import { useState, useEffect, useRef } from 'react';
+import useIsMobileView from '@/lib/hooks/useIsMobileView';
 
 export default function PhotoModal({ className, isModal, handleModal, modalType, children }) {
   //modalType ={1 : 'allDrag', 2 : 'lastPage'}
@@ -7,18 +8,9 @@ export default function PhotoModal({ className, isModal, handleModal, modalType,
   const [dragging, setDragging] = useState(false); // 드래그 중인지
   const [offsetY, setOffsetY] = useState(0); // 드래그 시작 지점에서의 y축 편차차
   const [modalHeight, setModalHeight] = useState(0); // 모달 높이 동적 계산
-  const [isMobileView, setIsMobileView] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobileView(window.innerWidth <= 744);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  //모바일 사이즈 확인
+  const isMobileView = useIsMobileView();
 
   const modalRef = useRef(null); // 현재 모달 높이 측정을 위한 ref -> modalContents div에 넣을거거
 
