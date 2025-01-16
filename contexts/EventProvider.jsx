@@ -1,11 +1,20 @@
 import PointModal from '@/components/modal/PointModal';
+import { pointChkEventApi } from '@/lib/api/user/eventApi';
 import { oneHour } from '@/lib/data/time';
-import { createContext, useContext, useEffect } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { useAuth } from './AuthProvier';
 
 const EventContext = createContext(null);
 
-export function EventProvider({ children }) {
-  function logAtEveryHour() {
+export function EventProvider({ children, token }) {
+  const { refetch, isPending } = useAuth();
+  const [open, setOpen] = useState(true);
+  async function chk() {
+    const chk = await pointChkEventApi();
+    setOpen(chk);
+  }
+
+  function everyHour() {
     const now = new Date();
 
     // 다음 정각까지 남은 시간 계산 (밀리초 단위)
@@ -20,26 +29,30 @@ export function EventProvider({ children }) {
     );
     const timeToNextHour = nextHour - now;
     const setTime = oneHour;
-    console.log(`Current time: ${now.toISOString()}. Waiting for the next hour...`);
 
     // 다음 정각에 실행
     setTimeout(() => {
-      console.log(`Exact hour: ${new Date().toISOString()}`);
+      console.log(`Event Start`);
 
       // 이후 매시간 정각마다 실행
       setInterval(() => {
-        console.log(`정각이에요~`);
-        console.log(`Exact hour: ${new Date().toISOString()}`);
-      }, setTime); // 1시간마다 실행 (3600000ms)
+        console.log(`Event Triger`);
+        pointChkEventApi().then((res) => {
+          setOpen(res);
+          refetch();
+        });
+        console.log(`Event: ${new Date().toISOString()}`);
+      }, setTime + 3000);
     }, timeToNextHour);
   }
   useEffect(() => {
-    logAtEveryHour();
+    chk();
+    if (token) everyHour();
   }, []);
-  // 실행
+
   return (
-    <EventContext.Provider value={{}}>
-      <PointModal></PointModal>
+    <EventContext.Provider value={{ everyHour }}>
+      <PointModal isPending={isPending} open={open}></PointModal>
       {children}
     </EventContext.Provider>
   );

@@ -27,7 +27,7 @@ export default function Provider({ children }) {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <UserProvider token={token}>
-          <EventProvider>{children}</EventProvider>
+          <EventProvider token={token}>{children}</EventProvider>
         </UserProvider>
       </AuthProvider>
       <ReactQueryDevtools initialIsOpen={true} />
