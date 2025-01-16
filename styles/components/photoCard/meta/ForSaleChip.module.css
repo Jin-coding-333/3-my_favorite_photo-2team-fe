@@ -3,7 +3,9 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 23.17px;
-    padding: 4px 10px;
+    padding: 6px 12px;
+    text-align: center;
+    display: inline-block;
 }
 
 .badgeSale {
@@ -17,7 +19,7 @@
 @media (max-width: 1200px) {
     .badge {
         font-weight: 400;
-        font-size: 56px;
+        font-size: 13px;
         line-height: 20.27px;
     }
 }
@@ -29,4 +31,5 @@
         line-height: 14.48px;
     }
 }
+
 
