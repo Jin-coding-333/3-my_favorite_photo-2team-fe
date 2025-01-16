@@ -57,7 +57,6 @@ export function AuthProvider({ children }) {
     if (!!token) return null;
     const response = await refresh();
     if (!!response && response.success) {
-      console.log('refresh');
       setToken(localStorages.set('token', response.accessToken, expire));
       await refetch();
     }
@@ -72,7 +71,9 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isPending, refreshToken, signup }}>
+    <AuthContext.Provider
+      value={{ user: user?.user, login, logout, isPending, refreshToken, signup }}
+    >
       {children}
     </AuthContext.Provider>
   );
