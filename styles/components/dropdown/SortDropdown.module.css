@@ -178,6 +178,7 @@
   max-width: 64px;
   width: 100%;
   height: 24px;
+  white-space: nowrap;
 }
 
 .gradeArrow,
@@ -270,49 +271,12 @@
     font-size: 14px;
     font-weight: 700;
     line-height: 20.27px;
+    white-space: nowrap;
   }
   .gradeOption,
   .genreOption {
     font-size: 14px;
     font-weight: 400;
     line-height: 20.27px;
-  }
-}
-
-@media (max-width: 744px) {
-  .sortInput {
-    width: 130px;
-    height: 35px;
-  }
-  .sortSelectedOption {
-    max-width: 100px;
-    height: 20px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 17.38px;
-  }
-  .sortOption {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 17.38px;
-  }
-  .gradeInput,
-  .genreInput {
-    width: 130px;
-  }
-  .gradeOption,
-  .genreOption {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 17.38px;
-  }
-  .gradeSelectedOption,
-  .genreSelectedOption {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid var(--gray-200);
-    width: 35px;
-    height: 35px;
   }
 }
