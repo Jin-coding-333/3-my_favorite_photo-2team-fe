@@ -1,40 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🎯My Favorite Photo <img src="https://github.com/user-attachments/assets/8013852e-3562-4465-855a-64dc6ceeffd0" height="45px" align="right" alt="TitleImage" />
 
-## Getting Started
+ 
+<a href="https://www.w3.org/">![html](https://img.shields.io/badge/HTML5-E34F26?style=plastic&logo=html5&logoColor=white) </a>
+<a href="https://www.w3.org/Style/CSS/Overview.en.html">![css](https://img.shields.io/badge/CSS-239120?&style=plastic&logo=css3&logoColor=white) </a>
+<a href="https://ecma-international.org/">![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=plastic&logo=JavaScript&logoColor=white) </a>
+<a href="https://nodejs.org/en">![node.js](https://img.shields.io/badge/Node.js-43853D?style=plastic&logo=node.js&logoColor=white) </a>
+<a href="https://ko.react.dev/">![React](https://img.shields.io/badge/React-20232A?style=plastic&logo=react&logoColor=61DAFB) </a>
+<a href="https://nextjs.org/">![Next.js](https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=fff&style=plastic) </a>
+<a href="https://www.postgresql.org/">![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=plastic&logo=postgresql&logoColor=white) </a>
+<a href="https://expressjs.com/">![Express](https://img.shields.io/badge/Express.js-404D59?style=plastic) </a>
+<a href="https://www.prisma.io/">![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=plastic&logo=Prisma&logoColor=white) </a>
+</br>
 
-First, run the development server:
+<a href="https://git-scm.com/">![Git](https://img.shields.io/badge/git-%23F05033.svg?style=plastic&logo=git&logoColor=white) </a>
+<a href="">![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=plastic&logo=github&logoColor=white) </a>
+<a href="">![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=plastic&logo=discord&logoColor=white) </a>
+<a href="">![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=plastic&logo=notion&logoColor=white) </a> 
+🌈Frontend<a href="https://ghost111789.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog ">![Jira](https://img.shields.io/badge/jira-%230A0FFF.svg?style=plastic&logo=jira&logoColor=white) </a> 
+🍁Backend<a href="https://ghost111789.atlassian.net/jira/software/projects/T2/boards/2/backlog?selectedIssue=T2-1">![Jira](https://img.shields.io/badge/jira-%230A0FFF.svg?style=plastic&logo=jira&logoColor=white) </a>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+ [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FJin-coding-333%2F3-my_favorite_photo-2team-fe&count_bg=%23C4C4C4&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=githubCount&edge_flat=false)](https://hits.seeyoufarm.com)
+ 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀프로젝트 소개
+  **최애의 포토📸🤍**
+  </br> </br> 개인용 디지털 사진첩 생성 플랫폼
+  </br> </br>`최애의 포토`는 디지털 시대의 새로운 수집 문화를 선도하는 플랫폼입니다. 자신이 좋아하는 아이돌이나 스포츠 스타, 그림 등 디지털 포토카드를 손쉽게 사고팔 수 있는 공간으로, 특별한 커뮤니티를 제공합니다. </br> 이제는 좋아하는 포토카드를 실제로 모으는 것뿐만 아니라, 디지털 자산으로 소장하며 나만의 컬렉션을 완성할 수 있습니다. 서로의 포토카드를 교환하고, 나만의 포토카드를 자랑하는 재미와 함께 상호 교류도 즐길 수 있는 플랫폼, "최애의 포토"에서 만나보세요!
+</br> </br>
+  ### 🗓 프로젝트 기간 </br>
+  **2024.12.27 ~ 2025.01.21**
+</br> </br>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 🙍‍♂️팀원 구성
+_클릭시 해당 깃허브링크로 이동합니다._  </br>
+</br> **[배진한(팀장)](https://github.com/Jin-coding-333)** 
+&nbsp; **[김태훈](https://github.com/Zero5338)**
+&nbsp; **[김현묵](https://github.com/kimhyunmook)**
+&nbsp; **[배호근](https://github.com/BaeHG)**
+&nbsp; **[전준기](https://github.com/JeonJun02)**
+&nbsp; **[최종훈](https://github.com/jonghun4)**
+&nbsp; **[최혜지](https://github.com/heziss)** 
+</br> </br>
+  
+## 📃팀원별 구현 기능 상세
+**배진한(팀장)**
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+</br>**김태훈**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+</br>**김현묵**
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+</br>**배호근**
 
-## Learn More
+</br>**전준기**
 
-To learn more about Next.js, take a look at the following resources:
+</br>**최종훈**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+</br>**최혜지**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+</br>
 
-## Deploy on Vercel
+## 📂파일 구조
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 💻구현 홈페이지
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📌프로젝트 회고록

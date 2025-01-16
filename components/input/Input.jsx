@@ -8,6 +8,7 @@ export default function Input({
   onChange,
   type = 'text',
   inputClassName = '',
+  className,
   passwordToCompare,
   ...props
 }) {
@@ -77,7 +78,7 @@ export default function Input({
   const getDefaultPlaceholder = () => defaultPlaceholders[type] || placeHolder;
 
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${className}`}>
       <span className={styles.label}>{getDefaultLabel()}</span>
       <div className={styles['input-container']}>
         <input

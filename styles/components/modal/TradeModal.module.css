@@ -1,0 +1,25 @@
+.tradeModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right {
+  max-width: 440px;
+}
+.tradeModal .right .offer {
+  width: 100%;
+}
+.btnArea {
+  width: 100%;
+  display: flex;
+  margin-top: 60px;
+}
+
+.btn {
+  width: 100%;
+  height: 60px;
+}
+.btn:first-child {
+  margin-right: 20px;
+}
