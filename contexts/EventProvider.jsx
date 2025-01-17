@@ -1,33 +1,37 @@
 import PointModal from '@/components/modal/PointModal';
 import { pointChkEventApi } from '@/lib/api/user/eventApi';
 import { oneHour } from '@/lib/data/time';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, use, useContext, useEffect, useState } from 'react';
 import { useAuth } from './AuthProvier';
 import { useQuery } from '@tanstack/react-query';
 
 const EventContext = createContext(null);
 
 export function EventProvider({ children, token }) {
-  const { isPending } = useAuth();
   const [open, setOpen] = useState(true);
 
   const {
     data: event,
     isFetched,
+    isPending,
     refetch,
     isStale,
   } = useQuery({
-    queryKey: ['event', open],
+    queryKey: ['event'],
     queryFn: pointChkEventApi,
     enabled: !!token,
-    staleTime: 60 * 1000 * 10,
+    staleTime: oneHour,
   });
+  useEffect(() => {
+    if (isFetched) {
+      setOpen(event);
+      console.log(event);
+    }
+  }, []);
 
   useEffect(() => {
-    if (isFetched) setOpen(event);
     if (isStale && token) {
-      setOpen(event);
-
+      setOpen(true);
       refetch();
     }
   }, [isStale]);
@@ -36,15 +40,6 @@ export function EventProvider({ children, token }) {
     <EventContext.Provider value={{}}>
       <PointModal refetch={refetch} isPending={isPending} open={open}></PointModal>
       {children}
-
-      <button
-        style={{ fontSize: '30px', color: '#fff' }}
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
-        ddddd
-      </button>
     </EventContext.Provider>
   );
 }

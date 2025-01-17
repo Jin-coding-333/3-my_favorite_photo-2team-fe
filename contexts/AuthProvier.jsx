@@ -49,6 +49,8 @@ export function AuthProvider({ children }) {
       console.log('logout');
       localStorage.clear('token');
       setToken(null);
+      refetch();
+
       router.refresh();
     }
   }

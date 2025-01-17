@@ -18,7 +18,6 @@ function ShopCreate() {
     grade: '',
     genre: '',
     price: '',
-    // remainingQuantity: 0,
     totalQuantity: '',
     imagePath: '',
     description: '',

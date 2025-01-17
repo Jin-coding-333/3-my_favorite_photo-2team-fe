@@ -9,7 +9,7 @@ export default function PointModal({ open, refetch, isPending }) {
   const [isOpen, setIsOpen] = useState(open === false);
   //모달 열기 함수
   const openModal = () => {
-    setIsOpen(!open);
+    setIsOpen(!!!open);
   };
   useEffect(() => {
     openModal();
