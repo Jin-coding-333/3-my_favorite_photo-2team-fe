@@ -11,7 +11,7 @@ import Modal from '@/components/modal/Modal.jsx';
 
 export default function PhotoCardDetails() {
   const { user } = useAuth();
-  const [pageType, setPageType] = useState('sell'); //데이터없어서 임시로
+  const [pageType, setPageType] = useState('buy'); //데이터없어서 임시로
   const [photoCardData, setPhotoCardData] = useState([]); //백엔드 연동되면 []없애기
   const [exchangeMessage, setExchangeMessage] = useState('');
 
