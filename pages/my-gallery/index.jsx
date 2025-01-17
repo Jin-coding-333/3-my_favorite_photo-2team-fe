@@ -1,4 +1,5 @@
 import Button from '@/components/button/Button';
+import PhotocardList from '@/components/pages/market-place/PhotocardList';
 import MyGallerySearch from '@/components/pages/SearchSortComponent/MyGallerySearch';
 import CardCountStatus from '@/components/title/CardCountStatus';
 import Title from '@/components/title/Title';
@@ -23,6 +24,7 @@ export default function MyGallery() {
         <CardCountStatus page='myGallery'/>
 
         <MyGallerySearch />
+        <PhotocardList />
       </PageLayout>
       <div className={styles.buttonStyle}>
         <Button className={styles.fixedButton} type="primary" onClick={() => alert('생성하기')}>
