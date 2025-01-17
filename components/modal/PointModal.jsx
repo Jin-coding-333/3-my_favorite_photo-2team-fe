@@ -3,8 +3,8 @@ import styles from '@/styles/components/modal/PointModal.module.css';
 import { pointEventApi } from '@/lib/api/user/eventApi';
 import { useAuth } from '@/contexts/AuthProvier';
 
-export default function PointModal({ open, isPending }) {
-  const { refetch } = useAuth();
+export default function PointModal({ open, refetch, isPending }) {
+  const { refetch: userRefetch } = useAuth();
   //모달 상태 관리
   const [isOpen, setIsOpen] = useState(open === false);
   //모달 열기 함수
@@ -16,14 +16,20 @@ export default function PointModal({ open, isPending }) {
   }, [open]);
 
   //모달 닫기 함수
-  const closeModal = () => {
-    setIsOpen(false);
+  const closeModal = async () => {
+    const result = await pointEventApi();
+    if (result) {
+      setIsOpen(false);
+      userRefetch();
+      refetch();
+    }
   };
 
   const pointEvent = async () => {
     const result = await pointEventApi();
     if (result) {
       setIsOpen(false);
+      userRefetch();
       refetch();
     }
   };
