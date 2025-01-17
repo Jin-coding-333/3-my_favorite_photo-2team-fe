@@ -8,37 +8,11 @@ import { useQuery } from '@tanstack/react-query';
 const EventContext = createContext(null);
 
 export function EventProvider({ children, token }) {
-  const [open, setOpen] = useState(true);
-
-  const {
-    data: event,
-    isFetched,
-    isPending,
-    refetch,
-    isStale,
-  } = useQuery({
-    queryKey: ['event'],
-    queryFn: pointChkEventApi,
-    enabled: !!token,
-    staleTime: oneHour,
-  });
-  useEffect(() => {
-    if (isFetched) {
-      setOpen(event);
-      console.log(event);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isStale && token) {
-      setOpen(true);
-      refetch();
-    }
-  }, [isStale]);
+  const [open, setOpen] = useState(false);
 
   return (
     <EventContext.Provider value={{}}>
-      <PointModal refetch={refetch} isPending={isPending} open={open}></PointModal>
+      <PointModal open={open}></PointModal>
       {children}
     </EventContext.Provider>
   );
