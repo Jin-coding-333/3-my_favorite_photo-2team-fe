@@ -3,57 +3,48 @@ import { pointChkEventApi } from '@/lib/api/user/eventApi';
 import { oneHour } from '@/lib/data/time';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useAuth } from './AuthProvier';
+import { useQuery } from '@tanstack/react-query';
 
 const EventContext = createContext(null);
 
 export function EventProvider({ children, token }) {
-  const { refetch, isPending } = useAuth();
+  const { isPending } = useAuth();
   const [open, setOpen] = useState(true);
-  async function chk() {
-    const chk = await pointChkEventApi();
-    setOpen(chk);
-  }
 
-  function everyHour() {
-    const now = new Date();
+  const {
+    data: event,
+    isFetched,
+    refetch,
+    isStale,
+  } = useQuery({
+    queryKey: ['event', open],
+    queryFn: pointChkEventApi,
+    enabled: !!token,
+    staleTime: 60 * 1000 * 10,
+  });
 
-    // 다음 정각까지 남은 시간 계산 (밀리초 단위)
-    const nextHour = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate(),
-      now.getHours() + 1,
-      0,
-      0,
-      0,
-    );
-    const timeToNextHour = nextHour - now;
-    const setTime = oneHour;
-
-    // 다음 정각에 실행
-    setTimeout(() => {
-      console.log(`Event Start`);
-
-      // 이후 매시간 정각마다 실행
-      setInterval(() => {
-        console.log(`Event Triger`);
-        pointChkEventApi().then((res) => {
-          setOpen(res);
-          refetch();
-        });
-        console.log(`Event: ${new Date().toISOString()}`);
-      }, setTime + 3000);
-    }, timeToNextHour);
-  }
   useEffect(() => {
-    chk();
-    if (token) everyHour();
-  }, []);
+    if (isFetched) setOpen(event);
+    if (isStale && token) {
+      setOpen(event);
+
+      refetch();
+    }
+  }, [isStale]);
 
   return (
-    <EventContext.Provider value={{ everyHour }}>
-      <PointModal isPending={isPending} open={open}></PointModal>
+    <EventContext.Provider value={{}}>
+      <PointModal refetch={refetch} isPending={isPending} open={open}></PointModal>
       {children}
+
+      <button
+        style={{ fontSize: '30px', color: '#fff' }}
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
+        ddddd
+      </button>
     </EventContext.Provider>
   );
 }
