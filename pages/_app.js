@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>최애의포토</title>
-        <link rel="icon" href="/favicon/size=64.png" />
+        <link rel="icon" href="/favicon/favicon.png" />
         <meta name="description" content="안녕하세요 최애의 포토입니다." />
       </Head>
       <Provider>
