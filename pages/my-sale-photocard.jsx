@@ -1,4 +1,4 @@
-import PhotocardList from '@/components/pages/market-place/PhotocardList';
+import PhotocardList from '@/components/pages/PhotocardList';
 import PhotoCardSaleSearch from '@/components/pages/SearchSortComponent/PhotoCardSaleSearch';
 import CardCountStatus from '@/components/title/CardCountStatus';
 import Title from '@/components/title/Title';
@@ -11,7 +11,7 @@ export default function MySalePhotocard() {
         <Title title="나의 판매 포토카드" size="L" variant="secondaryTitle" />
         <CardCountStatus page='mySalePhotocard' />
         <PhotoCardSaleSearch />
-        <PhotocardList />
+        <PhotocardList page='mySalePhotocard' />
       </PageLayout>
     </>
   );
