@@ -20,7 +20,7 @@ export function EventProvider({ children, token }) {
     queryKey: ['event', open],
     queryFn: pointChkEventApi,
     enabled: !!token,
-    staleTime: 60 * 1000,
+    staleTime: 60 * 1000 * 10,
   });
 
   useEffect(() => {
