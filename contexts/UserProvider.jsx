@@ -33,7 +33,7 @@ export function UserProvider({ children, token = null }) {
     if (check) {
       return alert('값을 전부 입력해주세요.');
     }
-    const addUser = { ...body, userId: user.user.id };
+    const addUser = { ...body, userId: user.id };
     const create = await createCards(addUser);
     if (create) {
       await cardRefetch();
