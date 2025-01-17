@@ -35,7 +35,6 @@ export default function Header() {
           {currentUrl !== '/market-place' ?
             <HeaderGoBack currentUrl={currentUrl} /> :
             null}
-          
           <div
             className={styles.headerMenu}
             style={{
@@ -64,7 +63,6 @@ export default function Header() {
           </Link>
 
           {isUser ? <HeaderUserInfo point={isUser.point} nickName={isUser.nickName} /> : <HeaderNoneUser />}
-
         </div>
       </div>
     </header>
