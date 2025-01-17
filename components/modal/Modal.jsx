@@ -10,7 +10,8 @@ export default function Modal({ isOpen, onClose, onConfirm, type, cardId }) {
     if (isOpen && cardId) {
       const fetchCardData = async () => {
         try {
-          const response = await axios.get(`/api/shop/cards/${cardId}`);
+          const shopId = 1;
+          const response = await axios.get(`http://localhost:10000/api/shop/cards/${shopId}`);
           setCardData(response.data);
         } catch (error) {
           console.error('오류가 발생했습니다.', error);
@@ -23,9 +24,9 @@ export default function Modal({ isOpen, onClose, onConfirm, type, cardId }) {
   if (!isOpen) return null;
 
   const selectedModal = modalTypes[type] || {
-    title: '',
-    message: '',
-    confirmButtonText: '',
+    title: '알림',
+    message: '정의되지 않은 동작입니다.',
+    confirmButtonText: '닫기',
   };
 
   const title = selectedModal.title;
@@ -80,7 +81,7 @@ export const modalTypes = {
   },
   buyPhotoCard: {
     title: '포토카드 구매',
-    message: ({ grade, name, count }) => `[${grade} | ${name}] ${count || 1}장을 구매하시겠습니까?`,
+    message: ({ grade, name, count = 1 }) => `[${grade} | ${name}] ${count}장을 구매하시겠습니까?`,
     confirmButtonText: '구매하기',
   },
   stopSelling: {

@@ -12,47 +12,29 @@ import Modal from '@/components/modal/Modal.jsx';
 export default function PhotoCardDetails() {
   const { user } = useAuth();
   const [pageType, setPageType] = useState('buy'); //데이터없어서 임시로
-  const [photoCardData, setPhotoCardData] = useState([]); //백엔드 연동되면 []없애기
+  const [photoCardData, setPhotoCardData] = useState();
   const [exchangeMessage, setExchangeMessage] = useState('');
+  const imgPath = response.data.card.imagePath;
 
   useEffect(() => {
     const PhotoCardData = async () => {
       try {
-        const mockData = [
-          {
-            id: '1',
-            grade: 'COMMON',
-            genre: '풍경',
-            imagePath: 'https://via.placeholder.com/150',
-            description: '여름 풍경 사진',
-          },
-          {
-            id: '2',
-            grade: 'RARE',
-            genre: '여행',
-            imagePath: 'https://via.placeholder.com/150',
-            description: '여행의 즐거움',
-          },
-        ];
-        setPhotoCardData(mockData);
-        setExchangeMessage(mockData[0].description);
+        const shopId = 1;
+        const response = await axios.get(`http://localhost:10000/api/shop/cards/${shopId}`);
+        console.log(response.data.card.imagePath);
+        setPhotoCardData(response.data.card);
+
+        if (response.data.card && Array.isArray(response.data.card)) {
+          if (response.data.card.length > 0) {
+            setExchangeMessage(response.data.card[0].description);
+          }
+          const isOwner = response.data.card.some((card) => card.userId === user.id);
+          setPageType(isOwner ? 'sell' : 'buy');
+        }
       } catch (error) {
         console.error('오류가 발생하였습니다', error);
       }
     };
-
-    //백엔드 연동되면 위에 mock데이터 제거 후 아래 코드 살리기
-    //       const response = await axios.get('/api/shop/cards/${shopId}');
-    //       setPhotoCardData(response.data);
-    // if (response.data.length > 0) {
-    //   setExchangeMessage(response.data[0].description);
-    // }
-    //       const isOwner = response.data.some((card) => card.userId === user.id);
-    //       setPageType(isOwner ? 'sell' : 'buy');
-    //     } catch (error) {
-    //       console.error('오류가 발생하였습니다', error);
-    //     }
-    //   };
 
     PhotoCardData();
   }, [user]);
@@ -68,7 +50,7 @@ export default function PhotoCardDetails() {
       {Seller && (
         <>
           <div className={styles.centerContent}>
-            <Image className={styles.cardImg} src={''} alt="포토카드 이미지" />
+            <Image className={styles.cardImg} src={imgPath} alt="포토카드 이미지" />
 
             <Card
               className={styles.Card}
@@ -80,9 +62,12 @@ export default function PhotoCardDetails() {
           </div>
           <Title className={styles.title} title="교환 제시 목록" size="L" />
           <div className={styles.Tradelist}>
-            {photoCardData.slice(0, 2).map((data) => (
-              <PhotoCard key={data.id} cardType="exchange" isSoldOut={false} data={data} />
-            ))}
+            {Array.isArray(photoCardData) &&
+              photoCardData
+                .slice(0, 2)
+                .map((data) => (
+                  <PhotoCard key={data.id} cardType="exchange" isSoldOut={false} data={data} />
+                ))}
           </div>
         </>
       )}
@@ -90,7 +75,7 @@ export default function PhotoCardDetails() {
       {Buyer && (
         <>
           <div className={styles.centerContent}>
-            <Image className={styles.cardImg} src={''} alt="포토카드 이미지" />
+            <Image className={styles.cardImg} src={imgPath} alt="포토카드 이미지" />
             <Card
               className={styles.Card}
               type="buy"
