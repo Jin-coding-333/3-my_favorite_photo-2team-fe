@@ -1,26 +1,40 @@
-import React, { useState } from 'react';
-import styles from '@/styles/components/PointModal.module.css';
+import React, { useEffect, useState } from 'react';
+import styles from '@/styles/components/modal/PointModal.module.css';
+import { pointEventApi } from '@/lib/api/user/eventApi';
+import { useAuth } from '@/contexts/AuthProvier';
 
-export default function PointModal() {
+export default function PointModal({ open, isPending }) {
+  const { refetch } = useAuth();
   //모달 상태 관리
-  const [isOpen, setIsOpen] = useState(false);
-
+  const [isOpen, setIsOpen] = useState(open === false);
   //모달 열기 함수
   const openModal = () => {
-    setIsOpen(true);
+    setIsOpen(!open);
   };
+  useEffect(() => {
+    openModal();
+  }, [open]);
 
   //모달 닫기 함수
   const closeModal = () => {
     setIsOpen(false);
   };
 
+  const pointEvent = async () => {
+    const result = await pointEventApi();
+    if (result) {
+      setIsOpen(false);
+      refetch();
+    }
+  };
+
+  if (isPending) return null;
   return (
     <div>
       {/* 모달 열기 임시 버튼  */}
-      <button onClick={openModal}>모달 열기</button>
+      {/* <button onClick={openModal}>모달 열기</button> */}
 
-      {isOpen !== undefined && isOpen && (
+      {isOpen && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             {/* 모달 내부 클릭은 닫히지 않도록 설정 */}
@@ -31,7 +45,7 @@ export default function PointModal() {
               랜덤<span className={styles.highlight}>포인트</span>
             </h2>
             <p className={styles.description}>
-              1시간마다 돌아오는 기회!
+              매 시간 정각마다 돌아오는 기회!
               <br />
               랜덤 상자 뽑기를 통해 포인트를 획득하세요!
             </p>
@@ -40,9 +54,24 @@ export default function PointModal() {
             </p>
             <div className={styles.giftContainer}>
               {/* 이미지를 클릭하면 포인트를 획득. 으로 수정 */}
-              <img src="/random_box/box1.png" alt="randomBox1" className={styles.boxImg} />
-              <img src="/random_box/box2.png" alt="randomBox2" className={styles.boxImg} />
-              <img src="/random_box/box3.png" alt="randomBox3" className={styles.boxImg} />
+              <img
+                src="/random_box/box1.png"
+                alt="randomBox1"
+                className={styles.boxImg}
+                onClick={pointEvent}
+              />
+              <img
+                src="/random_box/box2.png"
+                alt="randomBox2"
+                className={styles.boxImg}
+                onClick={pointEvent}
+              />
+              <img
+                src="/random_box/box3.png"
+                alt="randomBox3"
+                className={styles.boxImg}
+                onClick={pointEvent}
+              />
             </div>
           </div>
         </div>

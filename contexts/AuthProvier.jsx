@@ -1,4 +1,4 @@
-import { loginApi, getUser, logoutApi, refresh } from '@/lib/api/auth/authApi';
+import { loginApi, getUser, logoutApi, refresh, signupApi } from '@/lib/api/auth/authApi';
 import useLocalStorage from '@/lib/hooks/useLocalStorige';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
@@ -33,37 +33,47 @@ export function AuthProvider({ children }) {
   }, [token, isStale]);
 
   async function login({ email, password }) {
-    console.log('login');
     const response = await loginApi({ email, password });
     if (!!response && response.success) {
+      console.log('login');
       setToken(localStorages.set('token', response.accessToken, expire));
       router.push('/');
       return;
     }
     alert('id 또는 password를 확인해주세요');
   }
+
   async function logout() {
-    console.log('logout');
     const response = await logoutApi();
     if (response.success) {
+      console.log('logout');
       localStorage.clear('token');
       setToken(null);
       router.refresh();
     }
   }
+
   async function refreshToken() {
     if (!!token) return null;
     const response = await refresh();
     if (!!response && response.success) {
-      console.log('refresh');
       setToken(localStorages.set('token', response.accessToken, expire));
       await refetch();
     }
   }
 
-  async function signup(body = { email: '', password: '', nickName: '' }) {}
+  async function signup(body = { email: '', password: '', nickName: '' }) {
+    const signup = await signupApi(body);
+    if (signup.success) {
+      router.push('/login');
+    }
+    alert(signup.msg);
+  }
+
   return (
-    <AuthContext.Provider value={{ user, login, logout, isPending, refreshToken, signup }}>
+    <AuthContext.Provider
+      value={{ user: user?.user, login, logout, isPending, refreshToken, signup, refetch }}
+    >
       {children}
     </AuthContext.Provider>
   );
