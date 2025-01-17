@@ -15,7 +15,7 @@ export function UserProvider({ children, token = null }) {
     refetch: cardRefetch,
     isPending: card_isPending,
   } = useQuery({
-    queryKey: ['cards', token],
+    queryKey: ['myCards', token],
     queryFn: getCards,
     // enabled: !!token,
     staleTime: oneHour,
@@ -33,7 +33,7 @@ export function UserProvider({ children, token = null }) {
     if (check) {
       return alert('값을 전부 입력해주세요.');
     }
-    const addUser = { ...body, userId: user.user.id };
+    const addUser = { ...body, userId: user.id };
     const create = await createCards(addUser);
     if (create) {
       await cardRefetch();
@@ -43,7 +43,7 @@ export function UserProvider({ children, token = null }) {
   }
 
   return (
-    <UserContext.Provider value={{ cards: cards?.data, cardCreate, card_isPending }}>
+    <UserContext.Provider value={{ myCards: cards?.data, cardCreate, card_isPending }}>
       {children}
     </UserContext.Provider>
   );
