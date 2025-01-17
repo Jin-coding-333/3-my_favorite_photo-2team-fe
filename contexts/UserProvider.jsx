@@ -15,7 +15,7 @@ export function UserProvider({ children, token = null }) {
     refetch: cardRefetch,
     isPending: card_isPending,
   } = useQuery({
-    queryKey: ['cards', token],
+    queryKey: ['myCards', token],
     queryFn: getCards,
     // enabled: !!token,
     staleTime: oneHour,
@@ -43,7 +43,7 @@ export function UserProvider({ children, token = null }) {
   }
 
   return (
-    <UserContext.Provider value={{ cards: cards?.data, cardCreate, card_isPending }}>
+    <UserContext.Provider value={{ myCards: cards?.data, cardCreate, card_isPending }}>
       {children}
     </UserContext.Provider>
   );

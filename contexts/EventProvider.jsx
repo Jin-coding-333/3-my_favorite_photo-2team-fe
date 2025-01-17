@@ -42,8 +42,8 @@ export function EventProvider({ children, token }) {
           refetch();
         });
         console.log(`Event: ${new Date().toISOString()}`);
-      }, setTime + 3000);
-    }, timeToNextHour);
+      }, 5000);
+    }, 100);
   }
   useEffect(() => {
     chk();
@@ -54,6 +54,15 @@ export function EventProvider({ children, token }) {
     <EventContext.Provider value={{ everyHour }}>
       <PointModal isPending={isPending} open={open}></PointModal>
       {children}
+
+      <button
+        style={{ fontSize: '30px', color: '#fff' }}
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
+        ddddd
+      </button>
     </EventContext.Provider>
   );
 }
