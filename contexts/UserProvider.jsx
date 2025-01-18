@@ -34,8 +34,8 @@ export function UserProvider({ children, token = null }) {
       return alert('값을 전부 입력해주세요.');
     }
     const addUser = { ...body, userId: user.id };
-    const create = await createCards(addUser);
-    if (create) {
+    const result = await createCards(addUser);
+    if (result) {
       await cardRefetch();
       router.push('/');
       alert('카드를 생성했습니다.');

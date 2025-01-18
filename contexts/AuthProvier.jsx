@@ -1,12 +1,11 @@
 import { loginApi, getUser, logoutApi, refresh, signupApi } from '@/lib/api/auth/authApi';
+import { oneHour } from '@/lib/data/time';
 import useLocalStorage from '@/lib/hooks/useLocalStorige';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { createContext, useContext, useEffect, useState } from 'react';
 
 const AuthContext = createContext(null);
-
-const expire = 60 * 60 * 1000;
 
 export function AuthProvider({ children }) {
   const router = useRouter();
@@ -15,13 +14,14 @@ export function AuthProvider({ children }) {
   const {
     data: user,
     isPending,
+    isLoading,
     refetch,
     isStale,
   } = useQuery({
     queryKey: ['user', token],
     queryFn: getUser,
     enabled: !!token,
-    staleTime: expire,
+    staleTime: oneHour,
   });
 
   useEffect(() => {
@@ -32,11 +32,13 @@ export function AuthProvider({ children }) {
     }
   }, [token, isStale]);
 
+  if (isLoading) return null;
+
   async function login({ email, password }) {
     const response = await loginApi({ email, password });
     if (!!response && response.success) {
       console.log('login');
-      setToken(localStorages.set('token', response.accessToken, expire));
+      setToken(localStorages.set('token', response.accessToken, oneHour));
       router.push('/');
       return;
     }
@@ -49,6 +51,7 @@ export function AuthProvider({ children }) {
       console.log('logout');
       localStorage.clear('token');
       setToken(null);
+      refetch();
       router.refresh();
     }
   }
@@ -57,7 +60,7 @@ export function AuthProvider({ children }) {
     if (!!token) return null;
     const response = await refresh();
     if (!!response && response.success) {
-      setToken(localStorages.set('token', response.accessToken, expire));
+      setToken(localStorages.set('token', response.accessToken, oneHour));
       await refetch();
     }
   }
@@ -70,9 +73,17 @@ export function AuthProvider({ children }) {
     alert(signup.msg);
   }
 
+  async function authChk() {
+    if (isPending) throw null;
+    if (!!!user) {
+      alert('로그인 필요');
+      router.push('/login');
+    }
+  }
+
   return (
     <AuthContext.Provider
-      value={{ user: user?.user, login, logout, isPending, refreshToken, signup, refetch }}
+      value={{ user: user?.user, login, logout, refreshToken, isPending, signup, refetch, authChk }}
     >
       {children}
     </AuthContext.Provider>
