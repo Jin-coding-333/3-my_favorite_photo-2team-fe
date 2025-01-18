@@ -3,11 +3,13 @@ import styles from '@/styles/components/modal/PointModal.module.css';
 import { pointEventApi } from '@/lib/api/user/eventApi';
 import { useAuth } from '@/contexts/AuthProvier';
 import { startOneHourTimer } from '@/lib/data/time';
+import { eventChk } from '@/lib/api/user/eventApi';
 
-export default function PointModal({ open = true, refetch }) {
+export default function PointModal({ open = true }) {
   const { refetch: userRefetch, user, isPending } = useAuth();
 
-  if (isPending) return null;
+  if (isPending || !user) return null;
+
   const { event } = user;
 
   //모달 상태 관리
@@ -18,7 +20,6 @@ export default function PointModal({ open = true, refetch }) {
     setIsOpen(true);
   };
   useEffect(() => {
-    console.log(event);
     startOneHourTimer(event, setText, async () => {
       const reEvent = await eventChk();
       userRefetch();
@@ -26,6 +27,7 @@ export default function PointModal({ open = true, refetch }) {
       setIsOpen(true);
     });
   }, []);
+
   //모달 닫기 함수
   const closeModal = async () => {
     const result = await pointEventApi();
@@ -33,7 +35,6 @@ export default function PointModal({ open = true, refetch }) {
       alert('자동으로 점수가 반영됩니다.');
       setIsOpen(false);
       userRefetch();
-      refetch();
     }
   };
 
@@ -42,7 +43,6 @@ export default function PointModal({ open = true, refetch }) {
     if (result) {
       setIsOpen(false);
       userRefetch();
-      refetch();
     }
   };
 
