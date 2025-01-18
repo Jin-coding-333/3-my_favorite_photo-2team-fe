@@ -60,7 +60,7 @@ export function AuthProvider({ children }) {
     if (!!token) return null;
     const response = await refresh();
     if (!!response && response.success) {
-      setToken(localStorages.set('token', response.accessToken, expire));
+      setToken(localStorages.set('token', response.accessToken, oneHour));
       await refetch();
     }
   }
