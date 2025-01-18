@@ -3,7 +3,7 @@ import Title from '@/components/title/Title';
 import PageLayout from '@/layout/PageLayout';
 import styles from '@/styles/pages/MarketPlace.module.css';
 import MarketPlaceSearch from '@/components/pages/SearchSortComponent/MarketPlaceSearch';
-import PhotocardList from '@/components/pages/PhotocardList';
+import PhotocardList from '@/components/pages/market-place/PhotocardList';
 
 export default function MarketPlace() {
   return (
@@ -20,7 +20,7 @@ export default function MarketPlace() {
           />
         </div>
         <MarketPlaceSearch />
-        <PhotocardList page='marketPlace' />
+        <PhotocardList />
       </PageLayout>
       <div className={styles.buttonStyle}>
         <Button className={styles.fixedButton} type="primary" onClick={() => alert('생성하기')}>
