@@ -7,8 +7,9 @@ import useIsMobileView from '@/lib/hooks/useIsMobileView';
 export default function PhotoCard({ cardType, isSoldOut, data }) {
   // data.title 이렇게 가져올 수 있게
   // 데이터 예시
-  const imgUrl = '/img/image1.png';
-  const title = '우리집 앞마당';
+  console.log('data', data);
+  const imgUrl = data.imagePath;
+  const title = data.name;
   const user = '미쓰손';
   const grade = 'RARE';
   const genre = '여행';
