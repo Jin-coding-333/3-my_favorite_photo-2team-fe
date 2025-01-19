@@ -6,20 +6,20 @@ import Button from '@/components/button/Button.jsx';
 export default function Modal({ isOpen, onClose, onConfirm, type, cardId }) {
   const [cardData, setCardData] = useState();
 
-  useEffect(() => {
-    if (isOpen && cardId) {
-      const fetchCardData = async () => {
-        try {
-          const shopId = 1;
-          const response = await axios.get(`http://localhost:10000/api/shop/cards/${shopId}`);
-          setCardData(response.data);
-        } catch (error) {
-          console.error('오류가 발생했습니다.', error);
-        }
-      };
-      fetchCardData();
-    }
-  }, [isOpen, cardId]);
+  // useEffect(() => {
+  //   if (isOpen && cardId) {
+  //     const fetchCardData = async () => {
+  //       try {
+  //         const shopId = 1;
+  //         const response = await axios.get(`http://localhost:10000/api/shop/cards/${shopId}`);
+  //         setCardData(response.data);
+  //       } catch (error) {
+  //         console.error('오류가 발생했습니다.', error);
+  //       }
+  //     };
+  //     fetchCardData();
+  //   }
+  // }, [isOpen, cardId]);
 
   if (!isOpen) return null;
 

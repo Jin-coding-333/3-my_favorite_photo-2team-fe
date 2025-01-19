@@ -1,39 +1,45 @@
 import React, { useState } from 'react';
-import Modal from '@/components/modal/Modal.jsx'; // Modal 컴포넌트의 경로를 올바르게 설정하세요.
+import Modal, { modalTypes } from '@/components/modal/Modal.jsx';
 
 export default function ModalExample() {
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [selectedCardId, setSelectedCardId] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [modalType, setModalType] = useState('');
+  const mockCardData = {
+    grade: 'RARE',
+    name: 'Sunset Landscape',
+    count: 2,
+  };
 
-  const handleOpenModal = (cardId) => {
-    setSelectedCardId(cardId); // 선택된 카드의 ID 설정
-    setModalOpen(true); // 모달 열기
+  const handleOpenModal = (type) => {
+    setModalType(type);
+    setIsOpen(true);
   };
 
   const handleCloseModal = () => {
-    setModalOpen(false); // 모달 닫기
-    setSelectedCardId(null); // 선택된 카드 초기화
+    setIsOpen(false);
   };
 
-  const handleConfirm = () => {
-    console.log('모달 확인 버튼 클릭');
-    handleCloseModal(); // 모달 닫기
+  const handleConfirmAction = () => {
+    console.log(`${modalType} confirmed!`);
+    setIsOpen(false);
   };
 
   return (
     <div>
-      <h1>포토카드 모달 테스트</h1>
-      <button onClick={() => handleOpenModal(1)}>포토카드 1 상세 보기</button>
-      <button onClick={() => handleOpenModal(2)}>포토카드 2 상세 보기</button>
-      <button onClick={() => handleOpenModal(3)}>포토카드 3 상세 보기</button>
+      <h1>Modal Example</h1>
+      <button onClick={() => handleOpenModal('login')}>로그인 모달</button>
+      <button onClick={() => handleOpenModal('exchangeApproval')}>교환 제시 승인</button>
+      <button onClick={() => handleOpenModal('exchangeRejection')}>교환 제시 거절</button>
+      <button onClick={() => handleOpenModal('exchangeCancel')}>교환 제시 취소</button>
+      <button onClick={() => handleOpenModal('buyPhotoCard')}>포토카드 구매</button>
+      <button onClick={() => handleOpenModal('stopSelling')}>포토카드 판매 내리기</button>
 
-      {/* 모달 컴포넌트 */}
       <Modal
-        isOpen={isModalOpen}
+        isOpen={isOpen}
         onClose={handleCloseModal}
-        onConfirm={handleConfirm}
-        type="buyPhotoCard"
-        cardId={selectedCardId}
+        onConfirm={handleConfirmAction}
+        type={modalType}
+        cardId={1} // 현재 mock 데이터로 처리
       />
     </div>
   );
