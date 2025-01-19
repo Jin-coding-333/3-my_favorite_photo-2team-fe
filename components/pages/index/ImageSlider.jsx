@@ -8,7 +8,7 @@ const ImageSlider = () => {
     '/img/image1.png',
     '/img/image2.png',
     '/img/image3.png',
-    '/img/image.jpg',
+    '/img/image_mount.jpg',
   ];
 
   // react-slick의 설정
