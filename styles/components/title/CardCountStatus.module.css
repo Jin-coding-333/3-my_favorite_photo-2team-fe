@@ -1,10 +1,12 @@
 .containerBox {
   padding: 40px 0;
   border-bottom: 1px solid var(--gray-400);
+  overflow-x: hidden;
+  white-space: nowrap;
 }
 
 .titleBox {
-  display: flex;
+  display: inline-flex;
 }
 
 .title {
@@ -95,7 +97,7 @@
   }
 
   .currentGradeContainerBox {
-    margin-top: 10px; 
+    margin-top: 10px;
   }
 
   .gradeBox {

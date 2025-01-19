@@ -1,0 +1,79 @@
+.page404Container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page404Box {
+  width: 1500px;
+  height: 600PX;
+  background-color: white;
+}
+
+.title2 {
+  font-size: 100px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonStyle {
+  max-width: 600px;
+  height: 70px;
+  margin-top: 80px;
+  border-radius: 10px;
+  font-size: 20px !important;
+}
+
+@media screen and (max-width: 1500px) {
+  .page404Box {
+    width: 1000px;
+    height: 400px;
+  }
+
+  .title2 {
+    font-size: 80px;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .page404Box {
+    width: 600px;
+    height: 400px;
+  }
+
+  .title2 {
+    font-size: 60px;
+    margin-top: 50px;
+  }
+
+  .buttonStyle {
+    max-width: 500px;
+    height: 60px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .page404Box {
+    width: 400px;
+    height: 200px;
+  }
+
+  .title2 {
+    font-size: 40px;
+    margin-top: 50px;
+  }
+
+  .buttonStyle {
+    max-width: 250px;
+    height: 40px;
+    margin-top: 20px;
+    font-size: 10px !important;
+  }
+}

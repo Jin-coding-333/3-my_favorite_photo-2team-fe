@@ -8,9 +8,10 @@ import ForSaleChip from './meta/ForSaleChip';
 export default function PhotoCard({ cardType, isSoldOut, data }) {
   // data.title 이렇게 가져올 수 있게
   // 데이터 예시
-  const imagePath = '/img/image1.png';
-  const name = '우리집 앞마당';
-  const username = '미쓰손';
+  console.log('data', data);
+  const imgUrl = data.imagePath;
+  const title = data.name;
+  const user = '미쓰손';
   const grade = 'RARE';
   const genre = '여행';
   const price = '4';

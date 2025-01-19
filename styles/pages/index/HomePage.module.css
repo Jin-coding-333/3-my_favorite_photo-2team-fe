@@ -1,0 +1,169 @@
+.container {
+  width: 100%;
+  height: 1800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.containBox {
+  width: 1200px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoBox{
+  position: relative;
+  bottom: 200px;
+}
+
+.titleBox {
+  width: 700px;
+  height: 500px;
+  margin-top: 50px;
+}
+
+.title1 {
+  font-size: 70px;
+}
+
+.title2 {
+  font-size: 100px;
+  margin-top: 10px;
+  width: 900px;
+}
+
+.mainColor {
+  color: var(--main);
+}
+
+.button {
+  display: inline-block;
+  max-width: 950px !important;
+  height: 80px !important;
+  border-radius: 10px !important;
+  margin-top: 70px;
+  font-size: 30px !important;
+  position: absolute;
+  top: 550px;
+  left: 10px;
+  z-index: 10;
+  display: inline-block;
+}
+
+/* HomePage.module.css */
+.slider {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  top: 200px;
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.slide img {
+  width: 500px;
+  height: 400px;
+  filter: blur(2px) brightness(0.5);
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+  
+  .containBox {
+    width: 700px;
+  }
+
+  .titleBox {
+    width: 500px;
+    height: 400px;
+    margin-top: 150px;
+  }
+
+  .title1 {
+    font-size: 50px;
+  }
+
+  .title2 {
+    font-size: 60px;
+    margin-top: 10px;
+    width: 500px;
+  } 
+
+  .button {
+    max-width: 750px;
+    height: 70px;
+    margin-top: 60px;
+    font-size: 20px !important;
+    position: absolute;
+    top: 300px;
+    left: 25px;
+    z-index: 10;
+    display: inline-block;
+  }
+
+  .slider {
+    top: 150px;
+  }
+
+  .logo{
+    width: 500px;
+    height: 180px;
+  }
+
+}
+
+@media screen and (max-width: 744px) {
+
+  .containBox {
+    width: 300px;
+
+  }
+
+  .titleBox {
+    width: 400px;
+    height: 300px;
+    margin-top: 100px;
+  }
+
+  .title1 {
+    font-size: 40px;
+  }
+
+  .title2 {
+    font-size: 60px;
+    margin-top: 10px;
+    width: 530px
+  }
+
+  .button {
+    max-width: 600px;
+    height: 60px;
+    margin-top: 50px;
+    font-size: 15px !important;
+    position: absolute;
+    top: 180px;
+    left: 30px;
+    z-index: 10;
+    display: inline-block;
+  }
+
+  .slider {
+    top: 100px;
+  }
+  
+  .logo{
+    width: 450px;
+    height: 180px;
+  }
+}
