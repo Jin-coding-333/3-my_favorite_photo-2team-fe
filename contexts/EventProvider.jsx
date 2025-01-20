@@ -12,7 +12,7 @@ export function EventProvider({ children, token }) {
 
   return (
     <EventContext.Provider value={{}}>
-      <PointModal open={open}></PointModal>
+      <PointModal token={token}></PointModal>
       {children}
     </EventContext.Provider>
   );

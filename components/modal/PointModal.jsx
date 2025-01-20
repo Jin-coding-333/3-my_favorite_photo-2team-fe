@@ -5,43 +5,42 @@ import { useAuth } from '@/contexts/AuthProvier';
 import { startOneHourTimer } from '@/lib/data/time';
 import { eventChk } from '@/lib/api/user/eventApi';
 
-export default function PointModal({ open = true }) {
-  const { refetch: userRefetch, user, isPending } = useAuth();
+export default function PointModal({}) {
+  const { refetch: userRefetch, user, isPending, isRefetching } = useAuth();
 
   if (isPending || !user) return null;
-
   const { event } = user;
 
   //모달 상태 관리
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(!!!user.event);
   const [text, setText] = useState('');
-  //모달 열기 함수
-  const openModal = () => {
-    setIsOpen(true);
-  };
+
+  console.log(isRefetching);
+
   useEffect(() => {
     startOneHourTimer(event, setText, async () => {
-      const reEvent = await eventChk();
       userRefetch();
-      startOneHourTimer(reEvent);
+      startOneHourTimer(user.event);
       setIsOpen(true);
     });
-  }, []);
+    if (isRefetching) setIsOpen(!!!user.event);
+  }, [isRefetching]);
 
   //모달 닫기 함수
   const closeModal = async () => {
-    const result = await pointEventApi();
-    if (result) {
-      alert('자동으로 점수가 반영됩니다.');
-      setIsOpen(false);
-      userRefetch();
-    }
+    // const result = await pointEventApi();
+    // if (result) {
+    //   alert('자동으로 점수가 반영됩니다.');
+    //   setIsOpen(false);
+    //   userRefetch();
+    // }
+    userRefetch();
   };
 
   const pointEvent = async () => {
     const result = await pointEventApi();
     if (result) {
-      setIsOpen(false);
+      // setIsOpen(false);
       userRefetch();
     }
   };
