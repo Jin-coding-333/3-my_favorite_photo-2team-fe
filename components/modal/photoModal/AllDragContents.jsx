@@ -1,5 +1,4 @@
 import Title from '@/components/title/Title';
-import PhotoCard from '@/components/card/photoCard/PhotoCard';
 import { Dropdown } from '@/components/dropdown/SortDropdown';
 import { optionsData } from '@/lib/data/dropdownOptions';
 import styles from '@/styles/components/modal/photoModal/AllDragContents.module.css';
@@ -7,8 +6,12 @@ import { useState } from 'react';
 import { Search } from '@/components/search/Search';
 import UseIsMobileView from '@/lib/hooks/useIsMobileView';
 import BottomSheet from '@/components/bottomSheet/BottomSheet';
+import { useUser } from '@/contexts/UserProvider';
+import MyPhotoList from './MyPhotoList';
+import PhotoModal from './PhotoModal';
 
-export default function AllDragContents({ title, handleModal, myCards }) {
+export default function AllDragContents({ title, handleModal }) {
+  const [isSellModal, setIsSellModal] = useState(false);
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const handleBottomSheet = () => {
     setIsBottomSheetOpen(!isBottomSheetOpen);
@@ -23,6 +26,11 @@ export default function AllDragContents({ title, handleModal, myCards }) {
       [name]: value,
     }));
   };
+  const handleSellModal = () => {
+    setIsSellModal(!isSellModal);
+  };
+
+  const { myCards } = useUser();
 
   const isMobileView = UseIsMobileView();
 
@@ -72,28 +80,13 @@ export default function AllDragContents({ title, handleModal, myCards }) {
         )}
       </div>
       <div className={styles.holdingPhotoBox}>
-        {/* {myCards.map((card) => (
-          <div key={card.id} onClick={handleModal}>
-            <PhotoCard cardType="myCard" data={card} />
-          </div>
-        ))} */}
-        {/* 아래는 예시 */}
-        {/* <div onClick={handleModal}>
-          <PhotoCard cardType="myCard" />
-        </div>
-        <div onClick={handleModal}>
-          <PhotoCard cardType="myCard" />
-        </div>
-        <div onClick={handleModal}>
-          <PhotoCard cardType="myCard" />
-        </div>
-        <div onClick={handleModal}>
-          <PhotoCard cardType="myCard" />
-        </div>
-        <div onClick={handleModal}>
-          <PhotoCard cardType="myCard" />
-        </div> */}
+        <MyPhotoList data={myCards} handleModal={handleSellModal} />
       </div>
+      <PhotoModal
+        isModal={isSellModal}
+        handleModal={handleSellModal}
+        modalType="lastPage"
+      ></PhotoModal>
       {isBottomSheetOpen && isMobileView ? <BottomSheet /> : ''}
     </div>
   );
