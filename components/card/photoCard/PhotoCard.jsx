@@ -53,8 +53,7 @@ export default function PhotoCard({ cardType, data }) {
               <div className={`${styles.flex} ${styles.gap10}`}>
                 {/* 등급  */}
                 <div className={styles.grade}>
-                  {' '}
-                  <CardGrade grade={grade} type="rarityThickness" />{' '}
+                  <CardGrade grade={grade} type="rarityThickness" />
                 </div>
                 {/* 수평선 */}
                 <div className={styles.vertical}> | </div>

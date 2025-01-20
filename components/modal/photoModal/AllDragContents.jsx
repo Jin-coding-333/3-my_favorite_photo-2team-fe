@@ -8,6 +8,7 @@ import { Search } from '@/components/search/Search';
 import UseIsMobileView from '@/lib/hooks/useIsMobileView';
 import BottomSheet from '@/components/bottomSheet/BottomSheet';
 import { useUser } from '@/contexts/UserProvider';
+import MyPhotoList from './MyPhotoList';
 
 export default function AllDragContents({ title, handleModal }) {
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
@@ -26,7 +27,6 @@ export default function AllDragContents({ title, handleModal }) {
   };
 
   const { myCards } = useUser();
-  console.log('mycards', myCards);
 
   const isMobileView = UseIsMobileView();
 
@@ -76,27 +76,12 @@ export default function AllDragContents({ title, handleModal }) {
         )}
       </div>
       <div className={styles.holdingPhotoBox}>
+        <MyPhotoList data={myCards} />
         {/* {myCards.map((card) => (
           <div key={card.id} onClick={handleModal}>
             <PhotoCard cardType="myCard" data={card} />
           </div>
         ))} */}
-        {/* 아래는 예시 */}
-        {/* <div onClick={handleModal}>
-          <PhotoCard cardType="myCard" />
-        </div>
-        <div onClick={handleModal}>
-          <PhotoCard cardType="myCard" />
-        </div>
-        <div onClick={handleModal}>
-          <PhotoCard cardType="myCard" />
-        </div>
-        <div onClick={handleModal}>
-          <PhotoCard cardType="myCard" />
-        </div>
-        <div onClick={handleModal}>
-          <PhotoCard cardType="myCard" />
-        </div> */}
       </div>
       {isBottomSheetOpen && isMobileView ? <BottomSheet /> : ''}
     </div>
