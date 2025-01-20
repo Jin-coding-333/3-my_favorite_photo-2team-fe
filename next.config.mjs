@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    domains: ['th.bing.com'],
     remotePatterns: [
       {
         protocol: 'http',
@@ -12,5 +13,10 @@ const nextConfig = {
     ],
   },
 };
+// module.exports = {
+//   images: {
+//     domains: ['th.bing.com'], // 외부 이미지 도메인 추가
+//   },
+// };
 
 export default nextConfig;

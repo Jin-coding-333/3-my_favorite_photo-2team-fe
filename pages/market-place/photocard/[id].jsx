@@ -14,15 +14,15 @@ export default function PhotoCardDetails() {
   const [pageType, setPageType] = useState('buy'); //데이터없어서 임시로
   const [photoCardData, setPhotoCardData] = useState();
   const [exchangeMessage, setExchangeMessage] = useState('');
-  const imgPath = response.data.card.imagePath;
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const PhotoCardData = async () => {
       try {
         const shopId = 1;
-        const response = await axios.get(`http://localhost:10000/api/shop/cards/${shopId}`);
-        console.log(response.data.card.imagePath);
-        setPhotoCardData(response.data.card);
+        const response = await axios.get('http://localhost:10000/api/shop/cards/1');
+        console.log(response.data.card);
+        setPhotoCardData(response.data);
 
         if (response.data.card && Array.isArray(response.data.card)) {
           if (response.data.card.length > 0) {
@@ -33,6 +33,8 @@ export default function PhotoCardDetails() {
         }
       } catch (error) {
         console.error('오류가 발생하였습니다', error);
+      } finally {
+        setIsLoading(false); // 로딩 상태 해제
       }
     };
 
@@ -41,7 +43,14 @@ export default function PhotoCardDetails() {
 
   const Buyer = pageType === 'buy';
   const Seller = pageType === 'sell';
+  if (isLoading) {
+    return <div>로딩 중...</div>; // 로딩 상태 표시
+  }
 
+  if (!photoCardData) {
+    return <div>데이터를 가져오지 못했습니다.</div>; // 오류 처리
+  }
+  const imgUrl = photoCardData.card.imagePath;
   return (
     <div className={styles.body}>
       <h1 className={styles.title}>마켓플레이스</h1>
@@ -50,7 +59,22 @@ export default function PhotoCardDetails() {
       {Seller && (
         <>
           <div className={styles.centerContent}>
-            <Image className={styles.cardImg} src={imgPath} alt="포토카드 이미지" />
+            <div
+              className={styles.cardImg}
+              style={{
+                position: 'relative',
+              }}
+            >
+              <Image
+                className={styles.cardImg}
+                src={imgUrl}
+                alt="포토카드 이미지"
+                fill
+                style={{
+                  objectFit: 'cover',
+                }}
+              />
+            </div>
 
             <Card
               className={styles.Card}
@@ -75,7 +99,23 @@ export default function PhotoCardDetails() {
       {Buyer && (
         <>
           <div className={styles.centerContent}>
-            <Image className={styles.cardImg} src={imgPath} alt="포토카드 이미지" />
+            <div
+              className={styles.cardImg}
+              style={{
+                position: 'relative',
+              }}
+            >
+              <Image
+                className={styles.cardImg}
+                src={imgUrl}
+                alt="포토카드 이미지"
+                fill
+                style={{
+                  objectFit: 'cover',
+                }}
+              />
+            </div>
+
             <Card
               className={styles.Card}
               type="buy"
@@ -94,7 +134,7 @@ export default function PhotoCardDetails() {
           </div>
           <p className={styles.Message}>{exchangeMessage}</p>
           <div>
-            <CardType />
+            <CardType grade={photoCardData.grade} genre={photoCardData.genre} />
           </div>
         </>
       )}
