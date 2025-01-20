@@ -21,7 +21,7 @@ export default function PhotoCard({ cardType, data }) {
   const userNickName = cardType === 'myCard' ? user.nickName : data.user.nickName;
   const grade = cardType === 'myCard' ? data.cards[0].grade : card.grade;
   const genre = cardType === 'myCard' ? data.cards[0].genre : card.genre;
-  const price = cardType === 'myCard' ? data.cards[0].price : card.price;
+  const price = cardType === 'myCard' ? data.cards[0].price : data.price;
   const totalQuantity = cardType === 'myCard' ? data.count : data?.totalQuantity;
   const remainingQuantity = data?.remainingQuantity;
   const exchangeMessage = card?.content;
