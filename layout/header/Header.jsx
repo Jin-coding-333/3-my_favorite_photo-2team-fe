@@ -27,14 +27,11 @@ export default function Header() {
     nickName: '유디',
   };
 
-
   return (
     <header>
       <div className={styles.header}>
         <div className={styles.headerContainer}>
-          {currentUrl !== '/market-place' ?
-            <HeaderGoBack currentUrl={currentUrl} /> :
-            null}
+          {currentUrl !== '/market-place' ? <HeaderGoBack currentUrl={currentUrl} /> : null}
           <div
             className={styles.headerMenu}
             style={{
@@ -62,14 +59,19 @@ export default function Header() {
             </div>
           </Link>
 
-          {isUser ? <HeaderUserInfo point={isUser.point} nickName={isUser.nickName} /> : <HeaderNoneUser />}
+          {!!user ? (
+            <HeaderUserInfo point={user.point} nickName={user.nickName} logout={logout} />
+          ) : (
+            <HeaderNoneUser />
+          )}
         </div>
       </div>
     </header>
   );
 }
 
-{/* {isUser ? (
+{
+  /* {isUser ? (
   <div className={styles.userContainer}>
     <div className={styles.userImfoBox}>
       <h2 className={styles.userPoints}>{isUser.point} P</h2>
@@ -98,4 +100,5 @@ export default function Header() {
       <h2 className={styles.noneUserText}>회원가입</h2>
     </Link>
   </div>
-)} */}
+)} */
+}
