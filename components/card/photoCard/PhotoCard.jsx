@@ -3,20 +3,22 @@ import Button from '@/components/button/Button';
 import useIsMobileView from '@/lib/hooks/useIsMobileView';
 import ForSaleChip from './meta/ForSaleChip';
 import CardGrade from './meta/CardGrade';
+import { useAuth } from '@/contexts/AuthProvier';
 
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
 export default function PhotoCard({ cardType, data }) {
   // data.title 이렇게 가져올 수 있게
   // 데이터 예시
+  const { user } = useAuth();
 
-  const imgUrl = data.card.imagePath;
-  const title = data.name;
-  const user = data.user.nickName;
-  const grade = data.card.grade;
-  const genre = data.card.genre;
-  const price = data.card.price;
-  const totalQuantity = data.totalQuantity;
+  const imgUrl = cardType === 'myCard' ? data.cards[0].imagePath : data.card.imagePath;
+  const title = cardType === 'myCard' ? data.cards[0].name : data.name;
+  const userNickName = cardType === 'myCard' ? user.nickName : data.user.nickName;
+  const grade = cardType === 'myCard' ? data.cards[0].grade : data.card.grade;
+  const genre = cardType === 'myCard' ? data.cards[0].genre : data.card.genre;
+  const price = cardType === 'myCard' ? data.cards[0].price : data.card.price;
+  const totalQuantity = cardType === 'myCard' ? data.count : data.totalQuantity;
   const remainingQuantity = data.remainingQuantity;
   const exchangeMessage = data.content;
   const status = '교환 제시 대기 중';
@@ -69,10 +71,10 @@ export default function PhotoCard({ cardType, data }) {
                     <div className={styles.numberText}>{price} P </div>
                     <div className={styles.grayText}> 에 구매</div>
                   </div>
-                  <div className={styles.user}>{user}</div>
+                  <div className={styles.user}>{userNickName}</div>
                 </div>
               ) : (
-                <div className={styles.user}>{user}</div>
+                <div className={styles.user}>{userNickName}</div>
               )}
             </div>
           </div>
@@ -92,7 +94,9 @@ export default function PhotoCard({ cardType, data }) {
               <div className={styles.secondContents}>
                 <div className={styles.grayText}>수량</div>
                 <div className={styles.flex}>
-                  <div className={styles.numberText}>{remainingQuantity}</div>
+                  <div className={styles.numberText}>
+                    {cardType === 'myCard' ? totalQuantity : remainingQuantity}
+                  </div>
                   {cardType === 'original' ? (
                     <div className={styles.grayText}>/{totalQuantity}</div>
                   ) : (
