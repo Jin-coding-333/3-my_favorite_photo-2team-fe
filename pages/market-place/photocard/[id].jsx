@@ -8,10 +8,11 @@ import { Title as CardType } from '@/components/card/Card.Component.jsx';
 import { useAuth } from '@/contexts/AuthProvier';
 import Image from 'next/image';
 import Modal from '@/components/modal/Modal.jsx';
+// import { response } from 'express';
 
 export default function PhotoCardDetails() {
   const { user } = useAuth();
-  const [pageType, setPageType] = useState('buy'); //데이터없어서 임시로
+  const [pageType, setPageType] = useState('sell'); //데이터없어서 임시로
   const [photoCardData, setPhotoCardData] = useState();
   const [exchangeMessage, setExchangeMessage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -19,9 +20,10 @@ export default function PhotoCardDetails() {
   useEffect(() => {
     const PhotoCardData = async () => {
       try {
-        const shopId = 1;
-        const response = await axios.get('http://localhost:10000/api/shop/cards/1');
+        const shopId = 3;
+        const response = await axios.get('http://localhost:10000/api/shop/cards/3');
         console.log(response.data.card);
+        console.log(photoCardData);
         setPhotoCardData(response.data);
 
         if (response.data.card && Array.isArray(response.data.card)) {
@@ -132,7 +134,7 @@ export default function PhotoCardDetails() {
               size="L"
             />
           </div>
-          <p className={styles.Message}>{exchangeMessage}</p>
+          <p className={styles.Message}>{photoCardData.content}</p>
           <div>
             <CardType grade={photoCardData.grade} genre={photoCardData.genre} />
           </div>
