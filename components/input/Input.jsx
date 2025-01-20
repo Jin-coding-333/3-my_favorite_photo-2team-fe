@@ -54,26 +54,6 @@ export default function Input({
     setPasswordVisible((prev) => !prev);
   };
 
-  const defaultLabels = {
-    email: '이메일',
-    password: '비밀번호',
-    passwordChk: '비밀번호 확인',
-    photoName: '포토카드 이름',
-    price: '가격',
-    quantity: '총 발행량',
-    nickName: '닉네임',
-  };
-
-  const defaultPlaceholders = {
-    email: '이메일을 입력해주세요',
-    password: '비밀번호를 입력해주세요',
-    passwordChk: '비밀번호를 한번 더 입력해주세요',
-    photoName: '포토카드 이름을 입력해 주세요',
-    price: '가격을 입력해 주세요',
-    quantity: '총 발행량을 입력해 주세요',
-    nickName: '닉네임을 입력해 주세요',
-  };
-
   const getDefaultLabel = () => defaultLabels[type] || label;
   const getDefaultPlaceholder = () => defaultPlaceholders[type] || placeHolder;
 
@@ -106,6 +86,26 @@ export default function Input({
     </div>
   );
 }
+
+const defaultLabels = {
+  email: '이메일',
+  password: '비밀번호',
+  passwordChk: '비밀번호 확인',
+  photoName: '포토카드 이름',
+  price: '가격',
+  quantity: '총 발행량',
+  nickName: '닉네임',
+};
+
+const defaultPlaceholders = {
+  email: '이메일을 입력해주세요',
+  password: '비밀번호를 입력해주세요',
+  passwordChk: '비밀번호를 한번 더 입력해주세요',
+  photoName: '포토카드 이름을 입력해 주세요',
+  price: '가격을 입력해 주세요',
+  quantity: '총 발행량을 입력해 주세요',
+  nickName: '닉네임을 입력해 주세요',
+};
 
 //사용예시
 // import { useState } from 'react';
