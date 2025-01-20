@@ -3,6 +3,7 @@ import styles from '@/styles/components/pages/market-place/PhotocardList.module.
 import Link from 'next/link';
 import { getTotalCards } from '@/lib/api/cards/cardsApi';
 import { useEffect, useState } from 'react';
+import photocards from '@/lib/data/cardsData';
 
 export default function PhotocardList() {
   const [list, setList] = useState([]);
