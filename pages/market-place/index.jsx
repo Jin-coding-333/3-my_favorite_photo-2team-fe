@@ -28,10 +28,6 @@ export default function MarketPlace() {
   return (
     <>
       <PageLayout>
-        <button onClick={openSellModal} style={{ background: '#ffffff' }}>
-          판매하기
-        </button>
-        <PhotoCardModal isOpen={isModalOpen} onClose={closeModal} isEdit={modalType === 'edit'} />
         <div className={styles.marketPlaceTitle}>
           <Title
             title="마켓플레이스"
