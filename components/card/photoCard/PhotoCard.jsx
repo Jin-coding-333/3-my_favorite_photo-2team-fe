@@ -9,8 +9,6 @@ import CardGrade from './meta/CardGrade';
 export default function PhotoCard({ cardType, data }) {
   // data.title 이렇게 가져올 수 있게
   // 데이터 예시
-  console.log('test');
-  console.log('data', data);
 
   const imgUrl = data.card.imagePath;
   const title = data.name;

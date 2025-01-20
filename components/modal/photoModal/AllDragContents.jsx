@@ -3,12 +3,13 @@ import PhotoCard from '@/components/card/photoCard/PhotoCard';
 import { Dropdown } from '@/components/dropdown/SortDropdown';
 import { optionsData } from '@/lib/data/dropdownOptions';
 import styles from '@/styles/components/modal/photoModal/AllDragContents.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Search } from '@/components/search/Search';
 import UseIsMobileView from '@/lib/hooks/useIsMobileView';
 import BottomSheet from '@/components/bottomSheet/BottomSheet';
+import { useUser } from '@/contexts/UserProvider';
 
-export default function AllDragContents({ title, handleModal, myCards }) {
+export default function AllDragContents({ title, handleModal }) {
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const handleBottomSheet = () => {
     setIsBottomSheetOpen(!isBottomSheetOpen);
@@ -23,6 +24,9 @@ export default function AllDragContents({ title, handleModal, myCards }) {
       [name]: value,
     }));
   };
+
+  const { myCards } = useUser();
+  console.log('mycards', myCards);
 
   const isMobileView = UseIsMobileView();
 
