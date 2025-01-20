@@ -28,12 +28,12 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, cardData }) {
   const totalQuantity = cardData.count;
 
   const { user } = useAuth();
-  console.log(user.id);
+
   const [form, setForm] = useState({
-    // userId: user.id,
+    userId: user.id,
     genre: '',
     grade: '',
-    description: '',
+    message: '',
     price: 0,
     totalQuantity: totalQuantity || 0,
     remainingQuantity: 1,
@@ -51,7 +51,7 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, cardData }) {
       const formData = {
         cardId: cardId,
         title: cardName,
-        description: form.description,
+        message: form.message,
         genre: form.genre,
         grade: form.grade,
         price: form.price,
@@ -145,7 +145,7 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, cardData }) {
             <InputTextBox
               type="exchangeRequest"
               className={styles.textBox}
-              onChange={(e) => handleInputChange('description', e.target.value)}
+              setValue={(e) => handleInputChange('message', e.target.value)}
             />
           </div>
           <div className={styles.Buttons}>
