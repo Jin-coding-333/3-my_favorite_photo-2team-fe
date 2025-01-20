@@ -4,27 +4,8 @@ import PageLayout from '@/layout/PageLayout';
 import styles from '@/styles/pages/MarketPlace.module.css';
 import MarketPlaceSearch from '@/components/pages/SearchSortComponent/MarketPlaceSearch';
 import PhotocardList from '@/components/pages/market-place/PhotocardList';
-import { useState } from 'react';
-import PhotoCardModal from '@/components/modal/marketPlaceModal/PhotoCardModal';
 
 export default function MarketPlace() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalType, setModalType] = useState('');
-
-  const openSellModal = () => {
-    setModalType('sell');
-    setIsModalOpen(true);
-  };
-
-  const openEditModal = () => {
-    setModalType('edit');
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
   return (
     <>
       <PageLayout>

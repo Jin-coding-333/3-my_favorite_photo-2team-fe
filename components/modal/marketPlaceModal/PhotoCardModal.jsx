@@ -1,9 +1,5 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import BackImg from '@/public/icon/type=back.png';
-import slashImg from '@/public/icon/type=-.png';
-import CloseBtnImg from '@/public/icon/type=close.png';
-import testImg from '@/public/img/image1.png';
 import Title from '@/components/title/Title';
 import CardDetail from '@/components/card/CardDetail';
 import InputDropdownGrade from '@/components/dropdown/inputDropdown/InputDropdownGrade';
@@ -13,11 +9,7 @@ import Button from '@/components/button/Button';
 import styles from '@/styles/components/modal/marketPlaceModal/PhotoCardModal.module.css';
 import PhotoModal from '../photoModal/PhotoModal';
 
-const Card = {
-  name: '테스트용임',
-};
-
-export default function PhotoCardModal({ isOpen, onClose, isEdit }) {
+export default function PhotoCardModal({ isOpen, onClose, isEdit, Card, User }) {
   const [form, setForm] = useState({ genre: '', grade: '' });
 
   if (!isOpen) return null;
@@ -31,8 +23,8 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit }) {
         <div className={styles.scrollableContainer}>
           <Title title={Card.name} className={styles.headerTitle} variant="default" />
           <div className={styles.itemCard}>
-            <Image src={testImg} alt="테스트 이미지" className={styles.imageSize} />
-            <CardDetail userNickName="테스트" />
+            <Image src={Card.imagePath} alt="카드 이미지" className={styles.imageSize} />
+            <CardDetail userNickName={User.nickName} grade={Card.grade} genre={Card.genre} />
           </div>
           <div className={styles.formLayer}>
             <Title title="교환 희망 정보" className={styles.formTitle} variant="default" />
