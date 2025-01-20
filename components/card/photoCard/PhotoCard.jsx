@@ -12,17 +12,17 @@ export default function PhotoCard({ cardType, data }) {
   console.log('test');
   console.log('data', data);
 
-  const imgUrl = data.card.imagePath;
+  const imgUrl = data.card?.imagePath;
   const title = data.name;
-  const user = data.user.nickName;
-  const grade = data.card.grade;
-  const genre = data.card.genre;
-  const price = data.card.price;
-  const totalQuantity = data.totalQuantity;
-  const remainingQuantity = data.remainingQuantity;
-  const exchangeMessage = data.content;
+  const user = data.user?.nickName;
+  const grade = data.card?.grade;
+  const genre = data.card?.genre;
+  const price = data.card?.price;
+  const totalQuantity = data?.totalQuantity;
+  const remainingQuantity = data?.remainingQuantity;
+  const exchangeMessage = data?.content;
   const status = '교환 제시 대기 중';
-  const isSoldOut = data.remainingQuantity === 0;
+  const isSoldOut = data?.remainingQuantity === 0;
 
   // 모바일 크기 변화 감지
   const isMobileView = useIsMobileView();

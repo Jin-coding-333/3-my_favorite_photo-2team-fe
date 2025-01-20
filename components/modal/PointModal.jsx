@@ -2,54 +2,53 @@ import React, { useEffect, useState } from 'react';
 import styles from '@/styles/components/modal/PointModal.module.css';
 import { pointEventApi } from '@/lib/api/user/eventApi';
 import { useAuth } from '@/contexts/AuthProvier';
-import { startOneHourTimer } from '@/lib/data/time';
-import { eventChk } from '@/lib/api/user/eventApi';
+import { eventReset } from '@/lib/api/user/eventApi';
 
 export default function PointModal({}) {
-  const { refetch: userRefetch, user, isPending, isRefetching } = useAuth();
+  const { refetch: userRefetch, user, isPending, isFetched } = useAuth();
 
   if (isPending || !user) return null;
   const { event } = user;
 
-  //모달 상태 관리
-  const [isOpen, setIsOpen] = useState(!!!user.event);
+  const [isOpen, setIsOpen] = useState(false);
   const [text, setText] = useState('');
-
-  console.log(isRefetching);
-
-  useEffect(() => {
-    startOneHourTimer(event, setText, async () => {
-      userRefetch();
-      startOneHourTimer(user.event);
-      setIsOpen(true);
-    });
-    if (isRefetching) setIsOpen(!!!user.event);
-  }, [isRefetching]);
 
   //모달 닫기 함수
   const closeModal = async () => {
-    // const result = await pointEventApi();
-    // if (result) {
-    //   alert('자동으로 점수가 반영됩니다.');
-    //   setIsOpen(false);
-    //   userRefetch();
-    // }
+    const result = await pointEventApi();
+    if (result) {
+      alert('자동으로 점수가 반영됩니다.');
+      setIsOpen(false);
+      userRefetch();
+    }
     userRefetch();
   };
 
+  useEffect(() => {
+    const checkEventTrigger = () => {
+      const now = new Date();
+      // 현재 시간이 정각인지 확인
+      if (now.getMinutes() === 0 && now.getSeconds() === 0) {
+        userRefetch();
+        eventReset();
+        setIsOpen(true); // 모달 표시
+      }
+      setText(`${59 - now.getMinutes()}분 ${60 - now.getSeconds()}`);
+    };
+    console.log(text);
+    // 1초마다 이벤트 체크
+    setInterval(checkEventTrigger, 1000);
+  }, []);
   const pointEvent = async () => {
     const result = await pointEventApi();
     if (result) {
-      // setIsOpen(false);
+      setIsOpen(false);
       userRefetch();
     }
   };
 
   return (
     <div>
-      {/* 모달 열기 임시 버튼  */}
-      {/* <button onClick={openModal}>모달 열기</button> */}
-
       {isOpen && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
