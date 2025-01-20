@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    domains: ['th.bing.com'],
     remotePatterns: [
       {
         protocol: 'http',

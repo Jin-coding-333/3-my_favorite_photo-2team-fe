@@ -21,11 +21,11 @@ export default function Login() {
   }
   useEffect(() => {
     if (!!user) {
-      router.push('/');
+      // router.push('/');
     }
   }, [user]);
 
-  if (!!user) return null;
+  // if (!!user) return null;
 
   return (
     <CenterLayout>
