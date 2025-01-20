@@ -1,4 +1,4 @@
 export default function src(src = '') {
-  const backendUrl = 'http://localhost:8000';
+  const backendUrl = 'https://my-favorite-photo.onrender.com';
   return backendUrl + src;
 }
