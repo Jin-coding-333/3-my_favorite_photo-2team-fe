@@ -6,7 +6,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'http',
-        hostname: 'localhost',
+        // hostname: 'localhost',
+        hostname: 'https://my-favorite-photo.onrender.com',
         port: '8000', // 포트 번호 지정
         pathname: '/upload/**', // 업로드 경로 패턴
       },
