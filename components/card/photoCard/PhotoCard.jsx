@@ -2,21 +2,25 @@ import styles from '@/styles/components/photoCard/PhotoCard.module.css';
 import Button from '@/components/button/Button';
 import useIsMobileView from '@/lib/hooks/useIsMobileView';
 import ForSaleChip from './meta/ForSaleChip';
+import CardGrade from './meta/CardGrade';
 
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
 export default function PhotoCard({ cardType, isSoldOut, data }) {
   // data.title 이렇게 가져올 수 있게
   // 데이터 예시
+  console.log('test');
   console.log('data', data);
-  const imgUrl = data.imagePath;
+
+  const imgUrl = data.card.imagePath;
   const title = data.name;
-  const user = '미쓰손';
-  const grade = 'RARE';
-  const genre = '여행';
-  const price = '4';
-  const count = '2';
-  const exchangeMessage = '스페인 여행 사진도 좋은데.. 우리집 앞마당 포토카드와 교환하고 싶습니다!';
+  const user = data.user.nickName;
+  const grade = data.card.grade;
+  const genre = data.card.genre;
+  const price = data.card.price;
+  const totalQuantity = data.totalQuantity;
+  const remainingQuantity = data.remainingQuantity;
+  const exchangeMessage = data.content;
   const status = '교환 제시 대기 중';
 
   // 모바일 크기 변화 감지
@@ -27,13 +31,13 @@ export default function PhotoCard({ cardType, isSoldOut, data }) {
     <div className={`${styles.cardBox} ${cardType === 'exchange' ? styles.exchangeHeight : ''}`}>
       <div className={styles.imgBox}>
         <img
-          src={imagePath}
+          src={imgUrl}
           className={`${styles.img} ${isSoldOut ? styles.soldOutBg : ''}`}
           alt="포토 이미지"
         />
         {cardType === 'forSale' ? <ForSaleChip status={status} /> : ''}
         {isSoldOut ? (
-          <img src="/img/soldOut.png" alt="soldOut" className={styles.soldOutImg} />
+          <img src={'/img/soldOut.png'} alt="soldOut" className={styles.soldOutImg} />
         ) : (
           ''
         )}
@@ -42,14 +46,17 @@ export default function PhotoCard({ cardType, isSoldOut, data }) {
         <div className={styles.contents}>
           <div className={styles.firstContents}>
             {/* 포토 제목 */}
-            <div className={styles.title}>{name}</div>
+            <div className={styles.title}>{title}</div>
 
             <div
               className={`${cardType === 'exchange' ? styles.exchangePhotoInfo : styles.photoInfo}`}
             >
               <div className={`${styles.flex} ${styles.gap10}`}>
                 {/* 등급  */}
-                <div className={styles.grade}> {grade} </div>
+                <div className={styles.grade}>
+                  {' '}
+                  <CardGrade grade={grade} type="rarityThickness" />{' '}
+                </div>
                 {/* 수평선 */}
                 <div className={styles.vertical}> | </div>
                 {/* 장르 */}
@@ -64,10 +71,10 @@ export default function PhotoCard({ cardType, isSoldOut, data }) {
                     <div className={styles.numberText}>{price} P </div>
                     <div className={styles.grayText}> 에 구매</div>
                   </div>
-                  <div className={styles.user}>{username}</div>
+                  <div className={styles.user}>{user}</div>
                 </div>
               ) : (
-                <div className={styles.user}>{username}</div>
+                <div className={styles.user}>{user}</div>
               )}
             </div>
           </div>
@@ -87,8 +94,12 @@ export default function PhotoCard({ cardType, isSoldOut, data }) {
               <div className={styles.secondContents}>
                 <div className={styles.grayText}>수량</div>
                 <div className={styles.flex}>
-                  <div className={styles.numberText}>{count}</div>
-                  {cardType === 'original' ? <div className={styles.grayText}>/5</div> : ''}
+                  <div className={styles.numberText}>{remainingQuantity}</div>
+                  {cardType === 'original' ? (
+                    <div className={styles.grayText}>/{totalQuantity}</div>
+                  ) : (
+                    ''
+                  )}
                 </div>
               </div>
             </div>
