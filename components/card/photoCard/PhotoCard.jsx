@@ -11,7 +11,6 @@ export default function PhotoCard({ cardType, data }) {
   // data.title 이렇게 가져올 수 있게
   // 데이터 예시
   if (!data) return null;
-  console.log(data);
   const card = data.card;
   const imgUrl = src(card.imagePath);
   const title = card.name;
@@ -24,7 +23,6 @@ export default function PhotoCard({ cardType, data }) {
   const exchangeMessage = card?.content;
   const status = '교환 제시 대기 중';
   const isSoldOut = data.remainingQuantity === 0;
-  console.log(imgUrl);
   // 모바일 크기 변화 감지
   const isMobileView = useIsMobileView();
 
