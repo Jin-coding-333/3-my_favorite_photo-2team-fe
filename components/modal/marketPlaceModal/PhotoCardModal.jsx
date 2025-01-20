@@ -9,15 +9,34 @@ import Button from '@/components/button/Button';
 import styles from '@/styles/components/modal/marketPlaceModal/PhotoCardModal.module.css';
 import PhotoModal from '../photoModal/PhotoModal';
 import instance from '@/lib/api/instance';
+import src from '@/lib/hooks/useSrc';
+import { useAuth } from '@/contexts/AuthProvier';
 
-export default function PhotoCardModal({ isOpen, onClose, isEdit, Card, User }) {
+export default function PhotoCardModal({ isOpen, onClose, isEdit, cardData }) {
+  console.log(cardData);
+  if (!isOpen || !cardData || !cardData.cards || cardData.cards.length === 0) {
+    return null;
+  }
+
+  const card = cardData.cards[0];
+
+  const cardId = card.id;
+  const imagePath = src(card.imagePath);
+  const cardName = card.name;
+  const grade = card.grade;
+  const genre = card.genre;
+  const totalQuantity = cardData.count;
+
+  const { user } = useAuth();
+  console.log(user.id);
   const [form, setForm] = useState({
+    // userId: user.id,
     genre: '',
     grade: '',
     description: '',
     price: 0,
-    totalQuantity: Card?.totalQuantity || 0,
-    remainingQuantity: Card?.remainingQuantity || 0,
+    totalQuantity: totalQuantity || 0,
+    remainingQuantity: 1,
   });
 
   const handleInputChange = (field, value) => {
@@ -30,8 +49,8 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, Card, User }) 
   const handleSubmit = async () => {
     try {
       const formData = {
-        cardId: Card.id,
-        title: Card.name,
+        cardId: cardId,
+        title: cardName,
         description: form.description,
         genre: form.genre,
         grade: form.grade,
@@ -95,13 +114,13 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, Card, User }) 
           <div className={styles.modalName}>{isEdit ? '수정하기' : '나의 포토카드 판매하기'}</div>
         </div>
         <div className={styles.scrollableContainer}>
-          <Title title={Card.name} className={styles.headerTitle} variant="default" />
+          <Title title={cardName} className={styles.headerTitle} variant="default" />
           <div className={styles.itemCard}>
-            <Image src={Card.imagePath} alt="카드 이미지" className={styles.imageSize} />
+            <img src={imagePath} alt="카드 이미지" className={styles.imageSize} />
             <CardDetail
-              userNickName={User.nickName}
-              grade={Card.grade}
-              genre={Card.genre}
+              userNickName={user.nickName}
+              grade={grade}
+              genre={genre}
               totalCount={form.totalQuantity}
               count={form.remainingQuantity}
               setCount={(value) => handleInputChange('remainingQuantity', value)}
