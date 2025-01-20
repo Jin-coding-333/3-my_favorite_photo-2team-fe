@@ -4,6 +4,18 @@
   height: 600px;
   background-color: #161616;
   border: 1px solid #ffffff1a;
+
+  &:hover {
+    box-shadow: 0 0 0.75rem rgba(138, 137, 137, 0.63);
+    transform: scale(1.01);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  ;
+
+  &:active {
+    box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0);
+  }
 }
 .exchangeHeight {
   height: 626px;
