@@ -23,7 +23,7 @@ export default function HeaderUserInfo({ point, nickName, logout }) {
         console.error('Error fetching notifications:', error.response?.data || error.message);
       }
     };
-    // fetchNotifications();
+    fetchNotifications();
   }, []); // 처음 렌더링될 때만 호출
 
   // 알림 읽음 처리 핸들러
