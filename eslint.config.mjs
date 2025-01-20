@@ -44,6 +44,11 @@ export default [
     rules: {
       // 여기에 추가적인 규칙을 정의할 수 있습니다.
       'react/react-in-jsx-scope': 'off',
+      'no-unused-vars': 'warn',
+      'react/prop-types': 'warn',
+      'react/jsx-key': 'warn',
+      'no-extra-boolean-cast': 'warn',
+      'no-empty-pattern': 'warn',
     },
   },
   pluginJs.configs.recommended, // eslint:recommended 대체
@@ -53,6 +58,11 @@ export default [
     rules: {
       ...pluginReact.configs.flat.recommended.rules,
       'react/react-in-jsx-scope': 'off', // 덮어쓰기
+      'no-unused-vars': 'warn',
+      'react/prop-types': 'warn',
+      'react/jsx-key': 'warn',
+      'no-extra-boolean-cast': 'warn',
+      'no-empty-pattern': 'warn',
     },
   },
 ];
