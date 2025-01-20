@@ -1,35 +1,39 @@
 .badge {
-    background-color: #000000;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 23.17px;
-    padding: 6px 12px;
-    text-align: center;
-    display: inline-block;
+  background-color: #00000080;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23.17px;
+  padding: 6px 12px;
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 50;
 }
 
 .badgeSale {
-    color: #fff;
+  color: #fff;
 }
 
 .badgePending {
-    color: #efff04;
+  color: #efff04;
 }
 
 @media (max-width: 1200px) {
-    .badge {
-        font-weight: 400;
-        font-size: 13px;
-        line-height: 20.27px;
-    }
+  .badge {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20.27px;
+  }
 }
 
 @media (max-width: 744px) {
-    .badge {
-        font-weight: 400;
-        font-size: 10px;
-        line-height: 14.48px;
-    }
+  .badge {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14.48px;
+    top: 5px;
+    left: 5px;
+  }
 }
-
-
