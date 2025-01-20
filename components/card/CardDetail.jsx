@@ -4,11 +4,23 @@ import { useState } from 'react';
 
 export default function CardDetail({
   grade = 'COMMON',
-  genre = 'unknwon',
+  genre = 'unknown',
   userNickName = '유저이름',
   totalCount = 0,
+  count,
+  setCount,
+  price,
+  setPrice,
 }) {
   const [count, setCount] = useState(0);
+
+  const handlePriceChange = (e) => {
+    const input = e.target.value;
+    if (/^\d*$/.test(input)) {
+      setPrice(input);
+    }
+  };
+
   return (
     <div className={`${styles.Card} ${styles.Detail}`}>
       <Title grade={grade} genre={genre} userNickName={userNickName} />
@@ -26,7 +38,12 @@ export default function CardDetail({
         <li>
           <p className={styles.Left}>장당 가격</p>
           <div className={styles.PointBox}>
-            <input type="text" placeholder="숫자만 입력" />
+            <input
+              type="text"
+              placeholder="숫자만 입력"
+              value={price}
+              onChange={handlePriceChange}
+            />
             <p>P</p>
           </div>
         </li>

@@ -8,9 +8,83 @@ import InputTextBox from '@/components/input/InputTextBox';
 import Button from '@/components/button/Button';
 import styles from '@/styles/components/modal/marketPlaceModal/PhotoCardModal.module.css';
 import PhotoModal from '../photoModal/PhotoModal';
+import instance from '@/lib/api/instance';
 
 export default function PhotoCardModal({ isOpen, onClose, isEdit, Card, User }) {
-  const [form, setForm] = useState({ genre: '', grade: '' });
+  const [form, setForm] = useState({
+    genre: '',
+    grade: '',
+    description: '',
+    price: 0,
+    totalQuantity: Card?.totalQuantity || 0,
+    remainingQuantity: Card?.remainingQuantity || 0,
+  });
+
+  const handleInputChange = (field, value) => {
+    setForm((prevForm) => ({
+      ...prevForm,
+      [field]: value,
+    }));
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const formData = {
+        cardId: Card.id,
+        title: Card.name,
+        description: form.description,
+        genre: form.genre,
+        grade: form.grade,
+        price: form.price,
+        totalQuantity: form.totalQuantity,
+      };
+      const response = isEdit
+        ? await instance.put(`/api/shop/cards/${shopId}`, formData) // 수정 api요청
+        : await instance.post('/api/shop/cards', formData); // 판매 등록 api요청
+      console.log(isEdit ? '판매 수정 성공:' : '판매 등록 성공:', response.data);
+      onClose();
+    } catch (error) {
+      console.error(isEdit ? '판매 수정 실패:' : '판매 등록 실패:', error);
+    }
+  };
+
+  // const handleSellSubmit = async () => {
+  //   try {
+  //     const formData = {
+  //       cardId: Card.id,
+  //       title: Card.name,
+  //       description: form.description,
+  //       genre: form.genre,
+  //       grade: form.grade,
+  //       price: form.price,
+  //       totalQuantity: form.totalQuantity,
+  //     };
+  //     const response = await instance.post('/api/shop/cards', formData);
+  //     console.log('판매 등록 성공:', response.data);
+  //     onClose();
+  //   } catch (error) {
+  //     console.error('판매 등록 실패:', error);
+  //   }
+  // };
+
+  // const handleEditSubmit = async () => {
+  //   try {
+  //     const formData = {
+  //       cardId: Card.id,
+  //       title: Card.name,
+  //       description: form.description,
+  //       genre: form.genre,
+  //       grade: form.grade,
+  //       price: form.price,
+  //       totalQuantity: form.totalQuantity,
+  //     };
+  //     const response = await instance.put(`/api/shop/cards/${shopId}`, formData);
+  //     console.log('판매 수정 성공: ', response.data);
+  //     onClose();
+  //   } catch (error) {
+  //     console.error('판매 수정 실패: ', error);
+  //   }
+  // };
 
   if (!isOpen) return null;
 
@@ -24,7 +98,16 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, Card, User }) 
           <Title title={Card.name} className={styles.headerTitle} variant="default" />
           <div className={styles.itemCard}>
             <Image src={Card.imagePath} alt="카드 이미지" className={styles.imageSize} />
-            <CardDetail userNickName={User.nickName} grade={Card.grade} genre={Card.genre} />
+            <CardDetail
+              userNickName={User.nickName}
+              grade={Card.grade}
+              genre={Card.genre}
+              totalCount={form.totalQuantity}
+              count={form.remainingQuantity}
+              setCount={(value) => handleInputChange('remainingQuantity', value)}
+              price={form.price}
+              setPrice={(value) => handleInputChange('price', value)}
+            />
           </div>
           <div className={styles.formLayer}>
             <Title title="교환 희망 정보" className={styles.formTitle} variant="default" />
@@ -40,15 +123,22 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, Card, User }) 
                 classNameSize={styles.dropdownSize}
               />
             </form>
-            <InputTextBox type="exchangeRequest" className={styles.textBox} />
+            <InputTextBox
+              type="exchangeRequest"
+              className={styles.textBox}
+              onChange={(e) => handleInputChange('description', e.target.value)}
+            />
           </div>
           <div className={styles.Buttons}>
             <Button type="secondary" className={styles.modalButton}>
               취소하기
             </Button>
-            <Button type="primary" className={styles.modalButton}>
+            <Button type="primary" className={styles.modalButton} onClick={handleSubmit}>
               {isEdit ? '수정하기' : '판매하기'}
             </Button>
+            {/* <Button type="primary" className={styles.modalButton} onClick={handleEditSubmit}>
+              수정하기
+            </Button> */}
           </div>
         </div>
       </div>
