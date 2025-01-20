@@ -18,6 +18,7 @@ export function AuthProvider({ children }) {
     refetch,
     isStale,
     isRefetching,
+    isFetched,
   } = useQuery({
     queryKey: ['user', token],
     queryFn: getUser,
@@ -32,8 +33,6 @@ export function AuthProvider({ children }) {
       refreshToken();
     }
   }, [token, isStale]);
-
-  if (isLoading) return null;
 
   async function login({ email, password }) {
     const response = await loginApi({ email, password });
@@ -81,6 +80,7 @@ export function AuthProvider({ children }) {
       router.push('/login');
     }
   }
+  if (isLoading) return <div>Loading</div>;
 
   return (
     <AuthContext.Provider
@@ -90,10 +90,11 @@ export function AuthProvider({ children }) {
         logout,
         refreshToken,
         isPending,
+        isFetched,
+        isRefetching,
         signup,
         refetch,
         authChk,
-        isRefetching,
       }}
     >
       {children}

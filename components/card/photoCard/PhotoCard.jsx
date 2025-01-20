@@ -4,26 +4,30 @@ import useIsMobileView from '@/lib/hooks/useIsMobileView';
 import ForSaleChip from './meta/ForSaleChip';
 import CardGrade from './meta/CardGrade';
 import { useAuth } from '@/contexts/AuthProvier';
+import src from '@/lib/hooks/useSrc';
 
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
 export default function PhotoCard({ cardType, data }) {
   // data.title 이렇게 가져올 수 있게
   // 데이터 예시
+
+  if (!data) return null;
   const { user } = useAuth();
 
-  const imgUrl = cardType === 'myCard' ? data.cards[0].imagePath : data.card.imagePath;
+  const card = data.card;
+  const imgUrl = cardType === 'myCard' ? src(data.cards[0].imagePath) : src(card.imagePath);
   const title = cardType === 'myCard' ? data.cards[0].name : data.name;
   const userNickName = cardType === 'myCard' ? user.nickName : data.user.nickName;
-  const grade = cardType === 'myCard' ? data.cards[0].grade : data.card.grade;
-  const genre = cardType === 'myCard' ? data.cards[0].genre : data.card.genre;
-  const price = cardType === 'myCard' ? data.cards[0].price : data.card.price;
-  const totalQuantity = cardType === 'myCard' ? data.count : data.totalQuantity;
-  const remainingQuantity = data.remainingQuantity;
-  const exchangeMessage = data.content;
+  const grade = cardType === 'myCard' ? data.cards[0].grade : card.grade;
+  const genre = cardType === 'myCard' ? data.cards[0].genre : card.genre;
+  const price = cardType === 'myCard' ? data.cards[0].price : card.price;
+  const totalQuantity = cardType === 'myCard' ? data.count : data?.totalQuantity;
+  const remainingQuantity = data?.remainingQuantity;
+  const exchangeMessage = card?.content;
+
   const status = '교환 제시 대기 중';
   const isSoldOut = data.remainingQuantity === 0;
-
   // 모바일 크기 변화 감지
   const isMobileView = useIsMobileView();
 
