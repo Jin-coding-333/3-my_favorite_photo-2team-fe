@@ -31,7 +31,7 @@ export default function Header() {
     <header>
       <div className={styles.header}>
         <div className={styles.headerContainer}>
-          {currentUrl !== '/market-place' ? <HeaderGoBack currentUrl={currentUrl} /> : null}
+          {/* {currentUrl !== '/market-place' ? <HeaderGoBack currentUrl={currentUrl} /> : null} */}
           <div
             className={styles.headerMenu}
             style={{
