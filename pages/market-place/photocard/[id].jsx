@@ -21,7 +21,7 @@ export default function PhotoCardDetails() {
     const PhotoCardData = async () => {
       try {
         const shopId = 3;
-        const response = await axios.get('http://localhost:10000/api/shop/cards/3');
+        const response = await axios.get('http://localhost:8000/api/shop/cards/3');
         console.log(response.data.card);
         console.log(photoCardData);
         setPhotoCardData(response.data);

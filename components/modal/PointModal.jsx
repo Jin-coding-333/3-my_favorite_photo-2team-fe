@@ -10,7 +10,7 @@ export default function PointModal({}) {
   if (isPending || !user) return null;
   const { event } = user;
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(!!!event);
   const [text, setText] = useState('');
 
   //모달 닫기 함수
