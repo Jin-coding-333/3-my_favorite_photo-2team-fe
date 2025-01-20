@@ -177,6 +177,8 @@
 
 .exchangeBtBox {
   display: flex;
+  position: absolute;
+  top: 215px;
   justify-content: center;
   gap: 20px;
   width: 100%;
@@ -217,6 +219,7 @@
     left: 51px;
   }
   .contentsBox {
+    top: 150px;
     width: 302px;
     height: 167px;
     top: 272px;
@@ -310,6 +313,7 @@
   }
   .exchangeBtBox {
     gap: 10px;
+    top: 125px;
   }
   .secondContentsBox {
     gap: 5px;

@@ -78,7 +78,7 @@ export default function AllDragContents({ title, handleModal, myCards }) {
           </div>
         ))} */}
         {/* 아래는 예시 */}
-        <div onClick={handleModal}>
+        {/* <div onClick={handleModal}>
           <PhotoCard cardType="myCard" />
         </div>
         <div onClick={handleModal}>
@@ -92,7 +92,7 @@ export default function AllDragContents({ title, handleModal, myCards }) {
         </div>
         <div onClick={handleModal}>
           <PhotoCard cardType="myCard" />
-        </div>
+        </div> */}
       </div>
       {isBottomSheetOpen && isMobileView ? <BottomSheet /> : ''}
     </div>

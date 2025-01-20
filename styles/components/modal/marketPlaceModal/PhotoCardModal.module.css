@@ -1,0 +1,283 @@
+.modalLayer {
+  width: 100%;
+  height: 100%;
+  padding: 60px 120px;
+}
+
+.modalCloseBtns {
+  margin-bottom: 20px;
+}
+
+.closeButton {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 30;
+  right: 30;
+  cursor: pointer;
+}
+
+.tableCloseButton {
+  display: none;
+}
+
+.mobileCloseButton {
+  display: none;
+}
+
+.scrollableContainer {
+  width: 968px;
+  height: calc(93%);
+  overflow: auto;
+  display: grid;
+  padding-right: 40px;
+}
+.scrollableContainer::-webkit-scrollbar {
+  width: 8px;
+  height: 100%;
+}
+.scrollableContainer::-webkit-scrollbar-thumb {
+  background-color: var(--gray-400);
+}
+.scrollableContainer::-webkit-scrollbar-button {
+  display: none;
+}
+
+.headerTitle h2 {
+  font-size: 40px !important;
+  font-weight: 700 !important;
+  line-height: 57.92px !important;
+  text-align: left !important;
+}
+
+.imageSize {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+}
+
+.formTitle h2 {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  line-height: 40.54px !important;
+  text-align: left !important;
+}
+
+.modalName {
+  margin-bottom: 40px;
+  font-family: BR B;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24.58px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  color: var(--gray-300);
+}
+
+.itemCard {
+  display: flex;
+  width: 100%;
+  margin-top: 40px;
+  gap: 40px;
+}
+
+.formLayer {
+  width: 100%;
+  margin-top: 80px;
+}
+
+.forms {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.dropdownSize {
+  width: 440px;
+  height: 60px;
+}
+
+.textBox {
+  max-width: 920px;
+  width: 100%;
+  height: 159px;
+  gap: 10px;
+}
+
+.Buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.modalButton {
+  width: 345px;
+  height: 75px;
+}
+
+@media (max-width: 1200px) {
+  .scrollableContainer {
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+
+  .headerTitle h2 {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    line-height: 46.34px !important;
+    text-align: left !important;
+  }
+
+  .imageSize {
+    width: 342px;
+    height: 256.5px;
+  }
+
+  .formTitle h2 {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    line-height: 31.86px !important;
+    text-align: left !important;
+  }
+
+  .itemCard {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .formLayer {
+    width: 100%;
+  }
+
+  .modalName {
+    margin-top: 30px;
+  }
+
+  .closeButton {
+    display: none;
+  }
+
+  .tableCloseButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .textBox {
+    max-width: none;
+  }
+
+  .forms {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .dropdownSize {
+    width: 342px;
+    max-width: 100%;
+    height: 55px;
+  }
+
+  .modalButton {
+    width: 342px;
+    height: 55px;
+  }
+}
+
+@media (max-width: 744px) {
+  .modalLayer {
+    padding: 15px 40px;
+  }
+
+  .headerTitle h2 {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    line-height: 34.75px !important;
+    text-align: left !important;
+  }
+
+  .imageSize {
+    /* width: 342px;
+    height: 258.75px; */
+    max-width: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .formTitle h2 {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    line-height: 31.86px !important;
+    text-align: left !important;
+  }
+
+  .modalCloseBtns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+
+  .modalName {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+  }
+
+  .tableCloseButton {
+    display: none;
+  }
+
+  .mobileCloseButton {
+    display: flex;
+    margin-left: 5px;
+  }
+
+  .itemCard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .formLayer {
+    margin-top: 120px;
+  }
+
+  .forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
+  }
+
+  .dropdownLayerSize {
+    width: 100%;
+  }
+
+  .dropdownSize {
+    width: 100%;
+    /* max-width: 345px; */
+    /* width: 744px; */
+    height: 55px;
+  }
+
+  .textBox {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .modalButton {
+    width: 165px;
+    height: 55px;
+  }
+}

@@ -1,20 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styles from '@/styles/components/modal/Modal.module.css';
 import Button from '@/components/button/Button.jsx';
 
-export default function Modal({ isOpen, onClose, onConfirm, type, Data = {} }) {
+export default function Modal({ isOpen, onClose, onConfirm, type, cardId }) {
+  const [cardData, setCardData] = useState();
+
+  useEffect(() => {
+    if (isOpen && cardId) {
+      const fetchCardData = async () => {
+        try {
+          const shopId = 1;
+          const response = await axios.get(`http://localhost:10000/api/shop/cards/${shopId}`);
+          setCardData(response.data);
+        } catch (error) {
+          console.error('오류가 발생했습니다.', error);
+        }
+      };
+      fetchCardData();
+    }
+  }, [isOpen, cardId]);
+
   if (!isOpen) return null;
 
   const selectedModal = modalTypes[type] || {
-    title: '',
-    message: '',
-    confirmButtonText: '',
+    title: '알림',
+    message: '정의되지 않은 동작입니다.',
+    confirmButtonText: '닫기',
   };
 
   const title = selectedModal.title;
   const message =
     typeof selectedModal.message === 'function'
-      ? selectedModal.message(Data)
+      ? selectedModal.message(cardData || {})
       : selectedModal.message;
   const confirmButtonText = selectedModal.confirmButtonText;
 
@@ -48,23 +66,22 @@ export const modalTypes = {
   },
   exchangeApproval: {
     title: '교환 제시 승인',
-    message: ({ grade, cardName }) => `[${grade} | ${cardName}] 카드와의 교환을 승인하시겠습니까?`,
+    message: ({ grade, name }) => `[${grade} | ${name}] 카드와의 교환을 승인하시겠습니까?`,
     confirmButtonText: '승인하기',
   },
   exchangeRejection: {
     title: '교환 제시 거절',
-    message: ({ grade, cardName }) => `[${grade} | ${cardName}] 카드와의 교환을 거절하시겠습니까?`,
+    message: ({ grade, name }) => `[${grade} | ${name}] 카드와의 교환을 거절하시겠습니까?`,
     confirmButtonText: '거절하기',
   },
   exchangeCancel: {
     title: '교환 제시 취소',
-    message: ({ grade, cardName }) => `[${grade} | ${cardName}] 교환 제시를 취소하시겠습니까?`,
+    message: ({ grade, name }) => `[${grade} | ${name}] 교환 제시를 취소하시겠습니까?`,
     confirmButtonText: '취소하기',
   },
   buyPhotoCard: {
     title: '포토카드 구매',
-    message: ({ grade, cardName, count }) =>
-      `[${grade} | ${cardName}] ${count}장을 구매하시겠습니까?`,
+    message: ({ grade, name, count = 1 }) => `[${grade} | ${name}] ${count}장을 구매하시겠습니까?`,
     confirmButtonText: '구매하기',
   },
   stopSelling: {
@@ -73,3 +90,94 @@ export const modalTypes = {
     confirmButtonText: '판매 내리기',
   },
 };
+
+//사용예시
+
+//import React, { useState } from 'react';
+// import Modal, { modalTypes } from '@/components/modal/Modal.jsx';
+
+// export default function ModalExample() {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [modalType, setModalType] = useState('');
+//   const mockCardData = {
+//     grade: 'RARE',
+//     name: 'Sunset Landscape',
+//     count: 2,
+//   };
+
+//   const handleOpenModal = (type) => {
+//     setModalType(type);
+//     setIsOpen(true);
+//   };
+
+//   const handleCloseModal = () => {
+//     setIsOpen(false);
+//   };
+
+//   const handleConfirmAction = () => {
+//     console.log(`${modalType} confirmed!`);
+//     setIsOpen(false);
+//   };
+
+//   return (
+//     <div>
+//       <h1>Modal Example</h1>
+//       <button
+//         style={{
+//           backgroundColor: 'white',
+//         }}
+//         onClick={() => handleOpenModal('login')}
+//       >
+//         로그인 모달
+//       </button>
+//       <button
+//         style={{
+//           backgroundColor: 'orange',
+//         }}
+//         onClick={() => handleOpenModal('exchangeApproval')}
+//       >
+//         교환 제시 승인
+//       </button>
+//       <button
+//         style={{
+//           backgroundColor: 'white',
+//         }}
+//         onClick={() => handleOpenModal('exchangeRejection')}
+//       >
+//         교환 제시 거절
+//       </button>
+//       <button
+//         style={{
+//           backgroundColor: 'orange',
+//         }}
+//         onClick={() => handleOpenModal('exchangeCancel')}
+//       >
+//         교환 제시 취소
+//       </button>
+//       <button
+//         style={{
+//           backgroundColor: 'white',
+//         }}
+//         onClick={() => handleOpenModal('buyPhotoCard')}
+//       >
+//         포토카드 구매
+//       </button>
+//       <button
+//         style={{
+//           backgroundColor: 'orange',
+//         }}
+//         onClick={() => handleOpenModal('stopSelling')}
+//       >
+//         포토카드 판매 내리기
+//       </button>
+
+//       <Modal
+//         isOpen={isOpen}
+//         onClose={handleCloseModal}
+//         onConfirm={handleConfirmAction}
+//         type={modalType}
+//         cardId={1} // 현재 mock 데이터로 처리
+//       />
+//     </div>
+//   );
+// }

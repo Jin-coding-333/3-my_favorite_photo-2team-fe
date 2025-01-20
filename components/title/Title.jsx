@@ -10,6 +10,7 @@ export default function Title({
   variant = 'default',
   buttonType = 'primary',
   className,
+  btnClassName,
 }) {
   // 타이틀 크기에 따라 버튼 사이즈 자동 설정
   const buttonSizeMap = {
@@ -45,7 +46,12 @@ export default function Title({
       <div className={styles.titleContainer}>
         <h2 className={titleClass}>{title}</h2>
         {buttonText && (
-          <Button type={buttonType} size={buttonSize} onClick={onButtonClick}>
+          <Button
+            className={btnClassName}
+            type={buttonType}
+            size={buttonSize}
+            onClick={onButtonClick}
+          >
             {buttonText}
           </Button>
         )}
