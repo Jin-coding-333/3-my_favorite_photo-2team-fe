@@ -6,7 +6,7 @@ import CardGrade from './meta/CardGrade';
 
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
-export default function PhotoCard({ cardType, isSoldOut, data }) {
+export default function PhotoCard({ cardType, data }) {
   // data.title 이렇게 가져올 수 있게
   // 데이터 예시
   console.log('test');
@@ -22,6 +22,7 @@ export default function PhotoCard({ cardType, isSoldOut, data }) {
   const remainingQuantity = data.remainingQuantity;
   const exchangeMessage = data.content;
   const status = '교환 제시 대기 중';
+  const isSoldOut = data.remainingQuantity === 0;
 
   // 모바일 크기 변화 감지
   const isMobileView = useIsMobileView();
