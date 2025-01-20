@@ -57,6 +57,7 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, Card, User }) 
 }
 
 /*
+최신 pull 받아서 작성
 컴포넌트 import 해주시고 sell은 판매하기이고 edit은 수정하기 입니다
 버튼은 onClick으로 연결해주시면 됩니다 밑에 작성해놨습니다
 import PhotoCardModal from '@/components/modal/marketPlaceModal/PhotoCardModal';
