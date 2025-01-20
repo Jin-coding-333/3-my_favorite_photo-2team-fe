@@ -39,8 +39,8 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, Card, User }) 
         totalQuantity: form.totalQuantity,
       };
       const response = isEdit
-        ? await instance.put(`/api/shop/cards/${shopId}`, formData) // 수정 요청
-        : await instance.post('/api/shop/cards', formData); // 판매 등록 요청
+        ? await instance.put(`/api/shop/cards/${shopId}`, formData) // 수정 api요청
+        : await instance.post('/api/shop/cards', formData); // 판매 등록 api요청
       console.log(isEdit ? '판매 수정 성공:' : '판매 등록 성공:', response.data);
       onClose();
     } catch (error) {
