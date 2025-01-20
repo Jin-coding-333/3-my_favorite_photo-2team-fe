@@ -3,9 +3,14 @@ import Title from '@/components/title/Title';
 import PageLayout from '@/layout/PageLayout';
 import styles from '@/styles/pages/MarketPlace.module.css';
 import MarketPlaceSearch from '@/components/pages/SearchSortComponent/MarketPlaceSearch';
+import usePhotocardList from '@/lib/hooks/usePhotocardList';
 import PhotocardList from '@/components/pages/market-place/PhotocardList';
 
-export default function MarketPlace() {
+export default function MarketPlace( ) {
+
+  const photocardList = usePhotocardList();
+  console.log('photocardList', photocardList);
+
   return (
     <>
       <PageLayout>
@@ -20,7 +25,7 @@ export default function MarketPlace() {
           />
         </div>
         <MarketPlaceSearch />
-        <PhotocardList />
+        <PhotocardList photocardList={photocardList} />
       </PageLayout>
       <div className={styles.buttonStyle}>
         <Button className={styles.fixedButton} type="primary" onClick={() => alert('생성하기')}>
