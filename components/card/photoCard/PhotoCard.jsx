@@ -12,12 +12,12 @@ export default function PhotoCard({ cardType, data }) {
   console.log('test');
   console.log('data', data);
 
-  const imgUrl = data.card.imagePath;
+  const imgUrl = data.card?.imagePath;
   const title = data.name;
-  const user = data.user.nickName;
-  const grade = data.card.grade;
-  const genre = data.card.genre;
-  const price = data.card.price;
+  const user = data.user?.nickName;
+  const grade = data.card?.grade;
+  const genre = data.card?.genre;
+  const price = data.card?.price;
   const totalQuantity = data.totalQuantity;
   const remainingQuantity = data.remainingQuantity;
   const exchangeMessage = data.content;
