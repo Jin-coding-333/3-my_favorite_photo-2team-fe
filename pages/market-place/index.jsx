@@ -13,7 +13,6 @@ export default function MarketPlace() {
 
   const handleModal = () => {
     setIsModal(!isModal);
-    console.log(isModal);
   };
   return (
     <>

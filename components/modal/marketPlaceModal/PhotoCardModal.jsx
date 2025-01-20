@@ -28,8 +28,9 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, cardData }) {
   const totalQuantity = cardData.count;
 
   const { user } = useAuth();
-
+  console.log(user.id);
   const [form, setForm] = useState({
+    // userId: user.id,
     genre: '',
     grade: '',
     description: '',
