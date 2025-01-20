@@ -1,6 +1,6 @@
 import PhotoCard from '@/components/card/photoCard/PhotoCard';
 
-export default function MyPhotoList({ data = [] }) {
+export default function MyPhotoList({ data = [], handleModal }) {
   console.log('mycards', data);
 
   // 같은 유니크id 카드 수량
@@ -21,12 +21,13 @@ export default function MyPhotoList({ data = [] }) {
 
   console.log(groupedCards);
   console.log('test1', groupedCards[0].cards);
+  console.log('test2', groupedCards[0].cards[0].imagePath);
   return (
     <>
       {groupedCards.length > 0 ? (
         groupedCards.map((group) => (
-          <div key={group.uniqueId}>
-            <PhotoCard cardType="myCard" data={group.cards} />
+          <div key={group.uniqueId} onClick={handleModal}>
+            <PhotoCard cardType="myCard" data={group} />
           </div>
         ))
       ) : (
