@@ -35,7 +35,7 @@ export default function PointModal({}) {
       }
       const timeLog = `${59 - now.getMinutes()}분 ${60 - now.getSeconds()}초`;
       setText(timeLog);
-      console.log(timeLog);
+      // console.log(timeLog);
     };
     // 1초마다 이벤트 체크
     setInterval(checkEventTrigger, 1000);
