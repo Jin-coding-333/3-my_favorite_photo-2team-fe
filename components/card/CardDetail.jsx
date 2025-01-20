@@ -12,7 +12,7 @@ export default function CardDetail({
   price,
   setPrice,
 }) {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   const handlePriceChange = (e) => {
     const input = e.target.value;

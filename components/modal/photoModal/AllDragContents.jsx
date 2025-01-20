@@ -8,10 +8,11 @@ import UseIsMobileView from '@/lib/hooks/useIsMobileView';
 import BottomSheet from '@/components/bottomSheet/BottomSheet';
 import { useUser } from '@/contexts/UserProvider';
 import MyPhotoList from './MyPhotoList';
-import PhotoModal from './PhotoModal';
+import PhotoCardModal from '../marketPlaceModal/PhotoCardModal';
 
 export default function AllDragContents({ title, handleModal }) {
   const [isSellModal, setIsSellModal] = useState(false);
+  const [cardData, setCardData] = useState(null);
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const handleBottomSheet = () => {
     setIsBottomSheetOpen(!isBottomSheetOpen);
@@ -26,11 +27,14 @@ export default function AllDragContents({ title, handleModal }) {
       [name]: value,
     }));
   };
-  const handleSellModal = () => {
+  const handleSellModal = (group) => {
+    setCardData(group);
     setIsSellModal(!isSellModal);
   };
 
   const { myCards } = useUser();
+
+  const isLoading = !myCards || myCards.length === 0;
 
   const isMobileView = UseIsMobileView();
 
@@ -79,14 +83,20 @@ export default function AllDragContents({ title, handleModal }) {
           </div>
         )}
       </div>
-      <div className={styles.holdingPhotoBox}>
-        <MyPhotoList data={myCards} handleModal={handleSellModal} />
-      </div>
-      <PhotoModal
-        isModal={isSellModal}
-        handleModal={handleSellModal}
-        modalType="lastPage"
-      ></PhotoModal>
+
+      {isLoading ? (
+        <p>로딩 중...</p>
+      ) : (
+        <div className={styles.holdingPhotoBox}>
+          <MyPhotoList data={myCards} handleModal={handleSellModal} />
+        </div>
+      )}
+      <PhotoCardModal
+        isOpen={isSellModal}
+        onClose={handleSellModal}
+        isEdit={false}
+        cardData={cardData}
+      />
       {isBottomSheetOpen && isMobileView ? <BottomSheet /> : ''}
     </div>
   );
