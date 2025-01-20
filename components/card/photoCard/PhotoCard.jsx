@@ -3,21 +3,21 @@ import Button from '@/components/button/Button';
 import useIsMobileView from '@/lib/hooks/useIsMobileView';
 import ForSaleChip from './meta/ForSaleChip';
 import CardGrade from './meta/CardGrade';
+import src from '@/lib/hooks/useSrc';
 
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
 export default function PhotoCard({ cardType, data }) {
   // data.title 이렇게 가져올 수 있게
   // 데이터 예시
-  console.log('test');
-  console.log('data', data);
+  if (!data) return null;
 
-  const imgUrl = data.card?.imagePath;
+  const imgUrl = data.imagePath;
   const title = data.name;
-  const user = data.user?.nickName;
-  const grade = data.card?.grade;
-  const genre = data.card?.genre;
-  const price = data.card?.price;
+  const user = data.nickName;
+  const grade = data.grade;
+  const genre = data.genre;
+  const price = data.price;
   const totalQuantity = data?.totalQuantity;
   const remainingQuantity = data?.remainingQuantity;
   const exchangeMessage = data?.content;

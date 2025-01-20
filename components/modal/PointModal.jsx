@@ -33,9 +33,10 @@ export default function PointModal({}) {
         eventReset();
         setIsOpen(true); // 모달 표시
       }
-      setText(`${59 - now.getMinutes()}분 ${60 - now.getSeconds()}`);
+      const timeLog = `${59 - now.getMinutes()}분 ${60 - now.getSeconds()}초`;
+      setText(timeLog);
+      console.log(timeLog);
     };
-    console.log(text);
     // 1초마다 이벤트 체크
     setInterval(checkEventTrigger, 1000);
   }, []);
@@ -46,7 +47,7 @@ export default function PointModal({}) {
       userRefetch();
     }
   };
-
+  if (!!!text) return null;
   return (
     <div>
       {isOpen && (
