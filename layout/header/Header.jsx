@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import HeaderGoBack from './HeaderGoBack';
+import { Profile } from '@/components/meta/profile/Profile';
 
 export default function Header() {
   const { user, logout, refreshToken } = useAuth();
@@ -22,11 +23,6 @@ export default function Header() {
   const router = useRouter();
   const currentUrl = router.asPath;
 
-  const isUser = {
-    point: '1,540',
-    nickName: '유디',
-  };
-
   return (
     <header>
       <div className={styles.header}>
@@ -38,12 +34,15 @@ export default function Header() {
               position: 'relative',
             }}
           >
-            <Image src={MenuImg} alt="Menu logo" />
+            {/* <Image src={MenuImg} alt="Menu logo" /> */}
+            {user ? (
+              <Profile userName={user.nickName} point={user.point} logout={logout} />
+            ) : null}
           </div>
 
           <Link href="/">
             <div
-              className={`${styles.headerLogo} ${isUser ? null : styles.unUserHeaderLogo}`}
+              className={`${styles.headerLogo}`}
               style={{
                 position: 'relative',
               }}
