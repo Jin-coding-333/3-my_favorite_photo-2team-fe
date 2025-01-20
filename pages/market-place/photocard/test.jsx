@@ -27,12 +27,54 @@ export default function ModalExample() {
   return (
     <div>
       <h1>Modal Example</h1>
-      <button onClick={() => handleOpenModal('login')}>로그인 모달</button>
-      <button onClick={() => handleOpenModal('exchangeApproval')}>교환 제시 승인</button>
-      <button onClick={() => handleOpenModal('exchangeRejection')}>교환 제시 거절</button>
-      <button onClick={() => handleOpenModal('exchangeCancel')}>교환 제시 취소</button>
-      <button onClick={() => handleOpenModal('buyPhotoCard')}>포토카드 구매</button>
-      <button onClick={() => handleOpenModal('stopSelling')}>포토카드 판매 내리기</button>
+      <button
+        style={{
+          backgroundColor: 'white',
+        }}
+        onClick={() => handleOpenModal('login')}
+      >
+        로그인 모달
+      </button>
+      <button
+        style={{
+          backgroundColor: 'orange',
+        }}
+        onClick={() => handleOpenModal('exchangeApproval')}
+      >
+        교환 제시 승인
+      </button>
+      <button
+        style={{
+          backgroundColor: 'white',
+        }}
+        onClick={() => handleOpenModal('exchangeRejection')}
+      >
+        교환 제시 거절
+      </button>
+      <button
+        style={{
+          backgroundColor: 'orange',
+        }}
+        onClick={() => handleOpenModal('exchangeCancel')}
+      >
+        교환 제시 취소
+      </button>
+      <button
+        style={{
+          backgroundColor: 'white',
+        }}
+        onClick={() => handleOpenModal('buyPhotoCard')}
+      >
+        포토카드 구매
+      </button>
+      <button
+        style={{
+          backgroundColor: 'orange',
+        }}
+        onClick={() => handleOpenModal('stopSelling')}
+      >
+        포토카드 판매 내리기
+      </button>
 
       <Modal
         isOpen={isOpen}

@@ -6,20 +6,20 @@ import Button from '@/components/button/Button.jsx';
 export default function Modal({ isOpen, onClose, onConfirm, type, cardId }) {
   const [cardData, setCardData] = useState();
 
-  // useEffect(() => {
-  //   if (isOpen && cardId) {
-  //     const fetchCardData = async () => {
-  //       try {
-  //         const shopId = 1;
-  //         const response = await axios.get(`http://localhost:10000/api/shop/cards/${shopId}`);
-  //         setCardData(response.data);
-  //       } catch (error) {
-  //         console.error('오류가 발생했습니다.', error);
-  //       }
-  //     };
-  //     fetchCardData();
-  //   }
-  // }, [isOpen, cardId]);
+  useEffect(() => {
+    if (isOpen && cardId) {
+      const fetchCardData = async () => {
+        try {
+          const shopId = 1;
+          const response = await axios.get(`http://localhost:10000/api/shop/cards/${shopId}`);
+          setCardData(response.data);
+        } catch (error) {
+          console.error('오류가 발생했습니다.', error);
+        }
+      };
+      fetchCardData();
+    }
+  }, [isOpen, cardId]);
 
   if (!isOpen) return null;
 
@@ -90,3 +90,94 @@ export const modalTypes = {
     confirmButtonText: '판매 내리기',
   },
 };
+
+//사용예시
+
+//import React, { useState } from 'react';
+// import Modal, { modalTypes } from '@/components/modal/Modal.jsx';
+
+// export default function ModalExample() {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [modalType, setModalType] = useState('');
+//   const mockCardData = {
+//     grade: 'RARE',
+//     name: 'Sunset Landscape',
+//     count: 2,
+//   };
+
+//   const handleOpenModal = (type) => {
+//     setModalType(type);
+//     setIsOpen(true);
+//   };
+
+//   const handleCloseModal = () => {
+//     setIsOpen(false);
+//   };
+
+//   const handleConfirmAction = () => {
+//     console.log(`${modalType} confirmed!`);
+//     setIsOpen(false);
+//   };
+
+//   return (
+//     <div>
+//       <h1>Modal Example</h1>
+//       <button
+//         style={{
+//           backgroundColor: 'white',
+//         }}
+//         onClick={() => handleOpenModal('login')}
+//       >
+//         로그인 모달
+//       </button>
+//       <button
+//         style={{
+//           backgroundColor: 'orange',
+//         }}
+//         onClick={() => handleOpenModal('exchangeApproval')}
+//       >
+//         교환 제시 승인
+//       </button>
+//       <button
+//         style={{
+//           backgroundColor: 'white',
+//         }}
+//         onClick={() => handleOpenModal('exchangeRejection')}
+//       >
+//         교환 제시 거절
+//       </button>
+//       <button
+//         style={{
+//           backgroundColor: 'orange',
+//         }}
+//         onClick={() => handleOpenModal('exchangeCancel')}
+//       >
+//         교환 제시 취소
+//       </button>
+//       <button
+//         style={{
+//           backgroundColor: 'white',
+//         }}
+//         onClick={() => handleOpenModal('buyPhotoCard')}
+//       >
+//         포토카드 구매
+//       </button>
+//       <button
+//         style={{
+//           backgroundColor: 'orange',
+//         }}
+//         onClick={() => handleOpenModal('stopSelling')}
+//       >
+//         포토카드 판매 내리기
+//       </button>
+
+//       <Modal
+//         isOpen={isOpen}
+//         onClose={handleCloseModal}
+//         onConfirm={handleConfirmAction}
+//         type={modalType}
+//         cardId={1} // 현재 mock 데이터로 처리
+//       />
+//     </div>
+//   );
+// }
