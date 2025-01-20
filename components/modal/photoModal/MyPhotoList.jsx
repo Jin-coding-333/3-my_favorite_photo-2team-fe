@@ -26,7 +26,7 @@ export default function MyPhotoList({ data = [], handleModal }) {
     <>
       {groupedCards.length > 0 ? (
         groupedCards.map((group) => (
-          <div key={group.uniqueId} onClick={handleModal}>
+          <div key={group.uniqueId} onClick={() => handleModal(group)}>
             <PhotoCard cardType="myCard" data={group} />
           </div>
         ))
