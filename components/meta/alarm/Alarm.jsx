@@ -26,21 +26,29 @@ function FormatTimeDifference(timestamp) {
   }
 }
 
-export function Alarm({ notifications, updateNotifications }) {
+export function Alarm({ notifications, updateNotifications, onMarkAsRead }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  // 읽지 않은 알림 개수 계산
   const unreadCount = notifications.filter((notif) => !notif.isRead).length;
 
-  const toggleDropdown = () => {
-    setIsOpen((prev) => !prev);
-  };
+  const toggleDropdown = () => setIsOpen((prev) => !prev);
 
-  const onNotificationClick = (index) => {
+  // const onNotificationClick = (index) => {
+  //   const updatedNotifications = notifications.map((notif, i) =>
+  //     i === index ? { ...notif, isRead: true } : notif,
+  //   );
+  //   updateNotifications(updatedNotifications);
+  // };
+  const onNotificationClick = async (index, notifId) => {
+    if (!notifications[index].isRead) {
+      await onMarkAsRead(notifId); // 서버에 읽음 상태 업데이트 요청
+    }
     const updatedNotifications = notifications.map((notif, i) =>
       i === index ? { ...notif, isRead: true } : notif,
     );
-    updateNotifications(updatedNotifications);
+    updateNotifications(updatedNotifications); // 상태 업데이트
   };
 
   useEffect(() => {
@@ -75,12 +83,12 @@ export function Alarm({ notifications, updateNotifications }) {
           {notifications.length > 0 ? (
             notifications.map((notif, index) => (
               <div
-                key={index}
+                key={notif.id}
                 className={`${styles.notification} ${notif.isRead ? styles.read : ''}`}
-                onClick={() => onNotificationClick(index)}
+                onClick={() => onNotificationClick(index, notif.id)}
               >
-                <p className={styles.text}>{notif.message}</p>
-                <p className={styles.time}>{FormatTimeDifference(notif.time)}</p>
+                <p className={styles.text}>{notif.content}</p>
+                <p className={styles.time}>{FormatTimeDifference(notif.createdAt)}</p>
               </div>
             ))
           ) : (
