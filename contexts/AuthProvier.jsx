@@ -17,6 +17,7 @@ export function AuthProvider({ children }) {
     isLoading,
     refetch,
     isStale,
+    isRefetching,
   } = useQuery({
     queryKey: ['user', token],
     queryFn: getUser,
@@ -83,7 +84,17 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user: user?.user, login, logout, refreshToken, isPending, signup, refetch, authChk }}
+      value={{
+        user: user?.user,
+        login,
+        logout,
+        refreshToken,
+        isPending,
+        signup,
+        refetch,
+        authChk,
+        isRefetching,
+      }}
     >
       {children}
     </AuthContext.Provider>
