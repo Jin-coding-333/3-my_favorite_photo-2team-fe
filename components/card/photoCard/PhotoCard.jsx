@@ -3,6 +3,7 @@ import Button from '@/components/button/Button';
 import useIsMobileView from '@/lib/hooks/useIsMobileView';
 import ForSaleChip from './meta/ForSaleChip';
 import CardGrade from './meta/CardGrade';
+import { useAuth } from '@/contexts/AuthProvier';
 import src from '@/lib/hooks/useSrc';
 
 // cardType : original, exchange, myCard, forSale
@@ -10,17 +11,21 @@ import src from '@/lib/hooks/useSrc';
 export default function PhotoCard({ cardType, data }) {
   // data.title 이렇게 가져올 수 있게
   // 데이터 예시
+
   if (!data) return null;
+  const { user } = useAuth();
+
   const card = data.card;
-  const imgUrl = src(card.imagePath);
-  const title = card.name;
-  const user = card.nickName;
-  const grade = card.grade;
-  const genre = card.genre;
-  const price = card.price;
-  const totalQuantity = data?.totalQuantity;
+  const imgUrl = cardType === 'myCard' ? src(data.cards[0].imagePath) : src(card.imagePath);
+  const title = cardType === 'myCard' ? data.cards[0].name : data.name;
+  const userNickName = cardType === 'myCard' ? user.nickName : data.user.nickName;
+  const grade = cardType === 'myCard' ? data.cards[0].grade : card.grade;
+  const genre = cardType === 'myCard' ? data.cards[0].genre : card.genre;
+  const price = cardType === 'myCard' ? data.cards[0].price : card.price;
+  const totalQuantity = cardType === 'myCard' ? data.count : data?.totalQuantity;
   const remainingQuantity = data?.remainingQuantity;
   const exchangeMessage = card?.content;
+
   const status = '교환 제시 대기 중';
   const isSoldOut = data.remainingQuantity === 0;
   // 모바일 크기 변화 감지
@@ -54,8 +59,7 @@ export default function PhotoCard({ cardType, data }) {
               <div className={`${styles.flex} ${styles.gap10}`}>
                 {/* 등급  */}
                 <div className={styles.grade}>
-                  {' '}
-                  <CardGrade grade={grade} type="rarityThickness" />{' '}
+                  <CardGrade grade={grade} type="rarityThickness" />
                 </div>
                 {/* 수평선 */}
                 <div className={styles.vertical}> | </div>
@@ -71,10 +75,10 @@ export default function PhotoCard({ cardType, data }) {
                     <div className={styles.numberText}>{price} P </div>
                     <div className={styles.grayText}> 에 구매</div>
                   </div>
-                  <div className={styles.user}>{user}</div>
+                  <div className={styles.user}>{userNickName}</div>
                 </div>
               ) : (
-                <div className={styles.user}>{user}</div>
+                <div className={styles.user}>{userNickName}</div>
               )}
             </div>
           </div>
@@ -94,7 +98,9 @@ export default function PhotoCard({ cardType, data }) {
               <div className={styles.secondContents}>
                 <div className={styles.grayText}>수량</div>
                 <div className={styles.flex}>
-                  <div className={styles.numberText}>{remainingQuantity}</div>
+                  <div className={styles.numberText}>
+                    {cardType === 'myCard' ? totalQuantity : remainingQuantity}
+                  </div>
                   {cardType === 'original' ? (
                     <div className={styles.grayText}>/{totalQuantity}</div>
                   ) : (
