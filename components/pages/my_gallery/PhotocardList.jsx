@@ -12,7 +12,7 @@ export default function PhotocardList() {
 
   return (
     <div className={styles.photocardListContainer}>
-      {photocards.map((photocard) => (
+      {photocardList.map((photocard) => (
         <div className={styles.photocard}>
           <Link href={`/'my-gallery/my-photocard'/${photocard.id}`}>
             <PhotoCard
