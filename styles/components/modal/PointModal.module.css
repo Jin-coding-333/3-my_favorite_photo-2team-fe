@@ -66,14 +66,42 @@
   display: flex;
   justify-content: center;
   gap: 60px;
+  position: relative;
 }
 
 .boxImg {
   max-width: 250px;
   max-height: 198px;
   cursor: pointer;
+  transition: 1.5s;
 }
-
+.moveImg {
+  opacity: 0;
+}
+.giftContainer p {
+  text-align: center;
+  font-size: 102px;
+  font-family: BR B;
+  color: var(--main);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 100%;
+  max-width: 600px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.giftContainer p span {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #fff;
+  display: block;
+}
+.giftContainer p.moveImg {
+  transition: 3s;
+  /* display: block; */
+  opacity: 1;
+}
 @media (max-width: 1200px) {
   .modal {
     width: 600px;

@@ -1,5 +1,6 @@
 import Button from '../button/Button';
 import styles from '@/styles/components/Card.module.css';
+import CardGrade from './photoCard/meta/CardGrade';
 
 export function BtnPlace({ btn = [] }) {
   return (
@@ -15,7 +16,10 @@ export function Title({ grade = 'COMMON', genre = 'unknwon', userNickName }) {
   return (
     <div className={styles.Title}>
       <div className={styles.Top}>
-        <p className={styles.Grade}>{grade}</p>
+        <p className={styles.Grade}>
+          {/* {grade} */}
+          <CardGrade grade={grade} />
+        </p>
         <div className={styles.TitleLine}></div>
         <p className={styles.Genre}>{genre}</p>
       </div>

@@ -12,6 +12,8 @@ export default function PointModal({}) {
 
   const [isOpen, setIsOpen] = useState(!!!event);
   const [text, setText] = useState('');
+  const [cn, setcn] = useState(styles.boxImg);
+  const [point, setPoint] = useState(0);
 
   //모달 닫기 함수
   const closeModal = async () => {
@@ -28,22 +30,26 @@ export default function PointModal({}) {
     const checkEventTrigger = () => {
       const now = new Date();
       // 현재 시간이 정각인지 확인
-      if (now.getMinutes() === 0 && now.getSeconds() === 0) {
+      if (now.getSeconds() === 0) {
         userRefetch();
         eventReset();
         setIsOpen(true); // 모달 표시
       }
       const timeLog = `${59 - now.getMinutes()}분 ${60 - now.getSeconds()}초`;
       setText(timeLog);
-      // console.log(timeLog);
     };
     // 1초마다 이벤트 체크
     setInterval(checkEventTrigger, 1000);
   }, []);
-  const pointEvent = async () => {
+  const pointEvent = async (e) => {
+    const { src, className, alt } = e.target;
+
+    console.log();
     const result = await pointEventApi();
-    if (result) {
-      setIsOpen(false);
+    if (result.success) {
+      setcn(`${cn} ${styles.moveImg}`);
+      // setIsOpen(false);
+      setPoint(result.point);
       userRefetch();
     }
   };
@@ -73,21 +79,28 @@ export default function PointModal({}) {
               <img
                 src="/random_box/box1.png"
                 alt="randomBox1"
-                className={styles.boxImg}
+                className={cn}
                 onClick={pointEvent}
               />
               <img
                 src="/random_box/box2.png"
                 alt="randomBox2"
-                className={styles.boxImg}
+                className={cn}
                 onClick={pointEvent}
               />
               <img
                 src="/random_box/box3.png"
                 alt="randomBox3"
-                className={styles.boxImg}
+                className={cn}
                 onClick={pointEvent}
               />
+              <p className={cn}>
+                <span>
+                  축하합니다
+                  <br /> 획득한 포인트는
+                </span>
+                {point}
+              </p>
             </div>
           </div>
         </div>

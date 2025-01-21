@@ -27,19 +27,15 @@ export default function HomePage() {
             <h1 className={styles.title2}>
               내 손 안의 <span className={styles.mainColor}>포토카드</span>
             </h1>
-            <Link href='/market-place'>
-              <Button
-                type='primary'
-                className={styles.button}
-                size='xl'
-              >
+            <Link href="/market-place">
+              <Button type="primary" className={styles.button} size="xl">
                 포토 카드 보러가기
               </Button>
             </Link>
           </div>
         </div>
         <ImageSlider />
-      </div >
+      </div>
     </>
   );
 }
