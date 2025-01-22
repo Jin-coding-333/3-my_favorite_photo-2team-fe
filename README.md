@@ -6,6 +6,7 @@
 <a href="https://ecma-international.org/">![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=plastic&logo=JavaScript&logoColor=white) </a>
 <a href="https://nodejs.org/en">![node.js](https://img.shields.io/badge/Node.js-43853D?style=plastic&logo=node.js&logoColor=white) </a>
 <a href="https://ko.react.dev/">![React](https://img.shields.io/badge/React-20232A?style=plastic&logo=react&logoColor=61DAFB) </a>
+<a href="https://tanstack.com/query/v5/docs/framework/react/overview"> ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=plastic&logo=react%20query&logoColor=white) </a>
 <a href="https://nextjs.org/">![Next.js](https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=fff&style=plastic) </a>
 <a href="https://www.postgresql.org/">![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=plastic&logo=postgresql&logoColor=white) </a>
 <a href="https://expressjs.com/">![Express](https://img.shields.io/badge/Express.js-404D59?style=plastic) </a>
@@ -43,24 +44,225 @@ _클릭시 해당 깃허브링크로 이동합니다._  </br>
 </br> </br>
   
 ## 📃팀원별 구현 기능 상세
-**배진한(팀장)**
+### 1️⃣ 배진한(팀장) 
+**Frontend**
 
-</br>**김태훈**
+- 헤더, 업로드 인풋, 텍스트 박스 컴포넌트, favicon제작
+- CountGrade 컴포넌트
+- 마켓플레이스, 마이갤러리, 나의판매 포토카드 페이지 리스트
+- 홈페이지, 404페이지, Result 페이지
+  
+</br>**Backend**
+- 배포(프론트, 백)
 
-</br>**김현묵**
+</br>**Other**
+- 노션 구성 및 디자인
+- ppt 발표 자료
 
-</br>**배호근**
 
-</br>**전준기**
+### 2️⃣ 김태훈
+**Frontend**
 
-</br>**최종훈**
+- iunput 컴포넌트
+    
+<img src="https://github.com/user-attachments/assets/9a145d53-bb4b-40cb-ac40-d5fd2b906cb3" width="300" /> 
 
-</br>**최혜지**
+1. 이메일 유효성 검사 
+2. 비밀번호 숨기기 보이기 기능 구현
+3. 비밀번호와 비밀번화 확인 일치 불일치 여부기능 구현
+4. 포토카드 이름 30자 초과했을 경우 에러메세지 
+5. 객체 형태로 type관리 
+   - 새 type을 추가할 경우 쉽게 수정이 가능하며 유지보수성 증가
+6. 함수 바깥에서 변수선언을 통해 렌더링될 때마다 초기화되는 현상을 개선해 불필요한 메모리를 사용을 줄여 성능개선
 
+- Modal 컴포넌트
+<img src="https://github.com/user-attachments/assets/cfcca9eb-f859-4b37-81af-3f272489755f" width="300" />
+   </br> - name , grade, count 동적관리를 통해서 유지보수성 향상
+   </br> - 함수 바깥에서 변수선언을 통해서 불필요한 렌더링을 줄여 성능개선
+
+</br>**Other**
+1. 포토카드 상세 판매자 구매자 페이지 구현
+    - 페이지 두 개를 하나의 페이지로 유저의 상태에 따라서 다른 페이지가 보여지도록 구현
+
+### 3️⃣ 김현묵
+**Frontend**
+- Auth 과련 인증
+- 회원가입
+- 로그인
+- 교환 모달
+- point관련 event기능
+  
+</br>**Backend**
+- 백엔드 세팅
+- Auth Route
+- User Route
+
+
+### 4️⃣ 배호근
+**Frontend**
+
+- grade 공동 컴포넌트 작업
+
+<img src="https://github.com/user-attachments/assets/9e50bd45-4038-4826-8bc7-cc6678c3fef3" width="300" />
+
+
+- 판매 중, 교환 제시 대기 중 컴포넌트 작업
+
+<img src="https://github.com/user-attachments/assets/ee6f3742-c7c5-4e1f-a0d7-e06fffcccdda" width="300" />
+
+- Sign-up 페이지 작업
+
+<img src="https://github.com/user-attachments/assets/5994aece-c527-40f9-b27a-c0ec1fb929ff" width="300" />
+
+</br>**Other**
+
+- ERD 작업
+
+<img src="https://github.com/user-attachments/assets/c14ab852-e5c5-4754-9586-8ba75b2c3f5f" width="300" />
+  
+### 5️⃣ 전준기
+**Frontend**
+- 공통 컴포넌트
+    - InputDropDown
+      
+    <img src="https://github.com/user-attachments/assets/881eded7-7700-46d0-bb53-cf852b284b95" width="200" />
+    </br> - PhotoCard (original, mycard, exchage, forSale, soldOut)
+    
+
+- 하나의 컴포넌트로 구현되게
+
+<img src="https://github.com/user-attachments/assets/153bb279-6d01-4ff8-b0fe-471d3729e2a8" width="200" />
+    
+- PhotoModal (drag&drop 기능 포함, 컴포넌트 하나로 2개 타입 구현되게)
+
+<img src="https://github.com/user-attachments/assets/eefca64b-e40f-4350-8878-b89c005b9b30" width="200" higth="80" /> <img src="https://github.com/user-attachments/assets/f99e887d-807b-47ed-86f4-14db4380279b" width="200" higth="150" /> <img src="https://github.com/user-attachments/assets/12793d7f-04e5-44bb-b31f-3c1239d2032f" width="200" higth="150"/>
+
+- 페이지
+   - 내 사진 선택하기
+     
+  <img src="https://github.com/user-attachments/assets/4f641d41-5bfd-49df-bbe7-dd8e8b3029bb" width="300" />
+   
+
+</br>**Backend**
+- /api/shop 부분 전체
+  
+  <img src="https://github.com/user-attachments/assets/22eed313-d80a-40eb-8a1a-bf455c9c351e" width="400" />
+
+### 6️⃣ 최종훈
+**Frontend**
+- SortDropdown
+- Search
+- PhotoCardModal
+- Alarm
+- Profile
+- Header 수정 작업
+- MarketPlaceSearch
+- MyGallerySearch
+- PhotoCardSaleSearch
+  
+</br>**Backend**
+- Card Route
+- Notification Route
+
+### 7️⃣ 최혜지
+</br>**Frontend**
+1. 랜덤포인트 Modal 컴포넌트
+
+<img src="https://github.com/user-attachments/assets/adca9ac6-cb10-4bcd-b597-715f01d26a2e" width="300" />
+
+- 일정 시간마다 로그인을 한 회원에 한해 ‘랜덤포인트’를 받을 수 있는 Modal
+- 각 선물 상자 클릭 가능
+</br>
+  
+2. 공통 Title 컴포넌트
+
+<img src="https://github.com/user-attachments/assets/a77f5335-6aa2-45c7-a8d3-78c43bae39bc" width="400" />
+
+- 타이틀은 크게 버튼 유/무, 사이즈 (L, M, S), 타이틀의 폰트로 나누어짐
+- 페이지와 모달에 따라 알맞은 사이즈를 선택하여 사용
+ </br>
+ 
+3. 공통 페이지 레이아웃
+
+<img src="https://github.com/user-attachments/assets/861ecf5b-229e-4421-9c60-901309b714d8" width="400" />
+
+- 마켓 플레이스, 마이갤러리, 나의 판매 포토카드 3개의 페이지 레이아웃이 같기 때문에 공통 레이아웃 컴포넌트 구현
+- 미디어 쿼리가 744px 이하일 때 (모바일 사이즈), 타이틀 컴포넌트가 사라짐
+ </br>
+ 
+4. 페이지 (마켓 플레이스, 마이갤러리, 나의 판매 포토카드)
+
+<img src="https://github.com/user-attachments/assets/d610aaa4-a9fd-47a8-96c0-c32d5732f7f4" width="150" />
+
+- 각 페이지에 맞는 레이아웃, 타이틀 컴포넌트, 버튼 컴포넌트 적용
+- 미디어 쿼리가 744px 이하일 때 (모바일 사이즈), ‘나의 포토카드 판매하기’ 버튼이 화면 하단에 위치
+
+  
+</br>**Other**
+
+- 깃 허브 프론트엔드 README.md 파일 작성
+  
 </br>
 
 ## 📂파일 구조
+📂 프로젝트 루트<br>
+├── 📄 README.md<br>
+├── 📂 components<br>
+│   ├── 📁 button<br>
+│   ├── 📁 card<br>
+│   ├── 📁 dropdown<br>
+│   ├── 📁 input<br>
+│   ├── 📁 meta<br>
+│   ├── 📁 modal<br>
+│   ├── 📁 pages<br>
+│   ├── 📁 search<br>
+│   ├── 📁 chipAndSale<br>
+│   ├── 📁 title<br>
+│   └── 📁 bottomSheet<br>
+├── 📂 contexts<br>
+│   ├── 📄 AuthProvider.jsx<br>
+│   ├── 📄 UserProvider.jsx<br>
+│   ├── 📄 Provider.jsx<br>
+│   └── 📄 EventProvider.jsx<br>
+├── 📂 layout<br>
+│   ├── 📄 PageLayout.jsx<br>
+│   └── 📄 CenterLayout.jsx<br>
+├── 📂 lib<br>
+│   ├── 📁 api<br>
+│   └── 📁 data<br>
+├── 📂 pages<br>
+│   ├── 📄 _app.js<br>
+│   ├── 📄 _document.js<br>
+│   ├── 📄 index.jsx<br>
+│   ├── 📄 login.jsx<br>
+│   ├── 📄 sign-up.jsx<br>
+│   ├── 📄 create-photocard.jsx<br>
+│   ├── 📄 my-sale-photocard.jsx<br>
+│   ├── 📄 result.jsx<br>
+│   ├── 📄 404.jsx<br>
+│   ├── 📂 market-place<br>
+│   └── 📂 my-gallery<br>
+├── 📂 public<br>
+│   ├── 📁 favicon<br>
+│   ├── 📁 fonts<br>
+│   ├── 📁 icon<br>
+│   ├── 📁 img<br>
+│   └── 📁 random_box<br>
+├── 📂 styles<br>
+│   ├── 📁 components<br>
+│   ├── 📁 layout<br>
+│   ├── 📁 pages<br>
+│   └── 📄 globals.css<br>
+├── 📄 eslint.config.mjs<br>
+├── 📄 jsconfig.json<br>
+├── 📄 next.config.mjs<br>
+├── 📄 package.json<br>
+└── 📄 package-lock.json
+</br> </br> 
+
 
 ## 💻구현 홈페이지
+**🖱 [MyFavoritePhoto](https://3-my-favorite-photo-2team-fe.vercel.app/)**
+</br> </br>
 
 ## 📌프로젝트 회고록
