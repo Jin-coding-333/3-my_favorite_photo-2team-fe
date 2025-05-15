@@ -45,19 +45,36 @@ _클릭시 해당 깃허브링크로 이동합니다._  </br>
   
 ## 📃팀원별 구현 기능 상세
 ### 1️⃣ 배진한(팀장) 
-**Frontend**
+#### Page
+##### 마켓플레이스, 마이갤러리, 나의판매 포토카드 페이지
+![image](https://github.com/user-attachments/assets/36aa8f0f-a52b-4254-84d2-f2dd09cefc13)
 
-- 헤더, 업로드 인풋, 텍스트 박스 컴포넌트, favicon제작
-- CountGrade 컴포넌트
-- 마켓플레이스, 마이갤러리, 나의판매 포토카드 페이지 리스트
-- 홈페이지, 404페이지, Result 페이지
-  
-</br>**Backend**
-- 배포(프론트, 백)
+##### Landing Page
+![image](https://github.com/user-attachments/assets/9fddc11f-3ee5-4183-8d00-13c187cb9734)
 
-</br>**Other**
-- 노션 구성 및 디자인
-- ppt 발표 자료
+##### 404 Page
+![image](https://github.com/user-attachments/assets/102a5180-ace8-4e98-ad22-55928b8cdc21)
+
+##### Result Page
+- 총 4가지 타입으로 구현 (**판매 등록**, **구매**, **교환 제시**, **포토카드 생성**)
+![image](https://github.com/user-attachments/assets/422b1824-86cf-4e33-862c-de4c18c7fa97)
+
+#### 공통 컴포넌트
+##### GNB
+![image](https://github.com/user-attachments/assets/780adcf9-4000-4ebd-96cd-962b0030b172)
+
+##### 업로드 인풋
+![image](https://github.com/user-attachments/assets/cb2a512a-de65-4538-ad3f-dabf904f8e89)
+
+##### 텍스트 박스
+![image](https://github.com/user-attachments/assets/97428bbd-61b0-4a91-825c-8207773b52d5)
+
+##### 보유 카드 현황
+![image](https://github.com/user-attachments/assets/76d1caad-544a-4070-9c81-ae5f76eeaec9)
+
+##### 파비콘 제작
+![favorite_photo_favicon-img](https://github.com/user-attachments/assets/caefdfd0-5993-4861-a280-9240cf57f07e)
+
 
 
 ### 2️⃣ 김태훈
