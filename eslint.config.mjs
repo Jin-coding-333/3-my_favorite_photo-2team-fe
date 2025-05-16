@@ -1,30 +1,3 @@
-// import globals from 'globals';
-// import pluginJs from '@eslint/js';
-// import pluginReact from 'eslint-plugin-react';
-
-// // /** @type {import('eslint').Linter.Config[]} */
-// // export default [
-// //   { files: ['**/*.{js,mjs,cjs,jsx}'] },
-// //   { languageOptions: { globals: globals.browser } },
-// //   pluginJs.configs.recommended,
-// //   pluginReact.configs.flat.recommended,
-// // ];
-// /** @type {import('eslint').Linter.Config} */
-// export default {
-//   files: ['**/*.{js,mjs,cjs,jsx}'],
-//   languageOptions: {
-//     globals: globals.browser,
-//   },
-//   extends: ['eslint:recommended', 'plugin:react/recommended'],
-//   settings: {
-//     react: {
-//       version: 'detect',
-//     },
-//   },
-//   rules: {
-//     // 여기에 추가적인 규칙을 정의할 수 있습니다.
-//   },
-// };
 import globals from 'globals';
 import pluginJs from '@eslint/js';
 import pluginReact from 'eslint-plugin-react';
@@ -34,25 +7,28 @@ export default [
   {
     files: ['**/*.{js,mjs,cjs,jsx}'],
     languageOptions: {
-      globals: globals.browser, // 브라우저 전역 변수 추가
+      globals: globals.browser,
     },
     settings: {
       react: {
-        version: 'detect', // React 버전 자동 감지
+        version: 'detect',
       },
     },
     rules: {
-      // 여기에 추가적인 규칙을 정의할 수 있습니다.
-      'react/react-in-jsx-scope': 'off',
+      'semi': ['error', 'always'],
+      'quotes': ['error', 'single'],
+      'indent': ['error', 2],
     },
   },
-  pluginJs.configs.recommended, // eslint:recommended 대체
-  // pluginReact.configs.flat.recommended, // React 플러그인 Flat Config
+  pluginJs.configs.recommended,
   {
     ...pluginReact.configs.flat.recommended,
     rules: {
       ...pluginReact.configs.flat.recommended.rules,
-      'react/react-in-jsx-scope': 'off', // 덮어쓰기
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+      'no-unused-vars': 'off',
+      'react/jsx-key': 'off',
     },
   },
 ];
