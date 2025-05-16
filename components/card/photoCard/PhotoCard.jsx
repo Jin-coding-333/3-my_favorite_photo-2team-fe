@@ -9,20 +9,21 @@ import src from '@/lib/hooks/useSrc';
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
 export default function PhotoCard({ cardType, data }) {
-  // data.title 이렇게 가져올 수 있게
-  // 데이터 예시
-
   if (!data) return null;
   const { user } = useAuth();
 
-  const card = data.card;
-  const imgUrl = cardType === 'myCard' ? src(data.cards[0].imagePath) : src(card.imagePath);
-  const title = cardType === 'myCard' ? data.cards[0].name : data.name;
-  const userNickName = cardType === 'myCard' ? user.nickName : data.user.nickName;
-  const grade = cardType === 'myCard' ? data.cards[0].grade : card.grade;
-  const genre = cardType === 'myCard' ? data.cards[0].genre : card.genre;
-  const price = cardType === 'myCard' ? data.cards[0].price : data.price;
-  const totalQuantity = cardType === 'myCard' ? data.count : data?.totalQuantity;
+  // 데이터 유효성 검사
+  if (cardType === 'myCard' && (!data.cards || !data.cards[0])) return null;
+  if (cardType !== 'myCard' && !data.card) return null;
+
+  const card = cardType === 'myCard' ? data.cards[0] : data.card;
+  const imgUrl = src(card?.imagePath || '');
+  const title = cardType === 'myCard' ? card?.name : data?.name;
+  const userNickName = cardType === 'myCard' ? user?.nickName : data?.user?.nickName;
+  const grade = card?.grade;
+  const genre = card?.genre;
+  const price = cardType === 'myCard' ? card?.price : data?.price;
+  const totalQuantity = cardType === 'myCard' ? data?.count : data?.totalQuantity;
   const remainingQuantity = data?.remainingQuantity;
   const exchangeMessage = card?.content;
 
