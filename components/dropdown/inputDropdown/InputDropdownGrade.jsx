@@ -6,7 +6,7 @@ export default function InputDropdownGrade({ setForm, className, classNameSize }
   const options = [
     { label: 'COMMON', value: 'COMMON' },
     { label: 'RARE', value: 'RARE' },
-    { label: 'SUPER RARE', value: 'SUPER RARE' },
+    { label: 'SUPER RARE', value: 'SUPERRARE' },
     { label: 'LEGENDARY', value: 'LEGENDARY' },
   ];
   // 선택된 드롭다운 초기값은은 따로
