@@ -9,7 +9,7 @@ import src from '@/lib/hooks/useSrc';
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
 export default function PhotoCard({ cardType, data }) {
-  if (!data) return null;
+
   const { user } = useAuth();
 
   // 데이터 유효성 검사

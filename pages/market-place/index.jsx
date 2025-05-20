@@ -35,8 +35,15 @@ export default function MarketPlace() {
           나의 포토카드 판매하기
         </Button> */}
       </div>
-      <PhotoModal isModal={isModal} handleModal={handleModal} modalType="allDrag">
-        <AllDragContents title="나의 포토카드 판매하기" handleModal={handleModal} />
+      <PhotoModal
+        isModal={isModal}
+        handleModal={handleModal}
+        modalType="allDrag"
+      >
+        <AllDragContents
+          title="나의 포토카드 판매하기"
+          handleModal={handleModal}
+        />
       </PhotoModal>
     </>
   );
