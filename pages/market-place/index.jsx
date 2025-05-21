@@ -31,9 +31,6 @@ export default function MarketPlace() {
         <PhotocardList />
       </PageLayout>
       <div className={styles.buttonStyle}>
-        {/* <Button className={styles.fixedButton} type="primary" onClick={handleModal}>
-          나의 포토카드 판매하기
-        </Button> */}
       </div>
       <PhotoModal
         isModal={isModal}
