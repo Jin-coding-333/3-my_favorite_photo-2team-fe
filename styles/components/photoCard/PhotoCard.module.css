@@ -10,9 +10,6 @@
     transform: scale(1.01);
     transition: transform 0.2s ease-in-out;
   }
-
-  ;
-
   &:active {
     box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0);
   }

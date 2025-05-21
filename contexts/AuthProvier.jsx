@@ -1,4 +1,10 @@
-import { loginApi, getUser, logoutApi, refresh, signupApi } from '@/lib/api/auth/authApi';
+import {
+  loginApi,
+  getUser,
+  logoutApi,
+  refresh,
+  signupApi,
+} from '@/lib/api/auth/authApi';
 import { oneHour } from '@/lib/data/time';
 import useLocalStorage from '@/lib/hooks/useLocalStorige';
 import { useQuery } from '@tanstack/react-query';
@@ -57,7 +63,7 @@ export function AuthProvider({ children }) {
   }
 
   async function refreshToken() {
-    if (!!token) return null;
+    if (token) return null;
     const response = await refresh();
     if (!!response && response.success) {
       setToken(localStorages.set('token', response.accessToken, oneHour));
@@ -75,7 +81,7 @@ export function AuthProvider({ children }) {
 
   async function authChk() {
     if (isPending) throw null;
-    if (!!!user) {
+    if (!user) {
       alert('로그인 필요');
       router.push('/login');
     }

@@ -14,7 +14,9 @@ export default function PhotocardList() {
 
   // 데이터가 없을 때의 처리
   if (!list || list.length === 0) {
-    return <div className={styles.photocardListContainer}>포토카드가 없습니다.</div>;
+    return (
+      <div className={styles.photocardListContainer}>포토카드가 없습니다.</div>
+    );
   }
 
   return (
@@ -30,13 +32,13 @@ export default function PhotocardList() {
                   card: {
                     imagePath: photocard.imagePath,
                     grade: photocard.grade,
-                    genre: photocard.genre
+                    genre: photocard.genre,
                   },
                   name: photocard.name,
                   price: photocard.price,
                   totalQuantity: 1,
                   remainingQuantity: 1,
-                  user: photocard.user
+                  user: photocard.user,
                 }}
               />
             </Link>

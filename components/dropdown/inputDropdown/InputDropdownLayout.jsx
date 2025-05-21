@@ -48,7 +48,11 @@ export default function InputDropdownLayout({
       <h3 className={styles.label}>{label}</h3>
       <div className={`${styles.dropdown} ${classNameSize}`} ref={dropdownRef}>
         {/* 버튼 타입을 button으로 해야 form 안에서 작동  */}
-        <button type="button" className={styles.dropdownButton} onClick={toggleDropdown}>
+        <button
+          type="button"
+          className={styles.dropdownButton}
+          onClick={toggleDropdown}
+        >
           {option.label}
           <span className="arrow">{isOpen ? '▴' : '▾'}</span>
         </button>
@@ -57,7 +61,11 @@ export default function InputDropdownLayout({
           <div className={styles.dropdownMenu}>
             {/* map으로 options 배열 순회+div생성 */}
             {options.map((option, index) => (
-              <div key={index} className={styles.dropdownItem} onClick={() => handleSelect(option)}>
+              <div
+                key={index}
+                className={styles.dropdownItem}
+                onClick={() => handleSelect(option)}
+              >
                 {option.label}
               </div>
             ))}

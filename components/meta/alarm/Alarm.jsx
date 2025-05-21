@@ -65,7 +65,11 @@ export function Alarm({ notifications, updateNotifications, onMarkAsRead }) {
 
   return (
     <div className={styles.alarmWrapper} ref={dropdownRef}>
-      <button className={styles.alarmButton} onClick={toggleDropdown} aria-label="알림 열기">
+      <button
+        className={styles.alarmButton}
+        onClick={toggleDropdown}
+        aria-label="알림 열기"
+      >
         <Image src={AlarmImg} alt="알람 아이콘" width={24} height={24} />
         {unreadCount > 0 && <span className={styles.badge}>{unreadCount}</span>}
       </button>
@@ -88,7 +92,9 @@ export function Alarm({ notifications, updateNotifications, onMarkAsRead }) {
                 onClick={() => onNotificationClick(index, notif.id)}
               >
                 <p className={styles.text}>{notif.content}</p>
-                <p className={styles.time}>{FormatTimeDifference(notif.createdAt)}</p>
+                <p className={styles.time}>
+                  {FormatTimeDifference(notif.createdAt)}
+                </p>
               </div>
             ))
           ) : (

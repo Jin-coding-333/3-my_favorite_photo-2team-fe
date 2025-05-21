@@ -21,7 +21,9 @@ export default function PhotoCardDetails() {
     const PhotoCardData = async () => {
       try {
         const shopId = 3;
-        const response = await axios.get('http://localhost:8000/api/shop/cards/3');
+        const response = await axios.get(
+          'http://localhost:8000/api/shop/cards/3',
+        );
         console.log(response.data.card);
         console.log(photoCardData);
         setPhotoCardData(response.data);
@@ -30,7 +32,9 @@ export default function PhotoCardDetails() {
           if (response.data.card.length > 0) {
             setExchangeMessage(response.data.card[0].description);
           }
-          const isOwner = response.data.card.some((card) => card.userId === user.id);
+          const isOwner = response.data.card.some(
+            (card) => card.userId === user.id,
+          );
           setPageType(isOwner ? 'sell' : 'buy');
         }
       } catch (error) {
@@ -92,7 +96,12 @@ export default function PhotoCardDetails() {
               photoCardData
                 .slice(0, 2)
                 .map((data) => (
-                  <PhotoCard key={data.id} cardType="exchange" isSoldOut={false} data={data} />
+                  <PhotoCard
+                    key={data.id}
+                    cardType="exchange"
+                    isSoldOut={false}
+                    data={data}
+                  />
                 ))}
           </div>
         </>

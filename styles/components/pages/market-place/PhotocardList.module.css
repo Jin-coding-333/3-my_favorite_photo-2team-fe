@@ -1,4 +1,4 @@
-.photocardListContainer{
+.photocardListContainer {
   width: 100%;
   padding-top: 60px;
   display: flex;
@@ -6,6 +6,6 @@
   flex-wrap: wrap;
 }
 
-.photocard{
+.photocard {
   margin-bottom: 80px;
 }

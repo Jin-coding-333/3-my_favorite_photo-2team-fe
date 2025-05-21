@@ -29,7 +29,7 @@ export default function HeaderGoBack({ currentUrl }) {
         }}
       >
         <Image
-          src='/icon/type=back.png'
+          src="/icon/type=back.png"
           alt="Go Back Image"
           fill
           style={{ objectFit: 'cover' }}

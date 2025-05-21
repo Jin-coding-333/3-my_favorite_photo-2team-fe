@@ -26,7 +26,7 @@ export function UserProvider({ children, token = null }) {
     const check =
       entries
         .map((v) => {
-          if (!!!v[1]) return false;
+          if (!v[1]) return false;
           return true;
         })
         .filter((x) => !x).length > 0;
@@ -43,7 +43,9 @@ export function UserProvider({ children, token = null }) {
   }
 
   return (
-    <UserContext.Provider value={{ myCards: cards?.data, cardCreate, card_isPending }}>
+    <UserContext.Provider
+      value={{ myCards: cards?.data, cardCreate, card_isPending }}
+    >
       {children}
     </UserContext.Provider>
   );

@@ -38,7 +38,15 @@ export default function BottomSheet({ totalCount = 0, onClose }) {
           {listValue.value.map((v, i) => {
             let on = '';
             if (i === 0) on = styles.on;
-            return <List name={v.name} color={v.color} count={0} key={v.name} className={on} />;
+            return (
+              <List
+                name={v.name}
+                color={v.color}
+                count={0}
+                key={v.name}
+                className={on}
+              />
+            );
           })}
         </div>
         <div className={styles.Bottom}>
@@ -73,7 +81,11 @@ function Labels({ onClick }) {
         let on = '';
         if (v.name === target) on = styles.on;
         return (
-          <div key={v.name} onClick={clickHandle} className={`${styles.Label} ${on}`}>
+          <div
+            key={v.name}
+            onClick={clickHandle}
+            className={`${styles.Label} ${on}`}
+          >
             {v.name}
           </div>
         );

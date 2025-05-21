@@ -20,7 +20,7 @@ export default function Login() {
     await login(loginBody);
   }
   useEffect(() => {
-    if (!!user) {
+    if (user) {
       // router.push('/');
     }
   }, [user]);
@@ -35,7 +35,12 @@ export default function Login() {
         </Link>
 
         <div className={styles.LoginInputs}>
-          <Input name="email" type="email" value={loginBody.email} onChange={changeHandle} />
+          <Input
+            name="email"
+            type="email"
+            value={loginBody.email}
+            onChange={changeHandle}
+          />
           <Input
             name="password"
             type="password"

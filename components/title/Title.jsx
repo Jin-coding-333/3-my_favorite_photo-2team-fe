@@ -37,7 +37,8 @@ export default function Title({
 
   // 폰트 설정
   // secondaryTitle: 'BR B' font
-  const titleClass = variant === 'default' ? styles.defaultTitle : styles.secondaryTitle;
+  const titleClass =
+    variant === 'default' ? styles.defaultTitle : styles.secondaryTitle;
 
   const containerClass = `${styles[`size-${size}`]}`;
 

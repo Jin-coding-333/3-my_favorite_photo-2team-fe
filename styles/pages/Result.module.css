@@ -82,7 +82,7 @@
 .closeBtn:hover::after,
 .closeBtn:hover::before {
   background-color: var(--gray-100);
-  width: 90%
+  width: 90%;
 }
 
 .backPageButton {

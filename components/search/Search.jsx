@@ -6,8 +6,16 @@ export function Search({ type }) {
   return (
     <div className={styles[`${type}Search`]}>
       <div className={styles[`${type}SearchWrapper`]}>
-        <Image src={searchImg} alt="돋보기 이미지" className={styles[`${type}SearchIcon`]} />
-        <input className={styles[`${type}Input`]} type="text" placeholder="검색" />
+        <Image
+          src={searchImg}
+          alt="돋보기 이미지"
+          className={styles[`${type}SearchIcon`]}
+        />
+        <input
+          className={styles[`${type}Input`]}
+          type="text"
+          placeholder="검색"
+        />
       </div>
     </div>
   );

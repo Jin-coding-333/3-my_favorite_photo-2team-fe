@@ -1,6 +1,9 @@
 import { Alarm } from '@/components/meta/alarm/Alarm';
 import { Profile } from '@/components/meta/profile/Profile';
-import { getNotifications, markNotificationAsRead } from '@/lib/api/user/exchangeApi';
+import {
+  getNotifications,
+  markNotificationAsRead,
+} from '@/lib/api/user/exchangeApi';
 import { notificationsData } from '@/lib/data/alarmOptions';
 import styles from '@/styles/layout/Header.module.css';
 import Image from 'next/image';
@@ -19,7 +22,10 @@ export default function HeaderUserInfo({ point, nickName, logout }) {
           console.error(result.message);
         }
       } catch (error) {
-        console.error('Error fetching notifications:', error.response?.data || error.message);
+        console.error(
+          'Error fetching notifications:',
+          error.response?.data || error.message,
+        );
       }
     };
     // fetchNotifications();
@@ -31,7 +37,9 @@ export default function HeaderUserInfo({ point, nickName, logout }) {
       const result = await markNotificationAsRead(notificationId);
       if (result.success) {
         setNotifications((prev) =>
-          prev.map((notif) => (notif.id === notificationId ? { ...notif, isRead: true } : notif)),
+          prev.map((notif) =>
+            notif.id === notificationId ? { ...notif, isRead: true } : notif,
+          ),
         );
       } else {
         console.error(result.message);

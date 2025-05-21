@@ -30,8 +30,7 @@ export default function MarketPlace() {
         <MarketPlaceSearch />
         <PhotocardList />
       </PageLayout>
-      <div className={styles.buttonStyle}>
-      </div>
+      <div className={styles.buttonStyle}></div>
       <PhotoModal
         isModal={isModal}
         handleModal={handleModal}

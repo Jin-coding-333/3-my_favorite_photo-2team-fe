@@ -11,7 +11,9 @@ export default function Modal({ isOpen, onClose, onConfirm, type, cardId }) {
       const fetchCardData = async () => {
         try {
           const shopId = 1;
-          const response = await axios.get(`http://localhost:10000/api/shop/cards/${shopId}`);
+          const response = await axios.get(
+            `http://localhost:10000/api/shop/cards/${shopId}`,
+          );
           setCardData(response.data);
         } catch (error) {
           console.error('오류가 발생했습니다.', error);
@@ -44,7 +46,11 @@ export default function Modal({ isOpen, onClose, onConfirm, type, cardId }) {
         </button>
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.message}>{message}</p>
-        <Button type="primary" onClick={onConfirm} className={styles.confirmButton}>
+        <Button
+          type="primary"
+          onClick={onConfirm}
+          className={styles.confirmButton}
+        >
           {confirmButtonText}
         </Button>
       </div>
@@ -66,22 +72,26 @@ export const modalTypes = {
   },
   exchangeApproval: {
     title: '교환 제시 승인',
-    message: ({ grade, name }) => `[${grade} | ${name}] 카드와의 교환을 승인하시겠습니까?`,
+    message: ({ grade, name }) =>
+      `[${grade} | ${name}] 카드와의 교환을 승인하시겠습니까?`,
     confirmButtonText: '승인하기',
   },
   exchangeRejection: {
     title: '교환 제시 거절',
-    message: ({ grade, name }) => `[${grade} | ${name}] 카드와의 교환을 거절하시겠습니까?`,
+    message: ({ grade, name }) =>
+      `[${grade} | ${name}] 카드와의 교환을 거절하시겠습니까?`,
     confirmButtonText: '거절하기',
   },
   exchangeCancel: {
     title: '교환 제시 취소',
-    message: ({ grade, name }) => `[${grade} | ${name}] 교환 제시를 취소하시겠습니까?`,
+    message: ({ grade, name }) =>
+      `[${grade} | ${name}] 교환 제시를 취소하시겠습니까?`,
     confirmButtonText: '취소하기',
   },
   buyPhotoCard: {
     title: '포토카드 구매',
-    message: ({ grade, name, count = 1 }) => `[${grade} | ${name}] ${count}장을 구매하시겠습니까?`,
+    message: ({ grade, name, count = 1 }) =>
+      `[${grade} | ${name}] ${count}장을 구매하시겠습니까?`,
     confirmButtonText: '구매하기',
   },
   stopSelling: {

@@ -28,7 +28,12 @@ export function Profile({ userName, point, logout }) {
       <p className={styles.userName} onClick={toggleDropdown}>
         {userName}
       </p>
-      <Image src={MenuImg} alt="Menu Icon" className={styles.menuIcon} onClick={toggleDropdown} />
+      <Image
+        src={MenuImg}
+        alt="Menu Icon"
+        className={styles.menuIcon}
+        onClick={toggleDropdown}
+      />
       {isOpen && (
         <div className={styles.profileDropdown}>
           <div className={styles.profileHeader}>
