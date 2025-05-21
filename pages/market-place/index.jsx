@@ -30,13 +30,16 @@ export default function MarketPlace() {
         <MarketPlaceSearch />
         <PhotocardList />
       </PageLayout>
-      <div className={styles.buttonStyle}>
-        {/* <Button className={styles.fixedButton} type="primary" onClick={handleModal}>
-          나의 포토카드 판매하기
-        </Button> */}
-      </div>
-      <PhotoModal isModal={isModal} handleModal={handleModal} modalType="allDrag">
-        <AllDragContents title="나의 포토카드 판매하기" handleModal={handleModal} />
+      <div className={styles.buttonStyle}></div>
+      <PhotoModal
+        isModal={isModal}
+        handleModal={handleModal}
+        modalType="allDrag"
+      >
+        <AllDragContents
+          title="나의 포토카드 판매하기"
+          handleModal={handleModal}
+        />
       </PhotoModal>
     </>
   );

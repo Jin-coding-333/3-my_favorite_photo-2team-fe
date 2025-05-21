@@ -10,7 +10,7 @@ export default function PointModal({}) {
   if (isPending || !user) return null;
   const { event } = user;
 
-  const [isOpen, setIsOpen] = useState(!!!event);
+  const [isOpen, setIsOpen] = useState(!event);
   const [text, setText] = useState('');
 
   //모달 닫기 함수
@@ -47,7 +47,7 @@ export default function PointModal({}) {
       userRefetch();
     }
   };
-  if (!!!text) return null;
+  if (!text) return null;
   return (
     <div>
       {isOpen && (
@@ -66,7 +66,8 @@ export default function PointModal({}) {
               랜덤 상자 뽑기를 통해 포인트를 획득하세요!
             </p>
             <p className={styles.timer}>
-              다음 기회까지 남은 시간 <span className={styles.highlight}>{text}</span>
+              다음 기회까지 남은 시간{' '}
+              <span className={styles.highlight}>{text}</span>
             </p>
             <div className={styles.giftContainer}>
               {/* 이미지를 클릭하면 포인트를 획득. 으로 수정 */}

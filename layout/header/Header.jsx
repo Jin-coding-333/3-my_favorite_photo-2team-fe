@@ -27,7 +27,9 @@ export default function Header() {
     <header>
       <div className={styles.header}>
         <div className={styles.headerContainer}>
-          {currentUrl !== '/market-place' ? <HeaderGoBack currentUrl={currentUrl} /> : null}
+          {currentUrl !== '/market-place' ? (
+            <HeaderGoBack currentUrl={currentUrl} />
+          ) : null}
           <div
             className={styles.headerMenu}
             style={{
@@ -36,7 +38,11 @@ export default function Header() {
           >
             {/* <Image src={MenuImg} alt="Menu logo" /> */}
             {user ? (
-              <Profile userName={user.nickName} point={user.point} logout={logout} />
+              <Profile
+                userName={user.nickName}
+                point={user.point}
+                logout={logout}
+              />
             ) : null}
           </div>
 
@@ -58,8 +64,12 @@ export default function Header() {
             </div>
           </Link>
 
-          {!!user ? (
-            <HeaderUserInfo point={user.point} nickName={user.nickName} logout={logout} />
+          {user ? (
+            <HeaderUserInfo
+              point={user.point}
+              nickName={user.nickName}
+              logout={logout}
+            />
           ) : (
             <HeaderNoneUser />
           )}

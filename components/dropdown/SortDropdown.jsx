@@ -63,7 +63,11 @@ export function Dropdown({
     >
       {useMobileFilterImage && isMobileView ? (
         <div className={styles[`${prefix}SelectedOption`]}>
-          <Image src={filterImg} alt="필터 이미지" className={styles[`${prefix}Arrow`]} />
+          <Image
+            src={filterImg}
+            alt="필터 이미지"
+            className={styles[`${prefix}Arrow`]}
+          />
         </div>
       ) : (
         <>

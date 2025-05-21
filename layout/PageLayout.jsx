@@ -1,6 +1,10 @@
-import styles from "@/styles/layout/PageLayout.module.css";
+import styles from '@/styles/layout/PageLayout.module.css';
 
-export default function PageLayout({ children, fixedButtonLabel, onButtonClick }) {
+export default function PageLayout({
+  children,
+  fixedButtonLabel,
+  onButtonClick,
+}) {
   return (
     <div className={styles.pageLayout}>
       <div className={styles.titleLayout}></div>

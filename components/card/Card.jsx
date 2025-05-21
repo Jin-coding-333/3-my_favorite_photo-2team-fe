@@ -128,7 +128,12 @@ function SellerBottom({
   );
 }
 
-function MyBottom({ type = 'mySell', children = '', price = 0, totalCount = 0 }) {
+function MyBottom({
+  type = 'mySell',
+  children = '',
+  price = 0,
+  totalCount = 0,
+}) {
   const myBtn = [
     {
       type: 'primary',

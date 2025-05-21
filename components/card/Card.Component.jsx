@@ -19,12 +19,20 @@ export function Title({ grade = 'COMMON', genre = 'unknwon', userNickName }) {
         <div className={styles.TitleLine}></div>
         <p className={styles.Genre}>{genre}</p>
       </div>
-      {userNickName && <div className={styles.UserNickName}>{userNickName}</div>}
+      {userNickName && (
+        <div className={styles.UserNickName}>{userNickName}</div>
+      )}
     </div>
   );
 }
 
-export function Content({ children = '', price = 0, count = 0, totalCount = 0, onlyText = false }) {
+export function Content({
+  children = '',
+  price = 0,
+  count = 0,
+  totalCount = 0,
+  onlyText = false,
+}) {
   return (
     <div className={styles.Content}>
       <div className={styles.Text}>{children}</div>

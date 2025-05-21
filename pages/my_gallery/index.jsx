@@ -20,12 +20,16 @@ export default function MyGallery() {
             variant="secondaryTitle"
           />
         </div>
-        <CardCountStatus page='myGallery' />
+        <CardCountStatus page="myGallery" />
         <MyGallerySearch />
         <PhotocardList />
       </PageLayout>
       <div className={styles.buttonStyle}>
-        <Button className={styles.fixedButton} type="primary" onClick={() => alert('생성하기')}>
+        <Button
+          className={styles.fixedButton}
+          type="primary"
+          onClick={() => alert('생성하기')}
+        >
           포토카드 생성하기
         </Button>
       </div>

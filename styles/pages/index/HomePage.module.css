@@ -16,7 +16,7 @@
   align-items: center;
 }
 
-.logoBox{
+.logoBox {
   position: relative;
   bottom: 200px;
 }
@@ -79,7 +79,6 @@
 }
 
 @media screen and (max-width: 1200px) {
-  
   .containBox {
     width: 700px;
   }
@@ -98,7 +97,7 @@
     font-size: 60px;
     margin-top: 10px;
     width: 500px;
-  } 
+  }
 
   .button {
     max-width: 750px;
@@ -116,18 +115,15 @@
     top: 150px;
   }
 
-  .logo{
+  .logo {
     width: 500px;
     height: 180px;
   }
-
 }
 
 @media screen and (max-width: 744px) {
-
   .containBox {
     width: 300px;
-
   }
 
   .titleBox {
@@ -143,7 +139,7 @@
   .title2 {
     font-size: 60px;
     margin-top: 10px;
-    width: 530px
+    width: 530px;
   }
 
   .button {
@@ -161,8 +157,8 @@
   .slider {
     top: 100px;
   }
-  
-  .logo{
+
+  .logo {
     width: 450px;
     height: 180px;
   }

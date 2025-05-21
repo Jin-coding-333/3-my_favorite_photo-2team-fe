@@ -1,7 +1,6 @@
-import styles from "@/styles/components/title/CardCountStatus.module.css";
+import styles from '@/styles/components/title/CardCountStatus.module.css';
 
 export default function CardCountStatus({ page = '' }) {
-
   let title = '';
 
   switch (page) {
@@ -16,7 +15,9 @@ export default function CardCountStatus({ page = '' }) {
   return (
     <div className={styles.containerBox}>
       <div className={styles.titleBox}>
-        <h2 className={styles.title}>{'USER'}님이 {title} 포토카드 </h2>
+        <h2 className={styles.title}>
+          {'USER'}님이 {title} 포토카드{' '}
+        </h2>
         <span className={styles.curentNumber}>({'00'}장)</span>
       </div>
       <div className={styles.currentGradeContainerBox}>
@@ -34,5 +35,5 @@ export default function CardCountStatus({ page = '' }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

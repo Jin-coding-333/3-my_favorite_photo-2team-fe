@@ -8,7 +8,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '@/styles/globals.css'; // 기존 스타일 파일
 
-
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const noLayoutPages = ['/login', '/sign-up']; // Layout을 적용하지 않을 페이지 경로

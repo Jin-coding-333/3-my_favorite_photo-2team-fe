@@ -12,17 +12,34 @@ export default function PhotocardList() {
     });
   }, []);
 
+  // 데이터가 없을 때의 처리
+  if (!list || list.length === 0) {
+    return (
+      <div className={styles.photocardListContainer}>포토카드가 없습니다.</div>
+    );
+  }
+
   return (
     <div className={styles.photocardListContainer}>
       {list.map((photocard) => {
         return (
-          <div key={photocard.name} className={styles.photocard}>
-            <Link href={`/'market-place/photocard'/${photocard.cardId}`}>
+          <div key={photocard.id} className={styles.photocard}>
+            <Link href={`/market-place/photocard/${photocard.id}`}>
               <PhotoCard
                 key={photocard.id}
                 cardType="original"
-                isSoldOut={photocard.isSoldOut}
-                data={photocard}
+                data={{
+                  card: {
+                    imagePath: photocard.imagePath,
+                    grade: photocard.grade,
+                    genre: photocard.genre,
+                  },
+                  name: photocard.name,
+                  price: photocard.price,
+                  totalQuantity: 1,
+                  remainingQuantity: 1,
+                  user: photocard.user,
+                }}
               />
             </Link>
           </div>

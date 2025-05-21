@@ -16,7 +16,12 @@ const card = {
 export default function MyPhotocard({}) {
   return (
     <div className={styles.detail}>
-      <Title size="M" title={card.name} variant="secondaryTitle" className={styles.title} />
+      <Title
+        size="M"
+        title={card.name}
+        variant="secondaryTitle"
+        className={styles.title}
+      />
       <div className={styles.content}>
         <div className={styles.imgBox}>
           <Image src={card.img} layout="fill" />

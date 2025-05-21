@@ -60,7 +60,10 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, cardData }) {
       const response = isEdit
         ? await instance.put(`/api/shop/cards/${shopId}`, formData) // 수정 api요청
         : await instance.post('/api/shop/cards', formData); // 판매 등록 api요청
-      console.log(isEdit ? '판매 수정 성공:' : '판매 등록 성공:', response.data);
+      console.log(
+        isEdit ? '판매 수정 성공:' : '판매 등록 성공:',
+        response.data,
+      );
       onClose();
     } catch (error) {
       console.error(isEdit ? '판매 수정 실패:' : '판매 등록 실패:', error);
@@ -111,25 +114,41 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, cardData }) {
     <PhotoModal isModal={isOpen} handleModal={onClose} modalType="lastPage">
       <div className={styles.modalLayer}>
         <div className={styles.modalCloseBtns}>
-          <div className={styles.modalName}>{isEdit ? '수정하기' : '나의 포토카드 판매하기'}</div>
+          <div className={styles.modalName}>
+            {isEdit ? '수정하기' : '나의 포토카드 판매하기'}
+          </div>
         </div>
         <div className={styles.scrollableContainer}>
-          <Title title={cardName} className={styles.headerTitle} variant="default" />
+          <Title
+            title={cardName}
+            className={styles.headerTitle}
+            variant="default"
+          />
           <div className={styles.itemCard}>
-            <img src={imagePath} alt="카드 이미지" className={styles.imageSize} />
+            <img
+              src={imagePath}
+              alt="카드 이미지"
+              className={styles.imageSize}
+            />
             <CardDetail
               userNickName={user.nickName}
               grade={grade}
               genre={genre}
               totalCount={form.totalQuantity}
               count={form.remainingQuantity}
-              setCount={(value) => handleInputChange('remainingQuantity', value)}
+              setCount={(value) =>
+                handleInputChange('remainingQuantity', value)
+              }
               price={form.price}
               setPrice={(value) => handleInputChange('price', value)}
             />
           </div>
           <div className={styles.formLayer}>
-            <Title title="교환 희망 정보" className={styles.formTitle} variant="default" />
+            <Title
+              title="교환 희망 정보"
+              className={styles.formTitle}
+              variant="default"
+            />
             <form className={styles.forms}>
               <InputDropdownGenre
                 setForm={setForm}
@@ -152,7 +171,11 @@ export default function PhotoCardModal({ isOpen, onClose, isEdit, cardData }) {
             <Button type="secondary" className={styles.modalButton}>
               취소하기
             </Button>
-            <Button type="primary" className={styles.modalButton} onClick={handleSubmit}>
+            <Button
+              type="primary"
+              className={styles.modalButton}
+              onClick={handleSubmit}
+            >
               {isEdit ? '수정하기' : '판매하기'}
             </Button>
             {/* <Button type="primary" className={styles.modalButton} onClick={handleEditSubmit}>

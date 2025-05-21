@@ -39,7 +39,6 @@
 
   &:focus {
     border: 1px solid var(--gray-200);
-    ;
   }
 }
 

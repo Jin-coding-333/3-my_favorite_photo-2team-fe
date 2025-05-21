@@ -13,20 +13,20 @@ const ImageSlider = () => {
 
   // react-slick의 설정
   const settings = {
-    infinite: true,       // 무한 반복
-    speed: 3000,          // 슬라이드 이동 속도 (물 흐르듯이 부드럽게)
-    autoplay: true,       // 자동 재생
-    autoplaySpeed: 0,     // 자동 재생 속도 0으로 설정하여 무한히 연속
-    cssEase: 'linear',    // 부드러운 애니메이션을 위한 linear easing
-    slidesToShow: 5,      // 한 번에 보여줄 슬라이드 수 (3개로 설정)
-    slidesToScroll: 1,    // 한 번에 한 슬라이드씩 이동
-    arrows: false,        // 화살표 버튼 비활성화
-    dots: false,          // 하단 점 표시 비활성화
-    centerMode: true,     // 중앙 정렬 모드 활성화
-    focusOnSelect: true,  // 클릭한 슬라이드에 초점 맞추기
-    pauseOnHover: false,  // 마우스 호버 시 일시 정지 비활성화
-    draggable: true,      // 슬라이드 드래그 가능
-    initialSlide: 0,      // 처음 표시할 슬라이드 설정
+    infinite: true, // 무한 반복
+    speed: 3000, // 슬라이드 이동 속도 (물 흐르듯이 부드럽게)
+    autoplay: true, // 자동 재생
+    autoplaySpeed: 0, // 자동 재생 속도 0으로 설정하여 무한히 연속
+    cssEase: 'linear', // 부드러운 애니메이션을 위한 linear easing
+    slidesToShow: 5, // 한 번에 보여줄 슬라이드 수 (3개로 설정)
+    slidesToScroll: 1, // 한 번에 한 슬라이드씩 이동
+    arrows: false, // 화살표 버튼 비활성화
+    dots: false, // 하단 점 표시 비활성화
+    centerMode: true, // 중앙 정렬 모드 활성화
+    focusOnSelect: true, // 클릭한 슬라이드에 초점 맞추기
+    pauseOnHover: false, // 마우스 호버 시 일시 정지 비활성화
+    draggable: true, // 슬라이드 드래그 가능
+    initialSlide: 0, // 처음 표시할 슬라이드 설정
   };
 
   return (

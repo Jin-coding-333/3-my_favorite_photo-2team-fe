@@ -1,6 +1,12 @@
 import styles from '@/styles/components/input/InputTextBox.module.css';
 
-export default function InputTextBox({ className, type = '', name, value = '', setValue }) {
+export default function InputTextBox({
+  className,
+  type = '',
+  name,
+  value = '',
+  setValue,
+}) {
   const handleChange = (e) => {
     e.preventDefault();
     setValue((prev) => ({
@@ -44,7 +50,9 @@ export default function InputTextBox({ className, type = '', name, value = '', s
 
   return (
     <>
-      <div className={`${styles.inputTextBoxContainerCardDes} ${className} ${typeProps.className}`}>
+      <div
+        className={`${styles.inputTextBoxContainerCardDes} ${className} ${typeProps.className}`}
+      >
         <label htmlFor="textInput" className={styles.textBoxLabel}>
           {typeProps.label}
         </label>

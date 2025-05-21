@@ -18,7 +18,9 @@ export default function Result() {
       content = {
         message: '판매 등록',
         buttonText:
-          result === 'success' ? '나의 판매 포토카드에서 확인하기' : '마켓플레이스로 돌아가기',
+          result === 'success'
+            ? '나의 판매 포토카드에서 확인하기'
+            : '마켓플레이스로 돌아가기',
         buttonUrl: result === 'success' ? '/my-sale-photocard' : '/',
         exitButtonUrl: '/',
       };
@@ -26,7 +28,10 @@ export default function Result() {
     case 'purchaseRegistration':
       content = {
         message: '구매',
-        buttonText: result === 'success' ? '마이갤러리에서 확인하기' : '마켓플레이스로 돌아가기',
+        buttonText:
+          result === 'success'
+            ? '마이갤러리에서 확인하기'
+            : '마켓플레이스로 돌아가기',
         buttonUrl: result === 'success' ? '/my-gallery' : '/',
         exitButtonUrl: '/',
       };
@@ -35,7 +40,9 @@ export default function Result() {
       content = {
         message: '교환 제시',
         buttonText:
-          result === 'success' ? '나의 판매 포토카드에서 확인하기' : '마켓플레이스로 돌아가기',
+          result === 'success'
+            ? '나의 판매 포토카드에서 확인하기'
+            : '마켓플레이스로 돌아가기',
         buttonUrl: result === 'success' ? '/my-sale-photocard' : '/',
         exitButtonUrl: '/',
       };
@@ -43,8 +50,14 @@ export default function Result() {
     case 'creationPhotocardRegistration':
       content = {
         message: '포토카드 생성',
-        buttonText: result === 'success' ? '마이갤러리에서 확인하기' : '마이갤러리로 돌아가기',
-        buttonUrl: result === 'success' ? '/my-gallery' : `/my-gallery/photocard/${'photocardId'}`,
+        buttonText:
+          result === 'success'
+            ? '마이갤러리에서 확인하기'
+            : '마이갤러리로 돌아가기',
+        buttonUrl:
+          result === 'success'
+            ? '/my-gallery'
+            : `/my-gallery/photocard/${'photocardId'}`,
         exitButtonUrl: '/',
       };
       break;

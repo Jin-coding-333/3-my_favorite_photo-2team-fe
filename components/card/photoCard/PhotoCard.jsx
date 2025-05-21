@@ -5,11 +5,11 @@ import ForSaleChip from './meta/ForSaleChip';
 import CardGrade from './meta/CardGrade';
 import { useAuth } from '@/contexts/AuthProvier';
 import src from '@/lib/hooks/useSrc';
+import Image from 'next/image';
 
 // cardType : original, exchange, myCard, forSale
 // isSoldOut : true, false
 export default function PhotoCard({ cardType, data }) {
-  if (!data) return null;
   const { user } = useAuth();
 
   // 데이터 유효성 검사
@@ -19,11 +19,13 @@ export default function PhotoCard({ cardType, data }) {
   const card = cardType === 'myCard' ? data.cards[0] : data.card;
   const imgUrl = src(card?.imagePath || '');
   const title = cardType === 'myCard' ? card?.name : data?.name;
-  const userNickName = cardType === 'myCard' ? user?.nickName : data?.user?.nickName;
+  const userNickName =
+    cardType === 'myCard' ? user?.nickName : data?.user?.nickName;
   const grade = card?.grade;
   const genre = card?.genre;
   const price = cardType === 'myCard' ? card?.price : data?.price;
-  const totalQuantity = cardType === 'myCard' ? data?.count : data?.totalQuantity;
+  const totalQuantity =
+    cardType === 'myCard' ? data?.count : data?.totalQuantity;
   const remainingQuantity = data?.remainingQuantity;
   const exchangeMessage = card?.content;
 
@@ -34,16 +36,46 @@ export default function PhotoCard({ cardType, data }) {
 
   return (
     // 교환 화면이면 height 늘어남
-    <div className={`${styles.cardBox} ${cardType === 'exchange' ? styles.exchangeHeight : ''}`}>
+    <div
+      className={`${styles.cardBox} ${cardType === 'exchange' ? styles.exchangeHeight : ''}`}
+    >
       <div className={styles.imgBox}>
-        <img
-          src={imgUrl}
+        <div
           className={`${styles.img} ${isSoldOut ? styles.soldOutBg : ''}`}
-          alt="포토 이미지"
-        />
+          style={{ position: 'relative', width: '100%', height: '100%' }}
+        >
+          <Image
+            src={imgUrl}
+            alt="포토 이미지"
+            fill
+            style={{ objectFit: 'cover' }}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={cardType === 'original'}
+          />
+        </div>
         {cardType === 'forSale' ? <ForSaleChip status={status} /> : ''}
         {isSoldOut ? (
-          <img src={'/img/soldOut.png'} alt="soldOut" className={styles.soldOutImg} />
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              zIndex: 1,
+            }}
+          >
+            <Image
+              src="/img/soldOut.png"
+              alt="soldOut"
+              width={80}
+              height={80}
+              className={styles.soldOutImg}
+            />
+          </div>
         ) : (
           ''
         )}
@@ -115,15 +147,29 @@ export default function PhotoCard({ cardType, data }) {
         {/* card 쓸 때 교환 아니면 false props 받기 */}
         {cardType !== 'exchange' ? (
           <div className={styles.logoBox}>
-            <img src="/logo/logo.png" alt="logo" className={styles.logo} />
+            <div
+              style={{ position: 'relative', width: '100%', height: '100%' }}
+            >
+              <Image
+                src="/logo/logo.png"
+                alt="logo"
+                className={styles.logo}
+                width={40}
+                height={40}
+              />
+            </div>
           </div>
         ) : (
           <div className={styles.exchangeBtBox}>
             <Button type="secondary" className={styles.btStyle}>
-              <span className={styles.btFont}>{isMobileView ? '거절' : '거절하기'}</span>
+              <span className={styles.btFont}>
+                {isMobileView ? '거절' : '거절하기'}
+              </span>
             </Button>
             <Button className={styles.btStyle}>
-              <span className={styles.btFont}>{isMobileView ? '승인' : '승인하기'}</span>
+              <span className={styles.btFont}>
+                {isMobileView ? '승인' : '승인하기'}
+              </span>
             </Button>
           </div>
         )}
