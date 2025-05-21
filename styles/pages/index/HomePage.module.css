@@ -5,6 +5,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 50px;
+  margin-top: 170px;
 }
 
 .containBox {
@@ -18,7 +20,7 @@
 
 .logoBox {
   position: relative;
-  bottom: 200px;
+  bottom: 90px;
 }
 
 .titleBox {
@@ -35,6 +37,7 @@
   font-size: 100px;
   margin-top: 10px;
   width: 900px;
+  margin-bottom: 150px;
 }
 
 .mainColor {
@@ -46,11 +49,13 @@
   max-width: 950px !important;
   height: 80px !important;
   border-radius: 10px !important;
-  margin-top: 70px;
   font-size: 30px !important;
   position: absolute;
-  top: 550px;
-  left: 10px;
+  top: 480px; /* 버튼이 슬라이드 사이 검정 배경에 정확히 위치하도록 조정 */
+  left: 50%; /* 중앙 정렬을 위해 왼쪽 50% 위치로 설정 */
+  transform: translateX(
+    -50%
+  ); /* 정확한 중앙 정렬을 위해 자신의 너비의 반만큼 왼쪽으로 이동 */
   z-index: 10;
   display: inline-block;
 }
@@ -63,11 +68,20 @@
   top: 200px;
 }
 
+/* 반대 방향으로 움직이는 슬라이더를 위한 스타일 */
+.reverseSlider {
+  margin-top: 50px; /* 첫 번째 슬라이더와의 간격 */
+}
+
 .slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 10px;
+  margin: 0 15px !important;
+  margin-bottom: 80px !important;
+  width: 500px !important;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .slide img {

@@ -10,7 +10,6 @@ export default function HomePage() {
       <div className={styles.container}>
         <div className={styles.containBox}>
           <div className={styles.logoBox}>
-            <Link href="/">
               <Image
                 src="/logo/logo.svg"
                 alt="logo"
@@ -18,7 +17,6 @@ export default function HomePage() {
                 height={200}
                 className={styles.logo}
               />
-            </Link>
           </div>
           <div className={styles.titleBox}>
             <h1 className={styles.title1}>
